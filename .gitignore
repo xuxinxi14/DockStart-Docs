@@ -16,3 +16,7 @@ Thumbs.db
 
 # 下载的原始源码包只保留在本地
 /DockStart-Docs-GitHub-Pages.zip
+
+# 浏览器检查的临时记录
+/.playwright-cli/
+/output/playwright/
