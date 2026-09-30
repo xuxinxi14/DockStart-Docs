@@ -1,0 +1,18 @@
+# Node / Docusaurus
+node_modules/
+.docusaurus/
+build/
+.cache-loader/
+.npm-cache/
+
+# 日志与系统文件
+*.log
+.DS_Store
+Thumbs.db
+
+# 本地环境
+.env
+.env.local
+
+# 下载的原始源码包只保留在本地
+/DockStart-Docs-GitHub-Pages.zip
