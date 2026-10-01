@@ -9,16 +9,16 @@ function walk(dir){
     if(ent.isDirectory()) walk(file);
     else if(ent.name.endsWith('.md')) {
       const relative=path.relative(root,file).replaceAll(path.sep,'/');
-      const original=fs.readFileSync(file,'utf8');
+      const original=fs.readFileSync(file,'utf8').replace(/\r\n/g,'\n');
       const fm=original.match(/^---\n([\s\S]*?)\n---\n/);
       const title=fm?.[1].match(/^title:\s*["']?(.+?)["']?\s*$/m)?.[1] || relative;
-      const body=original.slice(fm?.[0].length||0);
-      const clean=(value)=>value.replace(/<!--[\s\S]*?-->/g,' ').replace(/^```[^\n]*$/gm,' ').replace(/<[^>]*>/g,' ').replace(/!\[[^\]]*\]\([^)]*\)/g,' ').replace(/\[([^\]]*)\]\([^)]*\)/g,'$1').replace(/[#*`>|_~]/g,' ').replace(/\s+/g,' ').trim();
+      const body=original.slice(fm?.[0].length||0).replace(/^import\s+[^\n]+;[ \t]*$/gm,'').trimStart();
+      const clean=(value)=>value.replace(/<!--[\s\S]*?-->/g,' ').replace(/^```[^\n]*$/gm,' ').replace(/\{#[^}]+\}/g,' ').replace(/<[^>]*>/g,' ').replace(/!\[[^\]]*\]\([^)]*\)/g,' ').replace(/\[([^\]]*)\]\([^)]*\)/g,'$1').replace(/[#*`>|_~]/g,' ').replace(/\s+/g,' ').trim();
       const plain=clean(body);
       const overview=body.match(/^## 简单概括\s*\n([^\n]+(?:\n[^\n]+)*?)(?=\n\n)/m)?.[1];
       const description=clean(overview||body.replace(/^# .+\n+/,'')).slice(0,150);
       const top=relative.split('/')[0];
-      const category=({'intro':'序章','part-a':'第一章','part-b':'第二章','part-c':'第三章','appendix':'附录'})[top]||top;
+      const category=({'intro':'序章','part-a':'第一章','part-b':'第二章','part-c':'第三章','appendix':'附录'})[top]||'附录';
       items.push({title,path:'/docs/'+relative.replace(/\.md$/,''),category,description,text:plain});
     }
   }
