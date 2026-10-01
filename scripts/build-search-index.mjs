@@ -15,7 +15,7 @@ function walk(dir){
       const body=original.slice(fm?.[0].length||0).replace(/^import\s+[^\n]+;[ \t]*$/gm,'').trimStart();
       const clean=(value)=>value.replace(/<!--[\s\S]*?-->/g,' ').replace(/^```[^\n]*$/gm,' ').replace(/\{#[^}]+\}/g,' ').replace(/<[^>]*>/g,' ').replace(/!\[[^\]]*\]\([^)]*\)/g,' ').replace(/\[([^\]]*)\]\([^)]*\)/g,'$1').replace(/[#*`>|_~]/g,' ').replace(/\s+/g,' ').trim();
       const plain=clean(body);
-      const overview=body.match(/^## 简单概括\s*\n([^\n]+(?:\n[^\n]+)*?)(?=\n\n)/m)?.[1];
+      const overview=body.match(/(?:^|\n)## 简单概括[ \t]*\n+[ \t]*([\s\S]*?)(?=\n[ \t]*\n|$)/)?.[1];
       const description=clean(overview||body.replace(/^# .+\n+/,'')).slice(0,150);
       const top=relative.split('/')[0];
       const category=({'intro':'序章','part-a':'第一章','part-b':'第二章','part-c':'第三章','appendix':'附录'})[top]||'附录';
