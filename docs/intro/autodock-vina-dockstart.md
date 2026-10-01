@@ -1,7 +1,7 @@
 ---
 title: "AutoDock Suite、AutoDock Vina 与 DockStart"
 sidebar_position: 6
-sidebar_label: "F. AutoDock Suite、AutoDock Vina 与 DockStart"
+sidebar_label: "AutoDock Suite、AutoDock Vina 与 DockStart"
 ---
 
 # AutoDock Suite、AutoDock Vina 与 DockStart

@@ -1,7 +1,7 @@
 ---
 title: "Vina 参数速查表"
 sidebar_position: 2
-sidebar_label: "B. Vina 参数速查表"
+sidebar_label: "Vina 参数速查表"
 ---
 
 # Vina 参数速查表

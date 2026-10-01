@@ -1,7 +1,7 @@
 ---
 title: "Global / Score / Local FAQ"
 sidebar_position: 6
-sidebar_label: "F. Global / Score / Local FAQ"
+sidebar_label: "Global / Score / Local FAQ"
 ---
 
 # Global / Score / Local FAQ

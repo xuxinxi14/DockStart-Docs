@@ -1,7 +1,7 @@
 ---
 title: "推荐文献与官方资料"
 sidebar_position: 7
-sidebar_label: "G. 推荐文献与官方资料"
+sidebar_label: "推荐文献与官方资料"
 ---
 
 # 推荐文献与官方资料

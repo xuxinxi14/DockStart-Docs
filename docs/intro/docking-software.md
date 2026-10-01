@@ -1,7 +1,7 @@
 ---
 title: "主流 Docking 软件"
 sidebar_position: 5
-sidebar_label: "E. 主流 Docking 软件"
+sidebar_label: "主流 Docking 软件"
 ---
 
 # 主流 Docking 软件

@@ -1,7 +1,7 @@
 ---
 title: "配置 AutoGrid4"
 sidebar_position: 3
-sidebar_label: "C. 配置 AutoGrid4"
+sidebar_label: "配置 AutoGrid4"
 ---
 
 # 配置 AutoGrid4

@@ -1,14 +1,18 @@
 ---
 title: "Multiple Ligands Docking — 5X72"
 sidebar_position: 4
-sidebar_label: "E. Multiple Ligands Docking — 5X72"
+sidebar_label: "Multiple Ligands — 5X72"
 ---
+
+import OfficialExampleFiles from '@site/src/components/OfficialExampleFiles';
 
 # Multiple Ligands Docking — 5X72
 
-## 简单概括
-
 本例让 5X72 的两个配体在同一次全局搜索中优化。结果是联合构象与整个体系的评分，不能拆成单成员 affinity；如果想分别比较每个配体，应使用 D 节的批量筛选。
+
+## 官方三维结构文件 {#official-structure-files}
+
+<OfficialExampleFiles example="multiple"/>
 
 ---
 

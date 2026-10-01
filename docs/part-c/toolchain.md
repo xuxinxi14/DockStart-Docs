@@ -1,7 +1,7 @@
 ---
 title: "工具链"
 sidebar_position: 2
-sidebar_label: "B. 工具链"
+sidebar_label: "工具链"
 ---
 
 # 工具链

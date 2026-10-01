@@ -1,7 +1,7 @@
 ---
 title: "如何正确解读结果"
 sidebar_position: 9
-sidebar_label: "I. 如何正确解读结果"
+sidebar_label: "如何正确解读结果"
 ---
 
 # 如何正确解读结果

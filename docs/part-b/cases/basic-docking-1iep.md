@@ -1,14 +1,18 @@
 ---
 title: "Basic Docking — 1IEP"
 sidebar_position: 1
-sidebar_label: "B. Basic Docking — 1IEP"
+sidebar_label: "Basic Docking — 1IEP"
 ---
+
+import OfficialExampleFiles from '@site/src/components/OfficialExampleFiles';
 
 # Basic Docking — 1IEP
 
-## 简单概括
-
 这是 AutoDock Vina 官方教程的第一个案例：把抗癌药伊马替尼（imatinib）对接到 c-Abl 激酶的活性位点上。下面用 11 张 DockStart 界面截图，把「建项目 → 准备结构 → 画搜索框 → 填参数 → 运行 → 看结果」完整走一遍，并把本次 Vina 结果与官方期望值逐项对照。
+
+## 官方三维结构文件 {#official-structure-files}
+
+<OfficialExampleFiles example="basic"/>
 
 ---
 

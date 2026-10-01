@@ -1,7 +1,7 @@
 ---
 title: "常见错误信息索引"
 sidebar_position: 5
-sidebar_label: "E. 常见错误信息索引"
+sidebar_label: "常见错误信息索引"
 ---
 
 # 常见错误信息索引

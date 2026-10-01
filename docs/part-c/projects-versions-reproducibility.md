@@ -1,7 +1,7 @@
 ---
 title: "项目、版本与可复现性"
 sidebar_position: 12
-sidebar_label: "L. 项目、版本与可复现性"
+sidebar_label: "项目、版本与可复现性"
 ---
 
 # 项目、版本与可复现性

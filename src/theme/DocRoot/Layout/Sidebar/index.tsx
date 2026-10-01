@@ -3,7 +3,7 @@ import OriginalSidebar from '@theme-original/DocRoot/Layout/Sidebar';
 import type {Props} from '@theme/DocRoot/Layout/Sidebar';
 
 const minimum=224;
-const defaultWidth=300;
+const defaultWidth=296;
 const storageKey='dockstart-guide-sidebar-width';
 const maximum=()=>Math.min(480, Math.max(minimum,Math.floor(window.innerWidth*.43)));
 

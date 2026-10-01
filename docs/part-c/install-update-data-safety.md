@@ -1,7 +1,7 @@
 ---
 title: "安装、更新和数据安全"
 sidebar_position: 13
-sidebar_label: "M. 安装、更新和数据安全"
+sidebar_label: "安装、更新和数据安全"
 ---
 
 # 安装、更新和数据安全

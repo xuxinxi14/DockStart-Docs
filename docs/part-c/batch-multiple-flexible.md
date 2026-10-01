@@ -1,7 +1,7 @@
 ---
 title: "Batch / Multiple / Flexible 的区别"
 sidebar_position: 7
-sidebar_label: "G. Batch / Multiple / Flexible 的区别"
+sidebar_label: "Batch / Multiple / Flexible 的区别"
 ---
 
 # Batch / Multiple / Flexible 的区别

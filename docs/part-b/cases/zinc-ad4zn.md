@@ -1,10 +1,16 @@
 ---
 title: "Zinc / AD4Zn"
 sidebar_position: 7
-sidebar_label: "H. Zinc / AD4Zn"
+sidebar_label: "Zinc / AD4Zn"
 ---
 
+import OfficialExampleFiles from '@site/src/components/OfficialExampleFiles';
+
 # Zinc / AD4Zn
+
+## 官方三维结构文件 {#official-structure-files}
+
+<OfficialExampleFiles example="zinc"/>
 
 ## 当前章节状态
 

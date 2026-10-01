@@ -1,7 +1,7 @@
 ---
 title: "高级协议的适用范围"
 sidebar_position: 11
-sidebar_label: "K. 高级协议的适用范围"
+sidebar_label: "高级协议的适用范围"
 ---
 
 # 高级协议的适用范围

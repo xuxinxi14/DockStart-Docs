@@ -1,7 +1,7 @@
 ---
 title: "Basic 与 Assisted"
 sidebar_position: 1
-sidebar_label: "A. Basic 与 Assisted"
+sidebar_label: "Basic 与 Assisted"
 ---
 
 # Basic 与 Assisted

@@ -1,7 +1,7 @@
 ---
 title: "常见错误与恢复"
 sidebar_position: 10
-sidebar_label: "J. 常见错误与恢复"
+sidebar_label: "常见错误与恢复"
 ---
 
 # 常见错误与恢复

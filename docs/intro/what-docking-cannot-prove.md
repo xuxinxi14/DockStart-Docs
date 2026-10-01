@@ -1,7 +1,7 @@
 ---
 title: "分子对接不能证明什么？"
 sidebar_position: 4
-sidebar_label: "D. 分子对接不能证明什么？"
+sidebar_label: "分子对接不能证明什么？"
 ---
 
 # 分子对接不能证明什么？

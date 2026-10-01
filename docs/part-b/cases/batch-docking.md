@@ -1,14 +1,18 @@
 ---
 title: "Batch Docking"
 sidebar_position: 3
-sidebar_label: "D. Batch Docking"
+sidebar_label: "Batch Docking"
 ---
+
+import OfficialExampleFiles from '@site/src/components/OfficialExampleFiles';
 
 # Batch Docking
 
-## 简单概括
-
 批量对接使用同一受体、Box 和参数，逐个运行配体并汇总各自的最佳评分。跟做这个案例时，可以同时检查队列是否冻结了预期条件，以及每个配体的结构准备是否合理。
+
+## 官方三维结构文件 {#official-structure-files}
+
+<OfficialExampleFiles example="batch"/>
 
 ---
 

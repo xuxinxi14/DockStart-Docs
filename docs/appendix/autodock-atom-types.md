@@ -1,7 +1,7 @@
 ---
 title: "AutoDock atom types 简表"
 sidebar_position: 3
-sidebar_label: "C. AutoDock atom types 简表"
+sidebar_label: "AutoDock atom types 简表"
 ---
 
 # AutoDock atom types 简表

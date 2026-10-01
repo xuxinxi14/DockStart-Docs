@@ -1,7 +1,7 @@
 ---
 title: "专有名词中英对照"
 sidebar_position: 6
-sidebar_label: "F. 专有名词中英对照"
+sidebar_label: "专有名词中英对照"
 ---
 
 # 专有名词中英对照

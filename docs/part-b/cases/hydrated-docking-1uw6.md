@@ -1,14 +1,18 @@
 ---
 title: "Hydrated Docking — 1UW6"
 sidebar_position: 6
-sidebar_label: "G. Hydrated Docking — 1UW6"
+sidebar_label: "Hydrated Docking — 1UW6"
 ---
+
+import OfficialExampleFiles from '@site/src/components/OfficialExampleFiles';
 
 # Hydrated Docking — 1UW6
 
-## 简单概括
-
 水合对接为配体加入候选水，并结合水分子 affinity map 判断哪些水保留、哪些被置换。本节以 1UW6 与尼古丁演示水合 AD4 流程，实测 Mode 1 为 `-7.493`，官方参考为 `-8.261`；后文用交叉对照分析这项差异。
+
+## 官方三维结构文件 {#official-structure-files}
+
+<OfficialExampleFiles example="hydrated"/>
 
 ---
 

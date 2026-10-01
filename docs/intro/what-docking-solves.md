@@ -1,7 +1,7 @@
 ---
 title: "分子对接试图解决什么问题？"
 sidebar_position: 2
-sidebar_label: "B. 分子对接试图解决什么问题？"
+sidebar_label: "分子对接试图解决什么问题？"
 ---
 
 # 分子对接试图解决什么问题？

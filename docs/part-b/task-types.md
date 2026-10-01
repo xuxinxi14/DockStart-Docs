@@ -1,7 +1,7 @@
 ---
 title: "三种计算任务：Global Docking / Score Only / Local Optimization"
 sidebar_position: 1
-sidebar_label: "A. 三种计算任务"
+sidebar_label: "三种计算任务"
 ---
 
 # 三种计算任务：Global Docking / Score Only / Local Optimization

@@ -1,14 +1,18 @@
 ---
 title: "AutoDock4 Maps Workflow"
 sidebar_position: 8
-sidebar_label: "I. AutoDock4 Maps Workflow"
+sidebar_label: "AutoDock4 Maps"
 ---
+
+import OfficialExampleFiles from '@site/src/components/OfficialExampleFiles';
 
 # AutoDock4 Maps Workflow
 
-## 简单概括
-
 这个案例在 1IEP 体系中使用 AutoDock4 评分：先由 AutoGrid4 生成 affinity maps，再由 Vina 以 `--scoring ad4` 搜索。实测 Mode 1 为 `-14.7279`，官方参考为 `-14.72`；二者相差约 `0.008 kcal/mol`。
+
+## 官方三维结构文件 {#official-structure-files}
+
+<OfficialExampleFiles example="ad4"/>
 
 ---
 

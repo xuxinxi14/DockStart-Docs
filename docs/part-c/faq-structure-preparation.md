@@ -1,7 +1,7 @@
 ---
 title: "结构准备 FAQ"
 sidebar_position: 4
-sidebar_label: "D. 结构准备 FAQ"
+sidebar_label: "结构准备 FAQ"
 ---
 
 # 结构准备 FAQ

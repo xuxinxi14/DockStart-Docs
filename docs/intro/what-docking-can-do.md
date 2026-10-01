@@ -1,7 +1,7 @@
 ---
 title: "分子对接能做什么？"
 sidebar_position: 3
-sidebar_label: "C. 分子对接能做什么？"
+sidebar_label: "分子对接能做什么？"
 ---
 
 # 分子对接能做什么？

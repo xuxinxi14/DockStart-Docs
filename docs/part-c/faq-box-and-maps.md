@@ -1,7 +1,7 @@
 ---
 title: "Box 与 Maps FAQ"
 sidebar_position: 5
-sidebar_label: "E. Box 与 Maps FAQ"
+sidebar_label: "Box 与 Maps FAQ"
 ---
 
 # Box 与 Maps FAQ

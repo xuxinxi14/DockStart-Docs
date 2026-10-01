@@ -1,7 +1,7 @@
 ---
 title: "分子与分子相互作用"
 sidebar_position: 1
-sidebar_label: "A. 分子与分子相互作用"
+sidebar_label: "分子与分子相互作用"
 ---
 
 # 分子与分子相互作用

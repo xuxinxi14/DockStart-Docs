@@ -1,7 +1,7 @@
 ---
 title: "为什么结果不一致"
 sidebar_position: 8
-sidebar_label: "H. 为什么结果不一致"
+sidebar_label: "为什么结果不一致"
 ---
 
 # 为什么结果不一致

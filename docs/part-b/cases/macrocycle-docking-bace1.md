@@ -1,14 +1,18 @@
 ---
 title: "Macrocycle Docking — BACE1"
 sidebar_position: 5
-sidebar_label: "F. Macrocycle Docking — BACE1"
+sidebar_label: "Macrocycle Docking — BACE1"
 ---
+
+import OfficialExampleFiles from '@site/src/components/OfficialExampleFiles';
 
 # Macrocycle Docking — BACE1
 
-## 简单概括
-
 大环对接需要处理环内键之间相互关联的运动。Meeko/Vina 的协议通过断环与伪原子约束展开搜索；在 DockStart 中可以查看和选择断环方案。这个案例完成了流程，但没有复现官方数值，后文保留了对照与待查问题。
+
+## 官方三维结构文件 {#official-structure-files}
+
+<OfficialExampleFiles example="macrocycle"/>
 
 ---
 

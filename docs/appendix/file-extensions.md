@@ -1,7 +1,7 @@
 ---
 title: "常见文件扩展名"
 sidebar_position: 4
-sidebar_label: "D. 常见文件扩展名"
+sidebar_label: "常见文件扩展名"
 ---
 
 # 常见文件扩展名

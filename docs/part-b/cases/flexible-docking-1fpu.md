@@ -1,14 +1,18 @@
 ---
 title: "Flexible Docking — 1FPU"
 sidebar_position: 2
-sidebar_label: "C. Flexible Docking — 1FPU"
+sidebar_label: "Flexible Docking — 1FPU"
 ---
+
+import OfficialExampleFiles from '@site/src/components/OfficialExampleFiles';
 
 # Flexible Docking — 1FPU
 
-## 简单概括
-
 本例把伊马替尼对接到 c-Abl 的 1FPU 结构，并允许 Thr315 侧链参与搜索。操作上要指定柔性残基、完成结构审查，再确认有限柔性协议已启用。下面保留这次运行中的提示与结果，便于跟着核对。
+
+## 官方三维结构文件 {#official-structure-files}
+
+<OfficialExampleFiles example="flexible"/>
 
 ---
 

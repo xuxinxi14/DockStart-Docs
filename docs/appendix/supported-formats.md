@@ -1,7 +1,7 @@
 ---
 title: "DockStart 支持格式表"
 sidebar_position: 1
-sidebar_label: "A. DockStart 支持格式表"
+sidebar_label: "DockStart 支持格式表"
 ---
 
 # DockStart 支持格式表
