@@ -24,7 +24,7 @@ mode |   affinity | dist from best mode
 3       -11.28      3.044      12.41
 ```
 
-`num_modes` 管的就是**这张表最多列几行**。([AutoDock Vina 官方 Basic Docking 文档](https://github.com/ccsb-scripps/AutoDock-Vina/blob/develop/docs/source/docking_basic.rst))
+`num_modes` 设置候选构象数量上限，不能仅用日志表的行数判断实际保存了多少结构。写入输出文件时，还需要满足 `energy_range`。([AutoDock Vina 官方 Basic Docking 文档](https://github.com/ccsb-scripps/AutoDock-Vina/blob/develop/docs/source/docking_basic.rst))
 
 ---
 
@@ -52,7 +52,7 @@ Vina 的选项说明把它定义为“**最多**生成多少个结合模式”�
 
 因此：
 
-> **`num_modes` 是上限，`energy_range` 是过滤器，两者共同决定最终看到几个 mode。**
+> **`num_modes` 是上限，`energy_range` 是输出过滤器，两者共同限制实际保存的构象数量。日志可能保留未写入文件的候选评分。**
 
 ---
 
@@ -65,7 +65,7 @@ Vina 的选项说明把它定义为“**最多**生成多少个结合模式”�
 ```text
 num_modes      →  最多输出几个
 min_rmsd       →  多接近算同一个（先去重）
-energy_range   →  能量差多大以内的才显示
+energy_range   →  能量差多大以内的才保存
 ```
 
 ---
@@ -87,9 +87,9 @@ energy_range   →  能量差多大以内的才显示
 
 ## 在 DockStart 中
 
-在 DockStart 的结果页面中，你能看到与 mode 对应的列表。
+在 DockStart v1.0.4 的结果页面中，评分列表可来自日志解析；实际可加载构象来自输出 PDBQT。两者的数量可能不同，判断保存数量时应检查 `MODEL`。区别见 [Energy Range](./energy-range.md)。
 
-所以当结果列表的条目数比预期少时，先不要怀疑程序出错，而应检查：
+当保存的构象数比设定值少，或某条评分没有对应结构时，先检查：
 
 - `num_modes` 设成了多少；
 - `energy_range` 是否偏小；

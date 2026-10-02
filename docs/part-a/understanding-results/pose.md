@@ -49,6 +49,8 @@ mode |   affinity | dist from best mode
 
 > **每一个 mode，就是一个 pose。**
 
+不过，“日志中找到候选评分”与“输出文件中保存了构象坐标”是两件事。Vina 1.2.7 写入结构时还会按 `energy_range` 过滤，日志或 CSV 有某个 mode 不保证它已写入 PDBQT。实际可打开的构象以输出文件中的 `MODEL` 为准，详见 [Energy Range](../search-and-parameters/energy-range.md)。
+
 ---
 
 ## Pose 是“答案”还是“候选”？
@@ -84,7 +86,7 @@ Vina 会把它们一起给出，让你自己判断哪一个更符合研究问题
 
 ## 在 DockStart 中
 
-在 DockStart 中，一次 docking 的结果列表本质上就是一份 pose 列表。
+在 DockStart 中，先确认选择的是哪次运行，再区分评分列表与实际保存的 pose。查看三维构象需要输出文件里确实存在该 mode 的坐标。
 
 对初学者来说，可以先这样使用：
 

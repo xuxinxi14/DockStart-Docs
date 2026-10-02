@@ -16,6 +16,8 @@ DockStart 给出的 pose、affinity、RMSD 都是计算模型的结果，不是�
 
 运行完成后，先看 pose，再结合 affinity 和 RMSD 理解它。把数字单独摘出来，容易丢掉输入结构和评分模型这些前提。
 
+还要区别“评分记录”和“保存的结构”：v1.0.4 可以从 Vina 日志解析评分表，而 Vina 1.2.7 写入 PDBQT 时会按 `energy_range` 过滤。日志/CSV 的行数可能多于 `out.pdbqt` 的 `MODEL` 数量；只有确实保存了坐标的构象才能加载查看。详细解释见 [Energy Range](../part-a/search-and-parameters/energy-range.md)。
+
 写汇报或方法部分时，应同时说明输入、评分函数、参数与验证方式。结果页和 `docking_report.md` 中的提示也可以作为检查清单。
 
 ---

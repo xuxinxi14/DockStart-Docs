@@ -97,10 +97,10 @@ v1.0.4 的帮助建议随项目与工具链状态变化。问号可打开离线�
 
 ```text
 受体结构   1iep_receptorH.pdb      （PDB / PDBQT / CIF 都可以）
-配体结构   从 1IEP 提取的伊马替尼   （PDB / SDF / MOL / MOL2 都可以）
+配体结构   官方 1iep_ligand.sdf 或准备后的配体 PDBQT
 ```
 
-两者可以分别给 PDBQT 或原始结构，DockStart 会按各自格式继续处理。注意受体文件名里的 `H` 表示**已经加好氢**——官方教程用的正是这个文件。
+两者可以分别给 PDBQT 或原始结构，DockStart 会按各自格式继续处理。**Basic 随包工具用于已有 PDBQT；Assisted 额外随附结构准备工具，可以尝试把原始结构转成 PDBQT。** 格式支持按角色区分：受体 PDB/CIF，配体 SDF/MOL/单分子 MOL2；配体 PDB 不参与 v1.0.4 内置转换，需要在外部准备。注意受体文件名里的 `H` 表示**已经加好氢**——官方教程用的正是这个文件。
 
 ---
 
@@ -382,9 +382,11 @@ Mode 9   -5.283       6.395             7.85
 | Mode 8 | -6.772 | 2.832 | 13.19 |
 | Mode 9 | -5.283 | 6.395 | 7.85 |
 
-`l.b.` = lower bound（重原子对齐后的 RMSD），`u.b.` = upper bound（考虑对称性后的上界）。
+`l.b.` = lower bound（下界），`u.b.` = upper bound（上界）。两列都是相对本次最佳 Mode 1 的可移动重原子坐标差异，**不做额外叠合**。u.b. 按原子身份逐个对应，忽略对称性；l.b. 采用最近同元素原子匹配，取两个方向结果的较大值。它们不是与实验共晶结构比较的验证 RMSD。详见 [RMSD 专题](../../part-a/understanding-results/rmsd.md) 和 [Vina 官方输出说明](https://vina.scripps.edu/manual/#output)。
 
 **③ 结果状态** —— `scores.csv 已读取`，说明这份表格是从实际输出文件读出来的，不是界面缓存。
+
+**评分行数与保存构象数量需要分别检查。** Vina 1.2.7 的日志可能打印比输出文件更多的候选评分；写入 `out.pdbqt` 时还会按 `energy_range` 过滤。这里的 9 行评分不能单独证明文件保存了 9 个构象，真正可查看的结构以输出文件中的 `MODEL` 为准。本文保留历史评分，不据此推定历史输出文件数量。参见 [Energy Range](../../part-a/search-and-parameters/energy-range.md)。
 
 **④ 科学边界** —— 再次强调：
 
