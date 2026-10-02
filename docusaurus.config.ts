@@ -62,6 +62,7 @@ const config: Config = {
           label: '全部文档',
         },
         {to: '/docs/part-b/cases/basic-docking-1iep', label: '实战案例', position: 'right'},
+        {to: '/docs/part-c/quick-start-v1-0-4', label: '下载与开始', position: 'right'},
         {to: '/search', label: '搜索', position: 'right'},
         {href: 'https://github.com/xuxinxi14/DockStart', label: 'GitHub', position: 'right'},
       ],

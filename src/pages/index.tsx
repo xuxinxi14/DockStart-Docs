@@ -35,12 +35,14 @@ export default function Home(): React.JSX.Element {
       <section className="guide-intro" aria-labelledby="home-title">
         <h1 id="home-title">DockStart 帮助文档</h1>
         <p className="guide-intro__lead">分子对接入门、实操与排错。</p>
+        <p>当前下载：v1.0.4 · Windows x64 · Assisted 试用版。</p>
         <form className="guide-search" action={searchUrl} method="get" role="search">
           <input name="q" type="search" placeholder="搜索文档，例如 Box、PDBQT、RMSD" aria-label="搜索帮助文档"/>
           <button type="submit">搜索</button>
         </form>
         <div className="guide-intro__links">
-          <Link className="guide-link-accent" to="/docs/part-b/cases/basic-docking-1iep">从 1IEP 案例开始</Link>
+          <Link className="guide-link-accent" to="/docs/part-c/quick-start-v1-0-4">下载 v1.0.4 与快速开始</Link>
+          <Link to="/docs/part-b/cases/basic-docking-1iep">1IEP 完整案例</Link>
           <Link to="/docs/intro/what-docking-solves">浏览全部文档</Link>
         </div>
       </section>
@@ -59,7 +61,7 @@ export default function Home(): React.JSX.Element {
               <ReliableImage src={imageUrl} alt="DockStart 的 1IEP 对接结果界面" width={1438} height={898} loading="eager"/>
             </div>
             <h3><Link to="/docs/part-b/cases/basic-docking-1iep">Basic Docking — 1IEP</Link></h3>
-            <p>从结构准备到结果检查，<br/>完成第一条对接流程。</p>
+            <p>从结构准备到结果检查，<br/>完成第一条对接流程。历史结果截图为 v1.0.3。</p>
             <Link className="guide-link-accent" to="/docs/part-b/cases/basic-docking-1iep">阅读案例</Link>
           </section>
           <section className="guide-quick-links" aria-labelledby="reference-title">

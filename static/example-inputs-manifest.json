@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "upstream_repository": "ccsb-scripps/AutoDock-Vina",
+  "commit": "3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645",
+  "recorded_on": "2026-10-02",
+  "purpose": "Frozen documentation download references; not an attestation of historical case run inputs",
+  "files": [
+    {
+      "path": "example/basic_docking/data/1iep_ligand.sdf",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/basic_docking/data/1iep_ligand.sdf",
+      "size_bytes": 6621,
+      "sha256": "051b8742c32adc05c07fb486a4e7c9327f84e131cee33ac4e6a568d07553eb38"
+    },
+    {
+      "path": "example/basic_docking/data/1iep_receptorH.pdb",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/basic_docking/data/1iep_receptorH.pdb",
+      "size_bytes": 357444,
+      "sha256": "5f6aee6029f9a2a2c2be32d4eb948ae70808690573e1b69a0850cdffd7048ca7"
+    },
+    {
+      "path": "example/basic_docking/solution/1iep_ligand.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/basic_docking/solution/1iep_ligand.pdbqt",
+      "size_bytes": 3841,
+      "sha256": "15fb35648d8c18c70317842f3a0631b73a19429c710a037ab07310084d579bb8"
+    },
+    {
+      "path": "example/basic_docking/solution/1iep_receptor.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/basic_docking/solution/1iep_receptor.pdbqt",
+      "size_bytes": 216160,
+      "sha256": "f13cf3b36f61d87c3b58983e0b8ecf1c3456a685eb86dfe9ccfb139c7bdc2586"
+    },
+    {
+      "path": "example/docking_with_macrocycles/data/BACE_1_ligand.mol2",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/docking_with_macrocycles/data/BACE_1_ligand.mol2",
+      "size_bytes": 8902,
+      "sha256": "67e9b1a2e02018599ddaaa357d78201c34f68bf1e496e2ec0ae0e98b0d2e49a3"
+    },
+    {
+      "path": "example/docking_with_macrocycles/data/BACE_1_receptorH.pdb",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/docking_with_macrocycles/data/BACE_1_receptorH.pdb",
+      "size_bytes": 489885,
+      "sha256": "76d86911502d7f16a5cad5e092903378c06bc6ddb97e87443e94f4c1528c681d"
+    },
+    {
+      "path": "example/docking_with_macrocycles/solution/BACE_1_ligand.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/docking_with_macrocycles/solution/BACE_1_ligand.pdbqt",
+      "size_bytes": 4385,
+      "sha256": "913c14d4f2c1fca35c7b44305e6ecb07d7dc9ee225c532460e92ad3b09bd41b3"
+    },
+    {
+      "path": "example/docking_with_macrocycles/solution/BACE_1_receptor.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/docking_with_macrocycles/solution/BACE_1_receptor.pdbqt",
+      "size_bytes": 288828,
+      "sha256": "b19ca5de1ad1b912e18aa25ec14407b79bedc38224baf4ff2a6b1657be6e09a7"
+    },
+    {
+      "path": "example/docking_with_zinc_metalloproteins/data/1s63_ligand.sdf",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/docking_with_zinc_metalloproteins/data/1s63_ligand.sdf",
+      "size_bytes": 3451,
+      "sha256": "6eb488b5770df7f132745249e64000fcfe394acf938b45f0e082f44365f59119"
+    },
+    {
+      "path": "example/docking_with_zinc_metalloproteins/data/AD4Zn.dat",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/docking_with_zinc_metalloproteins/data/AD4Zn.dat",
+      "size_bytes": 23,
+      "sha256": "d052f7c95fba9e8dc400c2fae464486425d795112c19995e7bdfd64ab9a487de"
+    },
+    {
+      "path": "example/docking_with_zinc_metalloproteins/data/proteinH.pdb",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/docking_with_zinc_metalloproteins/data/proteinH.pdb",
+      "size_bytes": 975913,
+      "sha256": "8691688ed7786a65aa499fafffe1059406e2552db11edcf16859a7e2832e196f"
+    },
+    {
+      "path": "example/docking_with_zinc_metalloproteins/solution/1s63_ligand.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/docking_with_zinc_metalloproteins/solution/1s63_ligand.pdbqt",
+      "size_bytes": 2713,
+      "sha256": "04fb28c75bc5a8b32fd7f985ef8ac9a9b4581a40141f4f5b1b3951c2051fb7dc"
+    },
+    {
+      "path": "example/docking_with_zinc_metalloproteins/solution/protein_tz.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/docking_with_zinc_metalloproteins/solution/protein_tz.pdbqt",
+      "size_bytes": 578508,
+      "sha256": "68af8bd4af58ee1e0ee16377a9fa54958c98a3912421165c8e05d22475b3168e"
+    },
+    {
+      "path": "example/flexible_docking/data/1fpu_receptorH.pdb",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/flexible_docking/data/1fpu_receptorH.pdb",
+      "size_bytes": 348010,
+      "sha256": "6e0a80629b11469b4d3dc1cb9bf89301fcb6b41fd040a43ce76aa389e74439f0"
+    },
+    {
+      "path": "example/flexible_docking/data/1iep_ligand.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/flexible_docking/data/1iep_ligand.pdbqt",
+      "size_bytes": 3630,
+      "sha256": "37a20e58e77072c6b3ff07f285a345e647dd4e564af316a06e49518b15b7aa61"
+    },
+    {
+      "path": "example/flexible_docking/solution/1fpu_receptor_flex.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/flexible_docking/solution/1fpu_receptor_flex.pdbqt",
+      "size_bytes": 558,
+      "sha256": "6d8d77e21a1c79102df67e2cd37380191cfd7c1d018f9b56c57b48e3ad8e420e"
+    },
+    {
+      "path": "example/flexible_docking/solution/1fpu_receptor_rigid.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/flexible_docking/solution/1fpu_receptor_rigid.pdbqt",
+      "size_bytes": 193760,
+      "sha256": "57867cab7bca3fe2858ca8b80b74e7972520547a1c3489324ffb5f4f271738ff"
+    },
+    {
+      "path": "example/hydrated_docking/data/1uw6_ligand.sdf",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/hydrated_docking/data/1uw6_ligand.sdf",
+      "size_bytes": 1844,
+      "sha256": "f9f9e492c8be271198ed27824c6e21aaa539c00b06612b204d3a275058fff862"
+    },
+    {
+      "path": "example/hydrated_docking/data/1uw6_receptorH.pdb",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/hydrated_docking/data/1uw6_receptorH.pdb",
+      "size_bytes": 543326,
+      "sha256": "6c1136fad0ac7e282eab18ceecfe0cbcd627330de31681a7781b2bd5f7bd61ad"
+    },
+    {
+      "path": "example/hydrated_docking/solution/1uw6_ligand.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/hydrated_docking/solution/1uw6_ligand.pdbqt",
+      "size_bytes": 1423,
+      "sha256": "d4f80a938e3348c537d98770d7b65ec20908025275c55b24c61448e97565d5ac"
+    },
+    {
+      "path": "example/hydrated_docking/solution/1uw6_receptor.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/hydrated_docking/solution/1uw6_receptor.pdbqt",
+      "size_bytes": 325520,
+      "sha256": "9b76ee48f4630d6ac70053f9c06876aee9772c8b2e67be715eb52cd5dad07208"
+    },
+    {
+      "path": "example/mulitple_ligands_docking/data/5x72_ligand_p59.sdf",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/mulitple_ligands_docking/data/5x72_ligand_p59.sdf",
+      "size_bytes": 2990,
+      "sha256": "a476b0d62652664596801fc88024fbd756294e9e2faf9234c8d90c2288aaa373"
+    },
+    {
+      "path": "example/mulitple_ligands_docking/data/5x72_ligand_p69.sdf",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/mulitple_ligands_docking/data/5x72_ligand_p69.sdf",
+      "size_bytes": 2990,
+      "sha256": "e8c2df94d37439aa558f47eee8f20504d01d11b2d974bbb3cf3d9675a88b1ea1"
+    },
+    {
+      "path": "example/mulitple_ligands_docking/data/5x72_receptorH.pdb",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/mulitple_ligands_docking/data/5x72_receptorH.pdb",
+      "size_bytes": 299906,
+      "sha256": "0410354810d7f8ce6fa81d30747237c9c337fba977bb0b94b8f4e1e2a2d65b67"
+    },
+    {
+      "path": "example/mulitple_ligands_docking/solution/5x72_ligand_p59.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/mulitple_ligands_docking/solution/5x72_ligand_p59.pdbqt",
+      "size_bytes": 2345,
+      "sha256": "67cf462419372e365b8129bc1047f94598f3a1f3c495375781c1c1100e95c92e"
+    },
+    {
+      "path": "example/mulitple_ligands_docking/solution/5x72_ligand_p69.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/mulitple_ligands_docking/solution/5x72_ligand_p69.pdbqt",
+      "size_bytes": 2344,
+      "sha256": "276a991d56ddc7778ed36c10aba6b7231de00b87294a7f77e2fceb9a96ae08e5"
+    },
+    {
+      "path": "example/mulitple_ligands_docking/solution/5x72_receptor.pdbqt",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/mulitple_ligands_docking/solution/5x72_receptor.pdbqt",
+      "size_bytes": 118480,
+      "sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+    }
+  ]
+}

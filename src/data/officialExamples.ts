@@ -80,4 +80,4 @@ export const officialExamples = {
 
 export type OfficialExampleId = keyof typeof officialExamples;
 export const officialRepository = 'https://github.com/ccsb-scripps/AutoDock-Vina';
-export const officialBranch = 'develop';
+export const officialRevision = '3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645';

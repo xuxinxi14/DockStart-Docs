@@ -12,6 +12,8 @@ Basic 适合已经准备好 PDBQT 的用户；Assisted 随包提供结构准备�
 
 ---
 
+> **v1.0.4 实际公开下载只有 Assisted EXE 试用包。** 已有 PDBQT 也可直接使用它；下文比较的是两种构建档位，不表示本次发布提供两个下载。安装入口见 [v1.0.4 下载与快速开始](./quick-start-v1-0-4.md)。
+
 ## 安装前怎么选
 
 先看手上的文件：受体、配体都已经是 PDBQT，可以用 Basic；需要从 PDB、CIF、SDF 等原始文件准备输入，则选 Assisted。
@@ -22,7 +24,7 @@ Basic 适合已经准备好 PDBQT 的用户；Assisted 随包提供结构准备�
 
 ## 它们是两个安装 profile
 
-DockStart 提供两个 Windows x64 发布档位，安装时二选一：
+DockStart 定义两个 Windows x64 构建档位，比较如下：
 
 | | Basic profile | Assisted profile |
 |---|---|---|
@@ -36,7 +38,7 @@ DockStart 提供两个 Windows x64 发布档位，安装时二选一：
 
 注意最后两行：两种 profile 都支持 PDBQT 对接。Basic 不包含原始结构准备这一段。
 
-> Basic 与 Assisted 是**发布档位（profile）**，不是产品成熟度标签。当前源码版本的成熟度是"本地候选"，跟选哪个 profile 没有关系。
+> Basic 与 Assisted 是**发布档位（profile）**，不是产品成熟度标签。v1.0.4 当前公开包按试用版本说明，完整安装、GUI 和科学发布门禁仍待完成，跟选哪个 profile 没有关系。
 
 ---
 
@@ -131,7 +133,7 @@ Assisted 额外多出来的：
 
 ## 总结
 
-按输入格式选安装包即可：已有 PDBQT 用 Basic，需要准备原始结构则用 Assisted。更换 profile 前，记得备份项目并卸载原有版本。
+本次下载使用 Assisted：已有 PDBQT 可直接导入，需要原始结构准备时再使用随包工具链。更换 profile 前，记得备份项目并卸载原有版本。
 
 ---
 

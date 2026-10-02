@@ -2,7 +2,9 @@
 
 中文 Docusaurus 文档站，包含分子对接入门、DockStart 实战案例、排错与附录。
 
-## 首次发布到 GitHub Pages
+站点已部署：[在线文档](https://xuxinxi14.github.io/DockStart-Docs/)。当前下载与使用基准为 [v1.0.4 Assisted 试用包](https://github.com/xuxinxi14/DockStart/releases/tag/v1.0.4)；软件代码、版本与安装包由主仓库维护。
+
+## 首次部署配置（维护参考）
 
 1. 在 GitHub 账号 `xuxinxi14` 下创建公开仓库 `DockStart-Docs`，默认分支为 `main`。
 2. 将本目录的全部源码提交到仓库根目录。必须包含 `.github/workflows/deploy-pages.yml` 和 `.gitignore`。
@@ -56,7 +58,7 @@ npm run serve
 
 网站默认使用暖白背景、墨色正文、衬线标题和克制的深绿强调。右上角可切换浅色或深色主题；左侧目录仍支持拖动、键盘调整宽度。
 
-八个案例主题提供 AutoDock Vina 官方 GitHub 文件的查看与下载链接，区分原始结构、准备后的 PDBQT 和参考结果。批量主题明确说明复用 5X72 输入；AD4Zn 主题保持未完成 DockStart 实测验证的状态。文件链接跟随官方 develop 分支，复现时应记录下载日期与校验值。
+八个案例主题提供 AutoDock Vina 官方 GitHub 文件的查看与下载链接，区分原始结构、准备后的 PDBQT 和参考结果。批量主题明确说明复用 5X72 输入；AD4Zn 主题保持未完成 DockStart 实测验证的状态。文件链接固定到官方提交，复现时应同时记录版本与输入校验值，详见文末维护说明。
 
 标题字体随网站自托管，无需访问外部字体 CDN。新增标题后运行 `python scripts/update-heading-font.py` 更新字符子集；字体来源、许可、SHA256 与大小记录在 `static/fonts/`，第三方资源说明见 `docs/license_notes.md`。
 
@@ -77,3 +79,7 @@ npm run serve
 `https://xuxinxi14.github.io/DockStart-Docs/docs/intro/what-docking-can-do/`
 
 网站更新不要求重新打包 DockStart，链接地址保持不变即可。
+
+## v1.0.4 文档维护
+
+下载入口与快速开始对应实际公开 Assisted EXE；历史案例截图明确标注 v1.0.3，不追认为当前包的验收。官方示例下载固定到 `src/data/officialExamples.ts` 的提交，`static/example-inputs-manifest.json` 保存文件大小和 SHA256。更新来源时需同时核对链接和清单。
