@@ -4,11 +4,11 @@ sidebar_position: 4
 sidebar_label: "结构准备 FAQ"
 ---
 
+import DocNotes, {DocNote, NoteRef} from '@site/src/components/DocNotes';
+
 # 结构准备 FAQ
 
-## 简单概括
-
-结构准备决定“计算的是不是你想研究的那个分子”；DockStart 的自动准备只解决“能不能生成文件”，它在科学上对不对仍然要你自己判断。
+本页说明输入格式的选择，以及缺失残基、替代构象、氢、电荷与手性的检查方法。
 
 ---
 
@@ -24,18 +24,7 @@ Basic 的结构准备在外部完成，也需要做同样的检查。可以把�
 
 ## 受体用 PDB 还是 CIF？
 
-两种都能导入，区别在转换路径：
-
-```text
-PDB  → 直接交给 Meeko
-CIF  → Gemmi 转成中间 PDB  → 再交给 Meeko
-```
-
-- 可以使用来源提供的 CIF，但文件格式本身不保证结构分辨率或适合对接。v1.0.4 仍需桥接到传统 PDB；原子数、链或残基标识无法可靠表达时会拒绝转换，不能靠换成 CIF 绕过限制。
-- 多模型 CIF 会被准备流程阻止。需在外部明确选取模型、保存并检查新输入，不能默认取第一模型。
-- 显式残基控制可用于身份能够可靠对应的 CIF；转换前后编号对应不明时，先解决映射问题，不能直接照搬另一结构的控制项。
-- 准备记录里会保留原始输入快照和中间文件，出问题可以回查。
-
+受体 PDB 和单模型 CIF 都可导入。多模型 CIF 需先在外部选定一个模型并保存。使用残基控制前，核对转换前后的链号与残基编号；转换失败时查看日志和 [支持格式表](../appendix/supported-formats.md)。<NoteRef number={1}/>
 ---
 
 ## 配体可以从 SMILES 来吗？
@@ -217,12 +206,6 @@ DockStart 不会自动判断哪个辅因子重要。**但你的选择会直接�
 
 ---
 
-## 总结
-
-准备完成后，花一点时间复查质子化、电荷、缺失残基以及水、金属和辅因子的处理。文件可读与结构合理是两项不同的检查，自动准备不能代替后者。
-
----
-
 ## 相关页面
 
 - 结构文件格式与坐标：[常见结构文件格式](../part-a/structure-and-files/structure-file-formats.md)、[坐标、坐标系与常用单位](../part-a/structure-and-files/coordinates.md)
@@ -231,7 +214,15 @@ DockStart 不会自动判断哪个辅因子重要。**但你的选择会直接�
 - 接下来要设的搜索范围：[Box 与 Maps FAQ](./faq-box-and-maps.md)
 - 准备失败的具体错误码：[常见错误与恢复](./common-errors-and-recovery.md)
 
----
+<DocNotes>
+
+<DocNote number={1} title="CIF 转换说明">
+
+v1.0.4 使用 Gemmi 将 CIF 转为中间 PDB，再交给 Meeko。若原子数、链或残基标识无法可靠表达，会拒绝转换；多模型输入也会被阻止。残基控制要求转换前后的身份能可靠对应。原始输入快照和中间文件保留在准备记录中，便于回查。文件格式本身不保证结构适合对接。
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

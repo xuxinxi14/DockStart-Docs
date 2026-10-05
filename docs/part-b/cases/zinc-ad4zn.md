@@ -5,20 +5,31 @@ sidebar_label: "Zinc / AD4Zn"
 ---
 
 import OfficialExampleFiles from '@site/src/components/OfficialExampleFiles';
+import DocNotes, {DocNote, NoteRef} from '@site/src/components/DocNotes';
 
 # Zinc / AD4Zn
+
+AD4Zn 用于特定锌配位位点。本页提供官方 1S63 输入与准备条件，DockStart 实测案例尚待补充。<NoteRef number={2}/>
 
 ## 官方三维结构文件 {#official-structure-files}
 
 <OfficialExampleFiles example="zinc"/>
 
-## 当前章节状态
+## 开始前准备什么
 
-**本节尚无已完成的 DockStart 逐步操作和实测结果，因此不提供虚构的运行截图或分数。** AD4Zn 的使用条件、工具版本和原子类型已分别整理在以下页面，阅读时可以先从这些已核对的内容入手：
-
-- [高级协议的适用范围](../../part-c/advanced-protocols.md)：AD4Zn 适用的 Zn 位点及科学边界。
+- [高级协议的适用范围](../../part-c/advanced-protocols.md)：核对 Zn 位点是否适用。
 - [配置 AutoGrid4](../../part-c/autogrid4-setup.md)：AutoGrid4 4.2.7+ 的版本门槛。
 - [AutoDock 原子类型](../../appendix/autodock-atom-types.md)：TZ 等专用类型。
 - [错误信息索引](../../appendix/error-message-index.md)：`AD4ZN_*` 的排查入口。
 
-AD4Zn 要求匹配的外部参数文件、受体准备与兼容的 AutoGrid4。请以实际安装版本、项目输入和运行日志为准。未来补上经过验证的实战案例后，本页再给出逐步截图与官方数值对照。
+<DocNotes example="zinc">
+
+<DocNote number={2} title="案例状态">
+
+本页尚未提供经过验证的 DockStart 逐步截图与运行分数。官方输入链接用于学习和后续验证，不表示 DockStart 已完成该体系的实测。使用前需核对专用受体准备、AD4Zn 参数与 AutoGrid4 兼容性。
+
+Docking score 仅供结构结合趋势参考，不能替代实验验证。
+
+</DocNote>
+
+</DocNotes>

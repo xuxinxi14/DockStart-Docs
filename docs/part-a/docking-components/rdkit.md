@@ -5,8 +5,6 @@ sidebar_position: 4
 
 # RDKit
 
-## 简单概括
-
 RDKit 是一个开源的化学信息学工具包，用来读取、表示、检查和处理分子结构；在 DockStart 的 docking 工作流中，它主要参与小分子结构的准备和处理。
 
 RDKit 提供 Python、C++ 等接口，并包含分子结构表示、化学信息处理等功能。当前官方文档将其定位为一个 cheminformatics toolkit（化学信息学工具包）。([RDKit](https://www.rdkit.org/docs/))
@@ -89,12 +87,6 @@ Docking Engine
 只需要先记住：
 
 > **RDKit 更像是“认识和处理分子”的工具，而不是“进行对接”的工具。**
-
----
-
-## 总结
-
-RDKit 是用于分子结构处理和化学信息学计算的工具包，在 DockStart 工作流中主要帮助处理和理解小分子，为后续 Meeko 配体准备提供基础。
 
 ---
 

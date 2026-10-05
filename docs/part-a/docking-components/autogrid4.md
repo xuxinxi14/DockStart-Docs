@@ -5,8 +5,6 @@ sidebar_position: 7
 
 # AutoGrid4
 
-## 简单概括
-
 AutoGrid4 是 AutoDock4 工作流中的网格预计算程序，用来根据受体结构预先计算不同原子类型在空间各位置的相互作用网格。
 
 AutoDock 官方资料说明，AutoDock4 的典型流程是先由 AutoGrid 计算网格，再由 AutoDock 利用这些网格进行 docking。([计算结构生物学中心](https://ccsb.scripps.edu/autodocksuite/autodock4/))
@@ -106,12 +104,6 @@ Vina
 而普通的 Vina docking 通常不需要用户手动运行 AutoGrid4。
 
 第二章的实战案例与第三章的操作说明，会分别介绍 AutoDock4 maps 流程。
-
----
-
-## 总结
-
-AutoGrid4 负责预计算 AutoDock4 工作流所需要的三维 affinity maps；它与 AutoDock4 密切配套，而普通 Vina scoring 通常不需要用户单独运行 AutoGrid4。
 
 ---
 

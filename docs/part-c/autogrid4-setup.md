@@ -6,8 +6,6 @@ sidebar_label: "配置 AutoGrid4"
 
 # 配置 AutoGrid4
 
-## 简单概括
-
 AutoGrid4 不随 DockStart 安装包分发，需要自行准备并配置路径。标准 AD4 与水合 AD4 要求 4.2.6+，AD4Zn 要求 4.2.7+。
 
 ---
@@ -333,12 +331,6 @@ autogrid4.exe -p receptor.gpf -l autogrid.glg
 | Box 太大直接报错 | AutoGrid4 每轴网格点上限 | 减小 Box 尺寸，或在科学上合理时增大 spacing。**DockStart 不会静默截断网格** |
 
 最后一条的数值背景：源码里对每轴网格点有上限判断，超限时明确提示"AutoGrid4 的 npts 使用每轴偶数点数"，并建议先使用系统根据 Box 推导的默认值。
-
----
-
-## 总结
-
-配置好 AutoGrid4 后，确认检测版本满足所选协议的要求。生成 maps 时再检查 `autogrid.glg` 是否以 `Successful Completion.` 结束；路径检测成功只是第一步。
 
 ---
 

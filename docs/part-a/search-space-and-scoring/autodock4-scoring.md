@@ -5,8 +5,6 @@ sidebar_position: 6
 
 # AutoDock4 scoring
 
-## 简单概括
-
 AutoDock4 scoring 是 AutoDock4 使用的半经验自由能评分模型，它综合考虑范德华作用、氢键、静电作用、去溶剂化以及配体构象熵损失等因素。
 
 AutoDock4 的评分函数与 Vina scoring 不同，是另一套独立的计算模型。AutoDock4 将多个能量项组合起来估计配体结合的计算自由能。([PubMed Central (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC4639406/))
@@ -105,12 +103,6 @@ Vina 官方教程明确提醒，AutoDock 和 Vina forcefield 得到的 energy sc
 - 某些特殊的兼容工作流。
 
 AutoDock4 maps 的操作见第二章独立案例。阅读结果时，也应与普通 Vina scoring 分开比较。
-
----
-
-## 总结
-
-AutoDock4 scoring 是与 Vina scoring 不同的半经验自由能模型，包含范德华、氢键、静电、去溶剂化和配体扭转熵等项，并通常结合 AutoGrid4 生成的 affinity maps 使用；它的分数不能直接与 Vina 或 Vinardo 的分数比较。
 
 ---
 

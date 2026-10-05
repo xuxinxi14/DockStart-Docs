@@ -5,8 +5,6 @@ sidebar_position: 2
 
 # 坐标、坐标系与常用单位
 
-## 简单概括
-
 分子结构不仅要知道“有哪些原子”，还要知道每个原子位于三维空间中的什么位置；这些位置通常用 X、Y、Z 坐标表示，而 docking 中最常见的长度单位是 Å（埃）。
 
 ---
@@ -130,12 +128,6 @@ AutoDock Vina 输出的 predicted binding affinity 就使用 kcal/mol。([AutoDo
 | **kcal·mol⁻¹** | Docking 结果中常见的预测能量/亲和力数值单位 |
 
 暂时不需要在这里深入学习物理化学中的能量定义。
-
----
-
-## 总结
-
-坐标用 X、Y、Z 描述原子在三维空间中的位置，Å 是分子尺度常见的长度单位，而 kcal·mol⁻¹ 是 Vina docking 结果中预测 affinity 所使用的单位。
 
 ---
 

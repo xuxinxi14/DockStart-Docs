@@ -3,9 +3,9 @@ title: "Pose"
 sidebar_position: 1
 ---
 
-# Pose
+import DocNotes, {DocNote, NoteRef} from '@site/src/components/DocNotes';
 
-## 简单概括
+# Pose
 
 Pose（结合模式）是 Vina 给出的一种候选结合方式，它描述配体在受体中的位置、朝向和构象，并带有自己的评分。
 
@@ -49,7 +49,7 @@ mode |   affinity | dist from best mode
 
 > **每一个 mode，就是一个 pose。**
 
-不过，“日志中找到候选评分”与“输出文件中保存了构象坐标”是两件事。Vina 1.2.7 写入结构时还会按 `energy_range` 过滤，日志或 CSV 有某个 mode 不保证它已写入 PDBQT。实际可打开的构象以输出文件中的 `MODEL` 为准，详见 [Energy Range](../search-and-parameters/energy-range.md)。
+可打开的构象以输出 PDBQT 中的 `MODEL` 为准；评分表行数可能更多。<NoteRef number={1}/>
 
 ---
 
@@ -100,13 +100,15 @@ Vina 会把它们一起给出，让你自己判断哪一个更符合研究问题
 
 如果多个高分 pose 落在同一个区域、构象也相似，通常说明这个区域是比较稳定的候选。
 
----
+<DocNotes>
 
-## 总结
+<DocNote number={1} title="构象输出说明">
 
-Pose 是一次 docking 给出的候选结合方式，由配体的位置、朝向和构象共同确定，并带有计算得到的评分；它是计算模型给出的候选结果，而不是实验观测到的结构。
+Vina 1.2.7 写入结构时还会按 `energy_range` 过滤；候选评分与保存坐标需要分别检查。详见 [Energy Range](../search-and-parameters/energy-range.md)。
 
----
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

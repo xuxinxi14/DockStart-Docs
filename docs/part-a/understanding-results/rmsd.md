@@ -6,8 +6,6 @@ sidebar_position: 3
 
 # RMSD（含 RMSD l.b. / u.b.）
 
-## 简单概括
-
 RMSD 用来衡量两个 pose 在空间上差多少；Vina 在结果里给出 rmsd l.b. 和 rmsd u.b. 两个值，它们都表示该 pose 与最优 pose（mode 1）之间的几何偏差。
 
 ---
@@ -131,12 +129,6 @@ Vina 输出中的 rmsd l.b./u.b.   →  与本次 docking 的最优 pose 比较
 - 哪些 mode 代表了真正不同的摆放位置。
 
 结合 affinity 一起看，就能比较快地筛出值得进一步观察的 pose。
-
----
-
-## 总结
-
-RMSD 衡量两个 pose 在空间上的偏差；Vina 输出的 rmsd l.b. 和 rmsd u.b. 都表示该 mode 与最优 mode 之间的重原子坐标差异（不叠合、不做形状拟合），其中 l.b. 采用就近同元素匹配因而不会大于 u.b.。
 
 ---
 

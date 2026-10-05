@@ -4,13 +4,15 @@ sidebar_position: 0
 sidebar_label: "v1.0.4 下载与快速开始"
 ---
 
+import DocNotes, {DocNote, NoteRef} from '@site/src/components/DocNotes';
+
 # v1.0.4 下载与快速开始
 
-DockStart 是基于 AutoDock Vina 的中文本地对接工作台。当前公开包为 **Windows 10/11 x64、Assisted EXE 试用版**，完整安装/升级/卸载、桌面 GUI 和全部科学发布门禁仍待完成。
+DockStart 是基于 AutoDock Vina 的中文本地对接工作台。本文使用 **Windows 10/11 x64 的 v1.0.4 Assisted 试用版**。<NoteRef number={1}/>
 
 ## 1. 下载与校验
 
-从 [官方 v1.0.4 Release](https://github.com/xuxinxi14/DockStart/releases/tag/v1.0.4) 下载 `DockStart_1.0.4_Assisted_x64-setup.exe`（74,017,034 bytes）。当前没有公开的 Basic / MSI 下载；已有 PDBQT 可直接使用 Assisted。
+从 [官方 v1.0.4 Release](https://github.com/xuxinxi14/DockStart/releases/tag/v1.0.4) 下载 `DockStart_1.0.4_Assisted_x64-setup.exe`，安装前核对 SHA256。
 
 安装包未做数字签名，Windows 可能提示未知发布者。核对来源和哈希，不需要关闭安全软件：
 
@@ -24,35 +26,52 @@ Get-FileHash -Algorithm SHA256 -LiteralPath .\DockStart_1.0.4_Assisted_x64-setup
 c495a08184817aa1619116957def9d0d3b30dc9e2d469e638e04565b95253ee2
 ```
 
-安装后先打开工具链检测。普通 Vina 对接使用随包工具，不需要自己安装系统 Python、RDKit 或 AutoGrid4。Assisted 随附准备工具，可尝试从原始结构生成 PDBQT；工具检测通过不代表每个结构都能自动准备成功。
+安装后打开「工具链」并检测。普通 Vina 对接使用随包工具，无需另装 Python、RDKit 或 AutoGrid4。
 
 ## 2. 先用示例熟悉操作
 
 ![v1.0.4 实际帮助与入门页](../../static/img/releases/v1.0.4-help.png)
 
-在帮助页点击「打开示例入口」，进入「示例项目（快速体验）」，把示例复制到自己的可写目录。已有结果示例用于认识构象和报告；小型对接示例用于体验设置与运行，不是科研准确率证据。
+在帮助页点击「打开示例入口」，把示例复制到自己的可写目录。已有结果示例可用于认识构象与报告；小型对接示例可练习设置与运行。
 
 ## 3. 创建自己的项目
 
 左侧进入「项目」，指定独立保存目录。已有受体/配体 PDBQT 可直接导入；原始受体接受 PDB/CIF，配体接受 SDF/MOL/单分子 MOL2，具体限制见 [支持格式表](../appendix/supported-formats.md)。
 
-转换后检查质子化、电荷、手性、缺失残基、水、金属及链选择。若准备失败，阅读中文错误和原始日志，修正结构或在外部准备 PDBQT 后再导入。
+转换后检查质子化、电荷、手性、缺失残基、水、金属与链选择。若准备失败，按中文错误提示修正结构，或在外部准备 PDBQT 后导入。
 
 ## 4. 设置对接箱体与参数
 
-依据共晶配体、实验或文献确定搜索范围；「定位到受体」只是几何定位，不会预测结合口袋。检查中心、尺寸、评分方式、搜索彻底程度和随机种子。第一次运行使用普通 Vina 全局对接；AutoGrid4 缺失不会阻塞这一流程。
+第一次练习可按 [1IEP 案例](../part-b/cases/basic-docking-1iep.md) 填写箱体和参数。使用自己的结构时，根据共晶配体或文献定位目标位点，在三维视图中确认箱体覆盖它。选择普通 Vina 全局对接，保存参数并重新检查。
 
 ## 5. 运行与保存
 
-查看运行前检查，解决阻塞项后运行。软件保存输入快照、配置、工具版本、命令与日志；结束后查看构象和评分，导出 CSV 与 Markdown 实验记录。
-
-评分表中的 RMSD l.b./u.b. 相对本次 Mode 1，不是与实验结构的验证 RMSD。
+解决运行前的阻塞项后，点击开始对接。结束后查看构象与评分，导出 CSV 和 Markdown 实验记录。<NoteRef number={2}/>
 
 ## 6. 接着读什么
 
-- [1IEP 完整案例](../part-b/cases/basic-docking-1iep.md)：历史 v1.0.3 操作与结果明确标注，第一张入口截图已更新为 v1.0.4。
-- [安装、更新与数据安全](./install-update-data-safety.md)：备份整个项目目录；当前没有自动更新。
+- [1IEP 完整案例](../part-b/cases/basic-docking-1iep.md)：跟着截图完成一次对接。
+- [安装、更新与数据安全](./install-update-data-safety.md)：升级与备份项目。
 - [结构准备 FAQ](./faq-structure-preparation.md) 与 [常见错误](./common-errors-and-recovery.md)。
-- [完整发布说明和验证记录](https://github.com/xuxinxi14/DockStart/blob/main/docs/release/v1_0_4_release_notes.md)：保留历史候选构建事实和未完成项。
 
-**Docking score 仅供结构结合趋势参考，不能替代实验验证。** 更低分数不能证明真实结合、药效、安全性或临床价值。
+<DocNotes>
+
+<DocNote number={1} title="版本与下载说明">
+
+v1.0.4 本次公开下载仅有 Assisted EXE，大小为 74,017,034 bytes；已有 PDBQT 可直接使用。Basic / MSI 未作为公开下载。完整安装、升级、卸载、GUI 和科学发布验收仍待完成，详见 [发布说明与验证记录](https://github.com/xuxinxi14/DockStart/blob/main/docs/release/v1_0_4_release_notes.md)。
+
+本页帮助截图来自 v1.0.4；案例页的历史截图与运行来源见各页注释。内置示例用于学习操作。
+
+</DocNote>
+
+<DocNote number={2} title="结构与结果说明">
+
+工具检测通过不保证每个输入都能准备成功。自动准备后仍需人工检查结构；「定位到受体」仅调整几何视角，不会预测结合口袋。软件保存输入快照、配置、工具版本、命令与日志，便于复查。
+
+评分表的 RMSD l.b./u.b. 相对本次 Mode 1。与实验共晶结构比较时，需另做姿势验证，详见 [如何解读结果](./interpreting-results.md)。
+
+Docking score 仅供结构结合趋势参考，不能替代实验验证。更低分数不能证明真实结合、药效、安全性或临床价值。
+
+</DocNote>
+
+</DocNotes>

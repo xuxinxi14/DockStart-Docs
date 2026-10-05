@@ -3,9 +3,9 @@ title: "Energy Range"
 sidebar_position: 4
 ---
 
-# Energy Range
+import DocNotes, {DocNote, NoteRef} from '@site/src/components/DocNotes';
 
-## 简单概括
+# Energy Range
 
 Energy Range 设定“比最优 mode 差多少 kcal/mol 以内的构象才写入输出文件”，默认值为 3 kcal/mol；它是输出过滤条件，不是搜索彻底程度。日志评分行数可能多于实际保存的构象数量。
 
@@ -80,7 +80,7 @@ energy_range
 
 ## 在 DockStart 中
 
-**先区分评分表和结构文件。** DockStart v1.0.4 可从 Vina 日志解析 `scores.csv`；Vina 1.2.7 在打印候选评分后，写结构文件时另按 `energy_range` 过滤。因此一条评分记录不保证存在可加载的构象坐标，实际结构数量以 `out.pdbqt` 中的 `MODEL` 数量为准。相关实现见 [Vina 1.2.7 的 global_search 与 get_poses](https://github.com/ccsb-scripps/AutoDock-Vina/blob/v1.2.7/src/lib/vina.cpp)。
+评分表的行数可能多于实际保存的构象。查看结构时，以 `out.pdbqt` 中的 `MODEL` 数量为准。<NoteRef number={1}/>
 
 例如，某次 1IEP 演示使用 `num_modes=9`、`energy_range=4`：日志有 9 条评分，最佳评分约 -13.2；输出文件实际保存 5 个构象。后续候选评分超出保存范围时，不能把它们计为已保存构象。这个数量是该次运行的事实，不是每次运行都会得到的固定结果。
 
@@ -90,13 +90,15 @@ energy_range
 - 确实需要观察更多备选构象时再调大；
 - 不要把评分更高直接解释成可靠程度更低；仍需结合构象、输入与验证判断。
 
----
+<DocNotes>
 
-## 总结
+<DocNote number={1} title="评分表与结构数量">
 
-Energy Range 决定哪些候选构象写入输出文件（默认相对最优值 3 kcal/mol）。日志评分表、CSV 行数与输出文件的 MODEL 数量应分别核对，不能用评分行数代替保存构象数。
+DockStart v1.0.4 可从日志解析 `scores.csv`；Vina 1.2.7 打印候选评分后，写结构时另按 `energy_range` 过滤。因此日志或 CSV 中有某个 mode，不保证它有可加载的坐标。实现见 [Vina 1.2.7 global_search 与 get_poses](https://github.com/ccsb-scripps/AutoDock-Vina/blob/v1.2.7/src/lib/vina.cpp)。
 
----
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

@@ -6,8 +6,6 @@ sidebar_label: "DockStart 支持格式表"
 
 # DockStart 支持格式表
 
-## 简单概括
-
 受体可导入 PDBQT，或从 PDB/CIF 准备；配体可导入 PDBQT，或从 SDF/MOL/MOL2 准备。SMILES 不在当前输入范围内。
 
 需要了解格式本身的区别，可以先看 [常见结构文件格式](../part-a/structure-and-files/structure-file-formats.md)。
@@ -160,12 +158,6 @@ CENTER
 | 批量筛选库里的 `.mol2` | 不支持 |
 | `.mae` / `.maegz`（Schrödinger） | 未找到任何实现 |
 | `.gz` / `.tar` / `.tgz` | 未找到任何实现（压缩只支持 `.zip`，且仅用于批量归档导出） |
-
----
-
-## 总结
-
-DockStart 的输入格式是刻意收窄的：受体与配体各只有少数几种可用格式，SMILES 不在其中；不在清单里的格式需要你先在外部转好再导入。
 
 ---
 

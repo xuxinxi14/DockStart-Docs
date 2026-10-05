@@ -1,9 +1,10 @@
 export type OfficialFile = {role: string; path: string};
-export type OfficialExample = {folder: string; note: string; files: OfficialFile[]};
+export type OfficialExample = {folder: string; instruction: string; note: string; files: OfficialFile[]};
 
 const basic: OfficialExample = {
   folder: 'basic_docking',
-  note: '从 PDB/SDF 开始时按正文准备结构；已有 PDBQT 可直接导入。solution 文件是官方准备结果，不等同于本次 DockStart 自动准备的输出。',
+  instruction: '已有 PDBQT 可直接导入；从 PDB/SDF 开始时，先按下文准备结构。',
+  note: 'solution 目录中的 PDBQT 是官方准备结果；从原始结构在 DockStart 中重新准备，可能得到不同的文件。',
   files: [
     {role: '原始受体（已加氢）', path: 'data/1iep_receptorH.pdb'},
     {role: '原始配体', path: 'data/1iep_ligand.sdf'},
@@ -13,7 +14,8 @@ const basic: OfficialExample = {
 };
 const multiple: OfficialExample = {
   folder: 'mulitple_ligands_docking',
-  note: '官方目录名确实拼作 mulitple_ligands_docking。P59 与 P69 是两个独立配体，请保留各自的文件与身份。',
+  instruction: '下载受体和 P59、P69 两份配体，保留两个配体各自的名称。',
+  note: '官方目录名拼作 mulitple_ligands_docking。P59 与 P69 是两个独立配体。',
   files: [
     {role: '原始受体（已加氢）', path: 'data/5x72_receptorH.pdb'},
     {role: '原始配体 P59', path: 'data/5x72_ligand_p59.sdf'},
@@ -28,7 +30,8 @@ export const officialExamples = {
   basic,
   flexible: {
     folder: 'flexible_docking',
-    note: '1FPU 案例的配体沿用 1iep_ligand.pdbqt。受体刚性部分与柔性侧链是两份配套文件；使用官方拆分结果时必须保持配套，不能将柔性侧链当作配体。',
+    instruction: '配体使用 1iep_ligand.pdbqt。rigid 与 flex 是配套的受体文件，请一起保留。',
+    note: '1FPU 案例复用 1IEP 的配体。flex 文件记录受体柔性侧链，不能放入配体槽位。',
     files: [
       {role: '原始受体（已加氢）', path: 'data/1fpu_receptorH.pdb'},
       {role: '准备后的配体', path: 'data/1iep_ligand.pdbqt'},
@@ -38,12 +41,14 @@ export const officialExamples = {
   },
   batch: {
     ...multiple,
-    note: '本页批量演示复用官方 5X72 多配体示例的输入，分别运行 P59 与 P69。它们不是官方独立的 batch 数据集，也不是本页批量结果的官方参考答案。',
+    instruction: '将 P59、P69 两份配体一起导入配体库，随后逐个运行。',
+    note: '本页批量演示复用官方 5X72 多配体示例的输入。官方未提供独立的 batch 数据集或本页批量结果的参考答案。',
   },
   multiple,
   macrocycle: {
     folder: 'docking_with_macrocycles',
-    note: '原始配体为 MOL2；若选择官方 PDBQT，保留其中的断环与伪原子信息。准备策略与结果偏差仍需按正文核对。',
+    instruction: '从 MOL2 开始时，按下文审查断环方案；直接用 PDBQT 时，保留其中的伪原子。',
+    note: '官方 PDBQT 已包含大环断环与伪原子信息。重新准备时，应一并记录断环方案和扭转数。',
     files: [
       {role: '原始受体（已加氢）', path: 'data/BACE_1_receptorH.pdb'},
       {role: '原始大环配体', path: 'data/BACE_1_ligand.mol2'},
@@ -53,7 +58,8 @@ export const officialExamples = {
   },
   hydrated: {
     folder: 'hydrated_docking',
-    note: '水合对接使用专用 AD4 协议；不能将该协议的准备结果与普通 Vina/Vinardo 对接混用。配体质子化、候选水和水分子 map 仍需按正文检查。',
+    instruction: '这些文件用于水合 AD4，请按下文进入水合向导。',
+    note: '水合准备结果属于专用 AD4 协议，不与普通 Vina/Vinardo 混用。使用前仍需核对配体质子化、候选水和水分子 map。',
     files: [
       {role: '原始受体（已加氢）', path: 'data/1uw6_receptorH.pdb'},
       {role: '原始配体', path: 'data/1uw6_ligand.sdf'},
@@ -63,11 +69,13 @@ export const officialExamples = {
   },
   ad4: {
     ...basic,
-    note: '与 Basic Docking 使用同一组 1IEP 结构。AD4 还需要匹配的 affinity maps；结构文件不能代替 maps，也不能跨评分协议混用。',
+    instruction: '导入这组 1IEP 结构后，还需按下文生成 AD4 maps。',
+    note: '本页与 Basic Docking 使用同一组 1IEP 结构。AD4 需要匹配的 affinity maps，分数不与 Vina/Vinardo 直接比较。',
   },
   zinc: {
     folder: 'docking_with_zinc_metalloproteins',
-    note: '这里提供官方 1S63 参考输入，不表示 DockStart 已完成本例的实测验证。protein_tz.pdbqt 含专用 TZ 伪原子；使用前需核对 AD4Zn 参数与 AutoGrid4 兼容性。',
+    instruction: '使用前需配置 AutoGrid4 4.2.7+，并准备 AD4Zn.dat 参数文件。',
+    note: '这里提供官方 1S63 参考输入；DockStart 的逐步操作和实测验证尚未完成。protein_tz.pdbqt 含专用 TZ 伪原子。',
     files: [
       {role: '原始受体（已加氢）', path: 'data/proteinH.pdb'},
       {role: '原始配体', path: 'data/1s63_ligand.sdf'},

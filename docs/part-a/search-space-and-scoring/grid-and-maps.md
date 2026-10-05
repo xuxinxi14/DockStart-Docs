@@ -5,8 +5,6 @@ sidebar_position: 2
 
 # Grid / Maps
 
-## 简单概括
-
 Grid / Maps 是将受体周围的三维空间转换成计算可处理的相互作用信息；不同 docking 工作流对它们的使用方式不同。
 
 ---
@@ -127,12 +125,6 @@ Box 更偏向于**搜索范围的定义**，Grid/Maps 更偏向于**计算表示
 不需要自己手动制作传统 AutoDock4 grid maps。
 
 而在后面的 **AutoDock4 Maps Workflow** 中，Grid / Maps 就会成为实际操作的重要内容。
-
----
-
-## 总结
-
-Grid 是对三维空间进行计算表示的一种方式，Maps 则保存空间中与不同原子类型相关的相互作用信息；普通 Vina 会内部处理所需的网格信息，而 AutoDock4 工作流通常需要由 AutoGrid4 生成外部 maps。
 
 ---
 

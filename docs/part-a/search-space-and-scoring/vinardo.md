@@ -5,8 +5,6 @@ sidebar_position: 5
 
 # Vinardo
 
-## 简单概括
-
 Vinardo 是一种基于 Vina 的替代评分函数，通过简化和重新参数化部分相互作用项，形成与默认 Vina scoring 不同的计算模型。
 
 Vinardo 的名称来自 **Vina RaDii Optimized**。它是在 Vina 思路基础上发展出来的评分函数，并可作为 AutoDock Vina 的可选 scoring function 使用。([PubMed Central (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC4865195/))
@@ -121,12 +119,6 @@ DockStart 后面的高级工作流可能允许用户选择不同的 scoring func
 > **换 scoring function，就相当于换了一套评价 pose 的计算标准。**
 
 所以比较结果时，应该先确认使用的是哪一种 scoring function，而不能只看一个数字。
-
----
-
-## 总结
-
-Vinardo 是基于 Vina 发展出来的替代评分函数，通过修改位阻项、原子半径及其他参数形成不同的计算模型；它可以在 Vina 中作为可选 scoring function 使用，但其分数不应直接与 Vina 分数横向比较。
 
 ---
 

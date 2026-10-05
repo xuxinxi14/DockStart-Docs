@@ -5,8 +5,6 @@ sidebar_position: 1
 
 # 常见结构文件格式
 
-## 简单概括
-
 分子对接会接触多种结构文件格式，它们保存的信息各有侧重；对 DockStart 用户来说，最重要的是知道这些文件分别保存什么，以及它们最终怎样进入 docking 工作流。
 
 ---
@@ -117,12 +115,6 @@ Docking 结果
 ```
 
 Meeko 提供了受体和配体的准备工具，用于生成 Vina 可以使用的 PDBQT。([Meeko Documentation](https://meeko.readthedocs.io/en/develop/tutorial1.html))
-
----
-
-## 总结
-
-PDB/mmCIF、SDF、MOL、MOL2 等是常见结构文件，而 PDBQT 是 AutoDock/Vina 工作流中的重要输入格式；DockStart 的结构准备，就是把合适的原始结构转换成 docking 可以使用的形式。
 
 ---
 

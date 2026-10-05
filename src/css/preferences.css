@@ -15,3 +15,16 @@
 .guide-references[open] > summary {border-bottom: 1px solid var(--guide-line)}
 .guide-references > ol, .guide-references > ul, .guide-references > p, .guide-references > div {margin: 16px 20px 20px}
 .guide-references > ol, .guide-references > ul {padding-left: 24px; font-size: 14px; line-height: 1.8}
+
+.guide-note-ref {margin-left: .3em; font-size: .7em; line-height: 0; white-space: nowrap}
+.guide-notes {margin: 2rem 0 1rem; padding: 0; border: 0; border-top: 1px solid var(--guide-line); border-radius: 0; background: transparent; color: var(--guide-muted)}
+.guide-notes > summary {padding: 14px 0; color: var(--guide-muted); font-size: 14px; font-weight: 500; cursor: pointer; scroll-margin-top: calc(var(--ifm-navbar-height) + 24px)}
+.guide-notes > summary::marker {color: var(--guide-muted)}
+.guide-notes > ol {margin: 6px 0 20px; padding-left: 24px; font-size: 14px; line-height: 1.8}
+.guide-notes > ol > li {padding-left: 4px; margin: 0 0 22px; scroll-margin-top: calc(var(--ifm-navbar-height) + 24px)}
+.guide-notes .guide-notes__label {margin-bottom: 6px; color: var(--guide-ink)}
+.guide-notes p {margin-bottom: 10px}
+.guide-notes li > div > :last-child {margin-bottom: 0}
+.guide-notes table, .guide-notes pre {font-size: 13px}
+.guide-notes a {overflow-wrap: anywhere}
+.guide-notes :focus-visible {outline: 2px solid var(--guide-accent); outline-offset: 4px}

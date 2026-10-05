@@ -6,8 +6,6 @@ sidebar_label: "三种计算任务"
 
 # 三种计算任务：Global Docking / Score Only / Local Optimization
 
-## 简单概括
-
 先确定你要解决的是“找姿势”“评价已有姿势”，还是“微调已有姿势”，再选择运行模式。三种任务的输入、搜索范围和输出含义不同。
 
 ---
@@ -29,7 +27,3 @@ sidebar_label: "三种计算任务"
 第一次使用，先阅读 [受体与配体](../part-a/docking-components/receptor.md)、[搜索框](../part-a/search-space-and-scoring/search-box.md) 与 [Basic Docking — 1IEP](./cases/basic-docking-1iep.md)。
 
 已有共晶或人工准备的输入姿势时，再读 [Global / Score / Local FAQ](../part-c/faq-task-types.md)；那里详细解释前后评分、输出文件、输入确认和位移指标。
-
-## 总结
-
-按研究问题选任务，记录输入结构与评分函数，并只在同一协议条件下解读分数差异。

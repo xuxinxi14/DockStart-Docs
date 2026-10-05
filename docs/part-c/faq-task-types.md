@@ -4,9 +4,9 @@ sidebar_position: 6
 sidebar_label: "Global / Score / Local FAQ"
 ---
 
-# Global / Score / Local FAQ
+import DocNotes, {DocNote, NoteRef} from '@site/src/components/DocNotes';
 
-## 简单概括
+# Global / Score / Local FAQ
 
 这三种计算任务做的不是同一件事：全局对接是"去把构象找出来"，姿势评分是"给一个已有构象打分"，局部优化是"在已有构象附近小幅松一松"。它们互相替代不了，结果也不能混着比。
 
@@ -104,28 +104,7 @@ Vina 用当前评分函数给它打分
 
 ## 用评分或局部优化时，必须先确认输入姿势
 
-这是 DockStart 的一条强制要求，也是很容易被跳过的一步。
-
-只要任务不是全局对接，运行前你必须**在 3D 视图里确认当前姿势**。这个确认动作会：
-
-- 把本次运行实际使用的**刚性受体**、可选的**柔性侧链**、以及**配体 PDBQT** 的 SHA256 绑在一起；
-- 任意一个输入文件被换掉，确认**立即失效**；
-- 真正开始运行时，再核对一遍确认记录和不可变输入快照。
-
-```text
-确认输入姿势
-   ↓
-绑定三份文件的 SHA256
-   ↓
-任一文件被换掉 → 确认失效 → 必须重新确认
-```
-
-有一点要说清楚：
-
-> 这条记录只表示**你完成了一次复核**，不代表软件验证了这个姿势在科学上是正确的。
-
-另外，DockStart **不会自动证明**受体和配体用的是同一套坐标系 —— 这个也得你自己确认。
-
+在三维视图中检查受体与配体处于同一坐标系，并确认当前输入姿势。更换受体、柔性侧链或配体文件后，需要重新确认。<NoteRef number={1}/>
 ---
 
 ## 高级选项的适用范围
@@ -143,7 +122,7 @@ Vina 用当前评分函数给它打分
 | `autobox` | 稳定版 Vina 1.2.3 或更高 |
 | `unbound_energy` | 稳定版 Vina 1.2.4 或更高 |
 
-版本比较按语义化版本规则来，所以**预发布版本不算数**（比如 `1.2.4-rc1` 不满足 1.2.4 的门槛）。
+版本不满足时，按工具链提示更换兼容 Vina。<NoteRef number={2}/>
 
 ---
 
@@ -158,19 +137,27 @@ Vina 用当前评分函数给它打分
 
 ---
 
-## 总结
-
-Global Docking、Score Only、Local Optimization 回答的是三个不同的问题，不能互相替代、结果也不能混着比；用评分或局部优化前，先确认输入姿势本身就是你想要的那个。
-
----
-
 ## 相关页面
 
 - 结果怎么读：[如何正确解读结果](./interpreting-results.md)
 - 批量与多配体的区别：[Batch / Multiple / Flexible 的区别](./batch-multiple-flexible.md)
 - 参数含义：[Exhaustiveness](../part-a/search-and-parameters/exhaustiveness.md)、[Seed](../part-a/search-and-parameters/seed.md)
 
----
+<DocNotes>
+
+<DocNote number={1} title="姿势确认的记录">
+
+确认绑定刚性受体、可选柔性侧链及配体 PDBQT 的 SHA256，运行前再与输入快照核对。该记录表示用户已复核输入，不表示软件已验证姿势的科学正确性。软件不会自动证明受体与配体在同一坐标系。
+
+</DocNote>
+
+<DocNote number={2} title="版本比较">
+
+专家选项按语义化版本校验，预发布版本不满足对应稳定版门槛；例如 `1.2.4-rc1` 不满足 `1.2.4` 的要求。
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

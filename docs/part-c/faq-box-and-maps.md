@@ -6,8 +6,6 @@ sidebar_label: "Box 与 Maps FAQ"
 
 # Box 与 Maps FAQ
 
-## 简单概括
-
 Box 定义搜索区域。设置后要在 3D 视图中核对位置与尺寸；参数通过格式检查，仍可能没有覆盖目标结合位点。
 
 基础定义见 [Box](../part-a/search-space-and-scoring/search-box.md) 与 [Grid / Maps](../part-a/search-space-and-scoring/grid-and-maps.md)。
@@ -191,12 +189,6 @@ Grid/Maps  → 规定"空间中的相互作用信息怎么表示、怎么预计�
 ```
 
 第 6 步很关键：**很多所谓"Box 问题"，其实是结构准备或坐标问题。** 调到第 6 步就该换方向了。
-
----
-
-## 总结
-
-保存 Box 前，先在 3D 视图中确认它覆盖目标位点。更换受体或修改 Box 后，应重新生成或校验对应 maps，避免沿用已经不匹配的网格。
 
 ---
 

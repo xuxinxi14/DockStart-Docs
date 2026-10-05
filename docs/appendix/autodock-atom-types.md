@@ -6,8 +6,6 @@ sidebar_label: "AutoDock atom types 简表"
 
 # AutoDock atom types 简表
 
-## 简单概括
-
 AutoDock 体系里的 atom type 是"这个原子应该怎么参与计算"的分类，不等于元素符号。而且它有两套：AD4 一套（`C`、`A`、`OA`、`HD`…），Vina 内部一套（`C_H`、`N_D`、`O_A`、`Met_D`…），两者的命名方式完全不同，不能混着理解。
 
 这一页只做清单和对照。概念解释见 [Atom Types](../part-a/search-space-and-scoring/atom-types.md)。
@@ -206,12 +204,6 @@ H   HD
 ```
 
 这两种在多配体共同对接的输入校验中被当作氢来处理。这也和 Vina 官方的说法一致 —— **输出中氢原子的位置不具物理意义**，不要拿去做结论。
-
----
-
-## 总结
-
-Atom type 是面向计算的分类而不是元素标签；AD4 与 Vina 各有一套命名，含义和写法都不同，不能互相对照使用。
 
 ---
 

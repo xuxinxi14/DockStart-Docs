@@ -5,8 +5,6 @@ sidebar_position: 6
 
 # AutoDock Vina
 
-## 简单概括
-
 AutoDock Vina 是一个 docking engine，用来在指定的搜索空间中寻找配体与受体可能的结合构象，并对这些构象进行评分。
 
 Vina 是 AutoDock 系列中的独立 docking 程序，使用 PDBQT 结构输入，并通过搜索和评分得到多个候选结合模式。([AutoDock Vina](https://vina.scripps.edu/manual/))
@@ -93,12 +91,6 @@ DockStart 最终需要调用 docking engine 来完成计算，而 AutoDock Vina 
 > **DockStart 是工作流工具，Vina 是执行 docking 计算的核心引擎。**
 
 两者不是同一个层级的软件。
-
----
-
-## 总结
-
-AutoDock Vina 是真正执行 docking 搜索和评分的核心程序；它接收准备好的结构和搜索空间，并输出多个候选 docking pose 及其计算结果。
 
 ---
 

@@ -5,8 +5,6 @@ sidebar_position: 4
 
 # Vina scoring
 
-## 简单概括
-
 Vina scoring 是 AutoDock Vina 默认使用的经验评分函数，用来根据受体和配体之间的相互作用以及配体构象等因素，对候选 pose 进行评价。
 
 ---
@@ -124,12 +122,6 @@ affinity + pose 排序
 > **这个 pose 在 Vina 评分模型下得到的计算结果。**
 
 后面的“理解结果”章节还会专门讨论怎样正确解释这个分数。
-
----
-
-## 总结
-
-Vina scoring 是 Vina 用来评价候选 pose 的经验评分模型，它综合考虑原子间空间接触、排斥、疏水作用、氢键相关作用和配体柔性等因素，并输出用于 pose 排序的计算 affinity；它不是实验测得的真实结合自由能。
 
 ---
 

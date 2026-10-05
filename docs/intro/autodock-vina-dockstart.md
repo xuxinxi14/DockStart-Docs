@@ -6,8 +6,6 @@ sidebar_label: "AutoDock Suite、AutoDock Vina 与 DockStart"
 
 # AutoDock Suite、AutoDock Vina 与 DockStart
 
-## 简单概括
-
 AutoDock Suite 是一组用于分子对接相关研究的工具体系，AutoDock Vina 是其中的一种 docking 引擎，而 DockStart 则是在此基础上整理和简化相关工作流程的桌面软件。
 
 ---
@@ -130,12 +128,6 @@ DockStart 的作用，就是把这些步骤组织成用户可以操作的工作�
 > **Vina 是主要的 docking 引擎，DockStart 是使用它的桌面工作环境。**
 
 至于 AutoDock 4、AutoGrid4、Grid Maps 等内容，可以在需要进行相应高级工作流时再进一步了解。
-
----
-
-## 总结
-
-AutoDock Suite 是 AutoDock 系列工具体系，AutoDock 4 和 AutoDock Vina 是其中不同的 docking 引擎；DockStart 则将 Vina 以及部分 AutoDock 4 / AutoGrid4 工作流整理成更容易使用的桌面操作流程。
 
 ---
 

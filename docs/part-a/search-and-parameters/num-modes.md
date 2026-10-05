@@ -5,8 +5,6 @@ sidebar_position: 3
 
 # Num Modes
 
-## 简单概括
-
 Num Modes 设定 Vina 最多输出多少个结合模式（binding mode）；默认值为 9，但它只是“上限”，实际输出可能更少。
 
 ---
@@ -94,12 +92,6 @@ energy_range   →  能量差多大以内的才保存
 - `num_modes` 设成了多少；
 - `energy_range` 是否偏小；
 - 搜索本身是否找到了多个有区别的模式。
-
----
-
-## 总结
-
-Num Modes 是 Vina 输出结合模式数量的上限（默认 9），实际输出数量还会被 energy_range 过滤、并被 min_rmsd 去重；mode 多不等于结论更可靠。
 
 ---
 

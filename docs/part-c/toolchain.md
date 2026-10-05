@@ -6,8 +6,6 @@ sidebar_label: "工具链"
 
 # 工具链
 
-## 简单概括
-
 DockStart 组织结构准备、搜索和结果记录：RDKit、Meeko 处理结构，AutoDock Vina 执行搜索与评分，AutoGrid4 为 AD4 maps 协议预计算网格。
 
 ---
@@ -172,12 +170,6 @@ DockStart 只做三件事：
 只需要跑已有 PDBQT 的对接？忽略它就行
 需要从 PDB/SDF 开始准备？配一个外部的 conda 环境即可
 ```
-
----
-
-## 总结
-
-DockStart 自己不做 docking 计算，它把 RDKit、Meeko、Vina（以及 AD4 maps 协议下的 AutoGrid4）串成一条流水线；工具缺失或版本不符时，它给的是状态提示，而不是替代实现。
 
 ---
 

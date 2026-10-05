@@ -4,9 +4,9 @@ sidebar_position: 9
 sidebar_label: "如何正确解读结果"
 ---
 
-# 如何正确解读结果
+import DocNotes, {DocNote, NoteRef} from '@site/src/components/DocNotes';
 
-## 简单概括
+# 如何正确解读结果
 
 DockStart 给出的 pose、affinity、RMSD 都是计算模型的结果，不是实验测量。它们可以帮你在同一个模型里比较和排序，但不能直接当成"能结合""亲和力是多少""药效好坏"的证据。
 
@@ -185,20 +185,6 @@ RMSD l.b. / u.b. = 这条 pose 相对 Mode 1 差多少
 
 ---
 
-## 科学边界
-
-DockStart 输出的 docking score 只表示在特定输入结构、特定对接箱体、特定参数和特定 AutoDock Vina 版本下算出来的结果。
-
-> **Docking score 只供结构结合趋势参考，不能替代实验验证，也不能证明真实结合、药效、安全性或临床价值。**
-
----
-
-## 总结
-
-pose、affinity、RMSD 只在同一个模型内部可比；它们能帮你排序和提出假设，但既不能证明结合，也不能当成实验亲和力或药效。
-
----
-
 ## 相关页面
 
 - Pose：[Pose](../part-a/understanding-results/pose.md)
@@ -209,7 +195,17 @@ pose、affinity、RMSD 只在同一个模型内部可比；它们能帮你排序
 - 整体科学边界：[科学边界](../part-a/understanding-results/scientific-limits.md)
 - 两次结果为什么不一样：[为什么结果不一致](./why-results-differ.md)
 
----
+<DocNotes>
+
+<DocNote number={1} title="结果的科学用途">
+
+DockStart 的评分描述特定输入结构、对接箱体、参数与 Vina 版本下的计算结果。
+
+Docking score 仅供结构结合趋势参考，不能替代实验验证，也不能证明真实结合、药效、安全性或临床价值。
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

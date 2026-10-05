@@ -6,8 +6,6 @@ sidebar_label: "Vina 参数速查表"
 
 # Vina 参数速查表
 
-## 简单概括
-
 DockStart 里真正作为命令行参数传给 Vina 的只有少数几个（`--maps`、`--scoring`、`--score_only`、`--local_only`、`--out`、`--autobox`、`--flex`），其余全部写进配置文件，由 `vina --config <文件>` 读取。
 
 这一页列出全部可配置参数的定义、默认值、边界和适用条件。想理解"为什么要这样设"，看 [搜索与参数](../part-a/search-and-parameters/vina-search-process.md) 各篇；想知道"设错了怎么排查"，看 [Box 与 Maps FAQ](../part-c/faq-box-and-maps.md)。
@@ -171,12 +169,6 @@ Box 不是一个"想设多大就设多大"的参数，因为它对应真实的�
 | 完整的参数表单（含适用性过滤与高级开关） | 运行准备页 |
 
 **"适用性过滤"值得注意**：界面会按当前的运行模式和协议，把不适用的参数隐藏或禁用。所以"某个选项找不到"往往不是 bug，而是当前模式不支持它 —— 具体的禁用组合见 [高级协议的适用范围](../part-c/advanced-protocols.md)。
-
----
-
-## 总结
-
-排查参数问题优先看配置文件而不是命令行；同时记住单项目与批量筛选在 scoring 白名单、energy_range、cpu 和 seed 上存在真实差异。
 
 ---
 

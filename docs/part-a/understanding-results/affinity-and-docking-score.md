@@ -5,8 +5,6 @@ sidebar_position: 2
 
 # Affinity / Docking Score
 
-## 简单概括
-
 Affinity 是 Vina 评分函数给出的预测数值，单位是 kcal·mol⁻¹；它是计算模型的结果，不是实验测得的结合自由能。
 
 ---
@@ -100,12 +98,6 @@ Affinity = -7.4 kcal·mol⁻¹
 > **这个 pose 在 Vina 评分模型下得到的计算结果。**
 
 而不是“这个分子真实结合的结合自由能是 −7.4”。
-
----
-
-## 总结
-
-Affinity 是 Vina 评分函数对每个 pose 计算出的预测值（kcal·mol⁻¹），可以在同一模型内用于比较和排序候选 pose，但它不是实验测得的结合自由能，也不能跨评分函数直接比较。
 
 ---
 

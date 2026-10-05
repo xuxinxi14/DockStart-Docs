@@ -6,8 +6,6 @@ sidebar_label: "主流 Docking 软件"
 
 # 主流 Docking 软件
 
-## 简单概括
-
 分子对接领域存在多种 docking 软件，它们在搜索方法、评分函数、支持的工作流程和使用方式上有所不同；DockStart 主要围绕 AutoDock Vina / AutoDock Suite 工作流展开。
 
 ---
@@ -129,12 +127,6 @@ DockStart 将 Vina 的 docking 工作流整理成更适合桌面使用的操作�
 因此：
 
 > **学习 DockStart 时，首先需要理解的是 Vina 的基本概念和工作方式。**
-
----
-
-## 总结
-
-Docking 软件有很多种，它们采用不同的算法和评分方法；DockStart 主要围绕 AutoDock Vina，同时保留部分 AutoDock4 / AutoGrid4 高级工作流。
 
 ---
 

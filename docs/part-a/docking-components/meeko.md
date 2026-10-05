@@ -5,8 +5,6 @@ sidebar_position: 5
 
 # Meeko
 
-## 简单概括
-
 Meeko 是 AutoDock/Vina 工作流中的结构准备工具，主要负责把受体和配体处理成 docking 程序可以使用的输入形式。
 
 Meeko 官方文档提供了配体准备和受体准备工具，并支持命令行和 Python API。([Meeko](https://meeko.readthedocs.io/en/develop/lig_overview.html))
@@ -108,12 +106,6 @@ DockStart 会调用相应的结构准备工具，把用户提供的结构转换�
 > “配体准备”
 
 这背后通常就涉及 Meeko 这样的工具。
-
----
-
-## 总结
-
-Meeko 连接了“原始分子结构”和“Docking 程序输入”两个环节，它主要负责受体和配体的结构准备与参数化，而不负责真正执行 docking 搜索。
 
 ---
 
