@@ -85,6 +85,7 @@ button, input {font: inherit}
 .navbar .dropdown__link {font-size: 14px; padding: 8px 12px}
 .navbar .dropdown__link--active {color: var(--guide-accent)}
 html[lang='en'] .navbar__link {padding-inline: 12px}
+html[lang='en'] .navbar-sidebar__brand .guide-brand__description {display: none}
 .navbar__item svg[class*='iconExternalLink'] {display: none}
 .navbar-sidebar {background: var(--ifm-background-color)}
 .navbar-sidebar__brand {box-shadow: none; border-bottom: 1px solid var(--guide-line)}
@@ -274,6 +275,10 @@ html[lang='en'] .guide-chapter ul {grid-template-columns: repeat(3, minmax(0, 1f
   .guide-search-page h1 {font-size: 32px}
 }
 @media(prefers-reduced-motion: reduce) {html {scroll-behavior: auto}}
+
+@media(max-width: 360px) {
+  html[lang='en'] .guide-brand__description {display: none}
+}
 
 @media(min-width: 997px) and (max-width: 1150px) {
   html[lang='en'] .guide-brand__description {display: none}
