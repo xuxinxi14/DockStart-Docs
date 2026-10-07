@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState, type ReactNode, type PointerEvent, type KeyboardEvent} from 'react';
 import OriginalSidebar from '@theme-original/DocRoot/Layout/Sidebar';
 import type {Props} from '@theme/DocRoot/Layout/Sidebar';
+import useGuideLocale from '../../../../components/useGuideLocale';
 
 const minimum=224;
 const defaultWidth=296;
@@ -8,6 +9,7 @@ const storageKey='dockstart-guide-sidebar-width';
 const maximum=()=>Math.min(480, Math.max(minimum,Math.floor(window.innerWidth*.43)));
 
 export default function ResizableSidebar(props:Props):ReactNode {
+  const {t} = useGuideLocale();
   const [width,setWidth]=useState(defaultWidth);
   const [maxWidth,setMaxWidth]=useState(480);
   const drag=useRef<{pointerId:number;startX:number;startWidth:number}|null>(null);
@@ -40,7 +42,7 @@ export default function ResizableSidebar(props:Props):ReactNode {
     const next=event.key==='ArrowLeft'?width-increment:event.key==='ArrowRight'?width+increment:event.key==='Home'?minimum:event.key==='End'?maximum():null;
     if(next!==null){event.preventDefault();apply(next,true)}
   };
-  return <><OriginalSidebar {...props}/>{!props.hiddenSidebarContainer&&<div className="guide-sidebar-resizer" role="separator" aria-label="调整左侧目录宽度" aria-orientation="vertical" aria-valuemin={minimum} aria-valuemax={maxWidth} aria-valuenow={Math.round(width)} aria-valuetext={`${Math.round(width)} 像素`} tabIndex={0} title="拖动调整目录宽度；双击恢复默认宽度" onDoubleClick={()=>apply(defaultWidth,true)} onKeyDown={keydown} onPointerDown={event=>{
+  return <><OriginalSidebar {...props}/>{!props.hiddenSidebarContainer&&<div className="guide-sidebar-resizer" role="separator" aria-label={t('调整左侧目录宽度', 'Resize the documentation sidebar')} aria-orientation="vertical" aria-valuemin={minimum} aria-valuemax={maxWidth} aria-valuenow={Math.round(width)} aria-valuetext={t(`${Math.round(width)} 像素`, `${Math.round(width)} pixels`)} tabIndex={0} title={t('拖动调整目录宽度；双击恢复默认宽度', 'Drag to resize the sidebar; double-click to reset')} onDoubleClick={()=>apply(defaultWidth,true)} onKeyDown={keydown} onPointerDown={event=>{
     if(event.button!==0)return;
     event.preventDefault();
     drag.current={pointerId:event.pointerId,startX:event.clientX,startWidth:current.current};

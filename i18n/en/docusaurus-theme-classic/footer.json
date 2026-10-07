@@ -1,0 +1,38 @@
+{
+  "link.title.阅读": {
+    "message": "Read",
+    "description": "The title of the footer links column with title=阅读 in the footer"
+  },
+  "link.title.项目": {
+    "message": "Project",
+    "description": "The title of the footer links column with title=项目 in the footer"
+  },
+  "link.item.label.入门概念": {
+    "message": "Getting started",
+    "description": "The label of footer link with label=入门概念 linking to /docs/intro/what-docking-solves"
+  },
+  "link.item.label.实战案例": {
+    "message": "Examples",
+    "description": "The label of footer link with label=实战案例 linking to /docs/part-b/cases/basic-docking-1iep"
+  },
+  "link.item.label.常见排错": {
+    "message": "Troubleshooting",
+    "description": "The label of footer link with label=常见排错 linking to /docs/part-c/common-errors-and-recovery"
+  },
+  "link.item.label.源代码": {
+    "message": "Source code",
+    "description": "The label of footer link with label=源代码 linking to https://github.com/xuxinxi14/DockStart"
+  },
+  "link.item.label.版本与发布": {
+    "message": "Releases",
+    "description": "The label of footer link with label=版本与发布 linking to https://github.com/xuxinxi14/DockStart/releases"
+  },
+  "link.item.label.反馈问题": {
+    "message": "Report an issue",
+    "description": "The label of footer link with label=反馈问题 linking to https://github.com/xuxinxi14/DockStart/issues"
+  },
+  "copyright": {
+    "message": "DockStart Documentation · For learning and reproducing workflows · 2026",
+    "description": "The footer copyright"
+  }
+}

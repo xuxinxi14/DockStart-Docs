@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import {officialExamples, officialRepository, officialRevision, type OfficialExampleId} from '../data/officialExamples';
+import {getOfficialExample, officialRepository, officialRevision, type OfficialExampleId} from '../data/officialExamples';
+import useGuideLocale from './useGuideLocale';
 
 export function NoteRef({number = 1}: {number?: number}): React.JSX.Element {
-  return <sup className="guide-note-ref"><a href={`#doc-note-${number}`} aria-label={`查看注释 ${number}`} onClick={() => {
+  const {t} = useGuideLocale();
+  return <sup className="guide-note-ref"><a href={`#doc-note-${number}`} aria-label={t(`查看注释 ${number}`, `Read note ${number}`)} onClick={() => {
     const notes = document.getElementById(`doc-note-${number}`)?.closest('details');
     if (notes) notes.open = true;
   }}>[{number}]</a></sup>;
@@ -17,6 +19,7 @@ export function DocNote({number, title, children}: {number: number; title: strin
 }
 
 export default function DocNotes({example, children}: {example?: OfficialExampleId; children: React.ReactNode}): React.JSX.Element {
+  const {t, isEnglish} = useGuideLocale();
   const manifestUrl = useBaseUrl('/example-inputs-manifest.json');
   useEffect(() => {
     const revealNote = () => {
@@ -33,15 +36,15 @@ export default function DocNotes({example, children}: {example?: OfficialExample
     return () => window.removeEventListener('hashchange', revealNote);
   }, []);
 
-  const entry = example ? officialExamples[example] : undefined;
+  const entry = example ? getOfficialExample(example, isEnglish) : undefined;
   const folder = entry ? `example/${entry.folder}` : '';
   return <details className="guide-notes">
-    <summary id="article-notes">注释</summary>
+    <summary id="article-notes">{t('注释', 'Notes')}</summary>
     <ol>
-      {entry && <DocNote number={1} title="示例文件来源">
+      {entry && <DocNote number={1} title={t('示例文件来源', 'Example file sources')}>
         <p>{entry.note}</p>
-        <p>下载链接固定于 AutoDock Vina 官方提交 <code>{officialRevision.slice(0, 12)}</code>；<a href={manifestUrl}>输入校验清单</a>记录文件大小与 SHA256。历史截图的输入未据此重新校验。</p>
-        <p><a href={`${officialRepository}/tree/${officialRevision}/${folder}`} target="_blank" rel="noopener noreferrer">官方示例目录</a> · <a href={`${officialRepository}/tree/${officialRevision}/${folder}/solution`} target="_blank" rel="noopener noreferrer">官方参考结果与配置</a></p>
+        <p>{t('下载链接固定于 AutoDock Vina 官方提交', 'Download links are pinned to the official AutoDock Vina commit')} <code>{officialRevision.slice(0, 12)}</code>{t('；', '. ')}<a href={manifestUrl}>{t('输入校验清单', 'The input manifest')}</a>{t('记录文件大小与 SHA256。历史截图的输入未据此重新校验。', ' records file sizes and SHA256 hashes. Inputs in historical screenshots have not been rechecked against this manifest.')}</p>
+        <p><a href={`${officialRepository}/tree/${officialRevision}/${folder}`} target="_blank" rel="noopener noreferrer">{t('官方示例目录', 'Official example directory')}</a> · <a href={`${officialRepository}/tree/${officialRevision}/${folder}/solution`} target="_blank" rel="noopener noreferrer">{t('官方参考结果与配置', 'Official reference results and configuration')}</a></p>
       </DocNote>}
       {children}
     </ol>

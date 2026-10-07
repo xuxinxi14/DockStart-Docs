@@ -25,6 +25,7 @@ Basic 的结构准备在外部完成，也需要做同样的检查。可以把�
 ## 受体用 PDB 还是 CIF？
 
 受体 PDB 和单模型 CIF 都可导入。多模型 CIF 需先在外部选定一个模型并保存。使用残基控制前，核对转换前后的链号与残基编号；转换失败时查看日志和 [支持格式表](../appendix/supported-formats.md)。<NoteRef number={1}/>
+
 ---
 
 ## 配体可以从 SMILES 来吗？

@@ -1,0 +1,46 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.入门概念": {
+    "message": "Getting started",
+    "description": "The label for category '入门概念' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.基础原理": {
+    "message": "Fundamentals",
+    "description": "The label for category '基础原理' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.分子结构与文件": {
+    "message": "Structures and files",
+    "description": "The label for category '分子结构与文件' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.对接的基本组成": {
+    "message": "Docking components",
+    "description": "The label for category '对接的基本组成' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.搜索空间与评分": {
+    "message": "Search space and scoring",
+    "description": "The label for category '搜索空间与评分' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.搜索与参数": {
+    "message": "Search and parameters",
+    "description": "The label for category '搜索与参数' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.理解结果": {
+    "message": "Understanding results",
+    "description": "The label for category '理解结果' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.实战案例": {
+    "message": "Worked examples",
+    "description": "The label for category '实战案例' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.使用与排错": {
+    "message": "Using DockStart",
+    "description": "The label for category '使用与排错' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.附录": {
+    "message": "Appendix",
+    "description": "The label for category '附录' in sidebar 'docs'"
+  }
+}

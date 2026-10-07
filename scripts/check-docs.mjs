@@ -22,7 +22,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const DOCS = path.join(ROOT, 'docs');
+const SOURCE_DOCS = path.join(ROOT, 'docs');
+const ENGLISH = process.argv.includes('--locale=en');
+const DOCS = ENGLISH ? path.join(ROOT, 'i18n/en/docusaurus-plugin-content-docs/current') : SOURCE_DOCS;
 const QUIET = process.argv.includes('--quiet');
 const SHOW_TREE = process.argv.includes('--tree') || !QUIET;
 
@@ -110,7 +112,8 @@ function walk(dir) {
   }
 
   if (dir !== DOCS) {
-    const catPath = path.join(dir, '_category_.json');
+    // Docusaurus uses the source category metadata for translated docs.
+    const catPath = path.join(ENGLISH ? path.join(SOURCE_DOCS, path.relative(DOCS, dir)) : dir, '_category_.json');
     if (!fs.existsSync(catPath)) {
       fail(`${rel(dir)}：目录缺少 _category_.json`);
     } else {
@@ -222,7 +225,7 @@ for (const full of docs.keys()) {
 
     if (p.startsWith('/')) {
       const rest = p.replace(/^\/+/, '').replace(/^docs\//, '');
-      if (!docTargetExists(rest)) {
+      if (!docTargetExists(rest) && !fs.existsSync(path.join(STATIC, rest))) {
         fail(`${rel(full)}：站内绝对链接失效 -> ${target}`);
       }
       continue;
@@ -284,7 +287,7 @@ function renderTree(node, prefix = '', isLast = true, isRoot = true) {
 /* -------------------------------- 输出 --------------------------------- */
 
 const catCount = categories.size;
-console.log('DockStart Documentation —— 结构检查');
+console.log(`DockStart Documentation —— ${ENGLISH ? '英文' : '中文'}结构检查`);
 console.log(`项目根目录：${ROOT}`);
 console.log(
   `统计：${docs.size} 个 Markdown 页面，${catCount} 个分类目录，` +

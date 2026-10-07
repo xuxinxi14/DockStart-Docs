@@ -81,6 +81,10 @@ button, input {font: inherit}
 .guide-brand__description {border-left: 1px solid var(--guide-line); margin-left: 24px; padding-left: 24px; font-size: 19px; color: var(--guide-muted); white-space: nowrap}
 .navbar__link {font-size: 15px; font-weight: 400; padding-inline: 18px; color: var(--guide-ink)}
 .navbar__link--active {color: var(--guide-accent)}
+.navbar .dropdown__menu {border: 1px solid var(--guide-line); border-radius: 3px; box-shadow: 0 8px 24px #0000000a; background: var(--ifm-background-color)}
+.navbar .dropdown__link {font-size: 14px; padding: 8px 12px}
+.navbar .dropdown__link--active {color: var(--guide-accent)}
+html[lang='en'] .navbar__link {padding-inline: 12px}
 .navbar__item svg[class*='iconExternalLink'] {display: none}
 .navbar-sidebar {background: var(--ifm-background-color)}
 .navbar-sidebar__brand {box-shadow: none; border-bottom: 1px solid var(--guide-line)}
@@ -105,6 +109,9 @@ button, input {font: inherit}
 .guide-chapter h3 {font-size: 27px; line-height: 1.3; margin: 0; border-right: 1px solid var(--guide-line)}
 .guide-chapter ul {list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: max-content max-content max-content; justify-content: space-between; gap: 16px; align-items: center; font-size: 16px; line-height: 1.7}
 .guide-chapter li {min-width: 0}
+html[lang='en'] .guide-chapter {grid-template-columns: 200px minmax(0, 1fr); gap: 24px}
+html[lang='en'] .guide-chapter h3 {font-size: 25px; padding-right: 14px; overflow-wrap: normal; word-break: normal}
+html[lang='en'] .guide-chapter ul {grid-template-columns: repeat(3, minmax(0, 1fr)); font-size: 15px}
 .guide-home__aside {border-left: 1px solid var(--guide-line); padding-left: 40px}
 .guide-home__aside h2 {font-size: 27px; margin: 0 0 17px; line-height: 1.5}
 .guide-featured__image {display: block}
@@ -228,6 +235,7 @@ button, input {font: inherit}
   .guide-chapter {display: block; padding-block: 22px}
   .guide-chapter h3 {border: 0; margin-bottom: 15px}
   .guide-chapter ul {grid-template-columns: repeat(2, minmax(0, 1fr))}
+  html[lang='en'] .guide-chapter ul {grid-template-columns: repeat(2, minmax(0, 1fr))}
   .guide-directory > h2 {font-size: 32px}
   .theme-doc-markdown {font-size: 16px}
 }
@@ -266,3 +274,8 @@ button, input {font: inherit}
   .guide-search-page h1 {font-size: 32px}
 }
 @media(prefers-reduced-motion: reduce) {html {scroll-behavior: auto}}
+
+@media(min-width: 997px) and (max-width: 1150px) {
+  html[lang='en'] .guide-brand__description {display: none}
+  .navbar__link {padding-inline: 12px}
+}

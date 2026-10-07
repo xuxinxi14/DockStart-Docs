@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "DockStart",
+    "description": "The title in the navbar"
+  },
+  "item.label.全部文档": {
+    "message": "Docs",
+    "description": "Navbar item with label 全部文档"
+  },
+  "item.label.实战案例": {
+    "message": "Examples",
+    "description": "Navbar item with label 实战案例"
+  },
+  "item.label.下载与开始": {
+    "message": "Get started",
+    "description": "Navbar item with label 下载与开始"
+  },
+  "item.label.搜索": {
+    "message": "Search",
+    "description": "Navbar item with label 搜索"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

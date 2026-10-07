@@ -1,4 +1,22 @@
-export type OfficialFile = {role: string; path: string};
+const englishRoles = {
+  '原始受体（已加氢）': 'Original receptor (with hydrogens)',
+  '原始配体': 'Original ligand',
+  '准备后的受体': 'Prepared receptor',
+  '准备后的配体': 'Prepared ligand',
+  '原始配体 P59': 'Original ligand P59',
+  '原始配体 P69': 'Original ligand P69',
+  '准备后的配体 P59': 'Prepared ligand P59',
+  '准备后的配体 P69': 'Prepared ligand P69',
+  '受体刚性部分': 'Rigid receptor portion',
+  '受体柔性侧链': 'Flexible receptor side chains',
+  '原始大环配体': 'Original macrocyclic ligand',
+  '准备后的大环配体': 'Prepared macrocyclic ligand',
+  '官方配体 PDBQT': 'Official ligand PDBQT',
+  '含 TZ 的受体': 'Receptor with TZ pseudoatoms',
+  'AD4Zn 参数（非结构）': 'AD4Zn parameters (not a structure)',
+};
+
+export type OfficialFile = {role: keyof typeof englishRoles; path: string};
 export type OfficialExample = {folder: string; instruction: string; note: string; files: OfficialFile[]};
 
 const basic: OfficialExample = {
@@ -87,5 +105,50 @@ export const officialExamples = {
 } satisfies Record<string, OfficialExample>;
 
 export type OfficialExampleId = keyof typeof officialExamples;
+
+const englishExamples: Record<OfficialExampleId, {instruction: string; note: string}> = {
+  basic: {
+    instruction: 'Import existing PDBQT files directly, or prepare the PDB/SDF structures as shown below.',
+    note: 'PDBQT files in solution are the official preparation outputs. Preparing the original structures again in DockStart may produce different files.',
+  },
+  flexible: {
+    instruction: 'Use 1iep_ligand.pdbqt as the ligand. Keep the paired rigid and flex receptor files together.',
+    note: 'The 1FPU example reuses the 1IEP ligand. The flex file describes receptor side chains and must not be imported as a ligand.',
+  },
+  batch: {
+    instruction: 'Import both P59 and P69 into the ligand library, then run them individually.',
+    note: 'This batch example reuses the inputs from the official 5X72 multiple-ligand example. There is no separate official batch dataset or reference result for this page.',
+  },
+  multiple: {
+    instruction: 'Download the receptor and both ligands, P59 and P69. Keep the ligand names distinct.',
+    note: 'The official directory is spelled mulitple_ligands_docking. P59 and P69 are two separate ligands.',
+  },
+  macrocycle: {
+    instruction: 'For MOL2 input, review the ring-breaking strategy below. For prepared PDBQT input, preserve its pseudoatoms.',
+    note: 'The official PDBQT already contains ring-breaking and pseudoatom information. If you prepare it again, also record the ring-breaking strategy and torsion count.',
+  },
+  hydrated: {
+    instruction: 'These files are for hydrated AD4 docking. Follow the hydrated docking wizard below.',
+    note: 'Hydrated preparation belongs to a dedicated AD4 protocol and must not be mixed with ordinary Vina/Vinardo. Check ligand protonation, candidate waters and water maps before use.',
+  },
+  ad4: {
+    instruction: 'After importing these 1IEP structures, generate AD4 maps as shown below.',
+    note: 'This page uses the same 1IEP structures as Basic Docking. AD4 requires matching affinity maps; its scores are not directly comparable with Vina/Vinardo.',
+  },
+  zinc: {
+    instruction: 'Configure AutoGrid4 4.2.7+ and supply AD4Zn.dat before using these inputs.',
+    note: 'These are the official 1S63 reference inputs. The DockStart walkthrough and validation are not yet complete. protein_tz.pdbqt contains dedicated TZ pseudoatoms.',
+  },
+};
+
+export function getOfficialExample(example: OfficialExampleId, english: boolean) {
+  const entry = officialExamples[example];
+  return english ? {
+    ...entry,
+    ...englishExamples[example],
+    files: entry.files.map(file => ({...file, role: englishRoles[file.role]})),
+  } : entry;
+}
+
 export const officialRepository = 'https://github.com/ccsb-scripps/AutoDock-Vina';
 export const officialRevision = '3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645';

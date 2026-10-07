@@ -2,9 +2,12 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import {themes as prismThemes} from 'prism-react-renderer';
 
+const english = process.env.DOCUSAURUS_CURRENT_LOCALE === 'en';
+const label = (zh: string, en: string) => english ? en : zh;
+
 const config: Config = {
-  title: 'DockStart 帮助文档',
-  tagline: '从结构准备到结果解释的分子对接指南',
+  title: label('DockStart 帮助文档', 'DockStart Documentation'),
+  tagline: label('从结构准备到结果解释的分子对接指南', 'A guide to molecular docking, from preparation to interpretation'),
   url: 'https://xuxinxi14.github.io',
   baseUrl: '/DockStart-Docs/',
   organizationName: 'xuxinxi14',
@@ -16,7 +19,11 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans'],
+    locales: ['zh-Hans', 'en'],
+    localeConfigs: {
+      'zh-Hans': {label: '中文', htmlLang: 'zh-CN'},
+      en: {label: 'English', htmlLang: 'en'},
+    },
   },
 
   presets: [
@@ -64,6 +71,7 @@ const config: Config = {
         {to: '/docs/part-b/cases/basic-docking-1iep', label: '实战案例', position: 'right'},
         {to: '/docs/part-c/quick-start-v1-0-4', label: '下载与开始', position: 'right'},
         {to: '/search', label: '搜索', position: 'right'},
+        {type: 'localeDropdown', position: 'right'},
         {href: 'https://github.com/xuxinxi14/DockStart', label: 'GitHub', position: 'right'},
       ],
     },
@@ -73,7 +81,7 @@ const config: Config = {
         {title: '阅读', items: [{label: '入门概念', to: '/docs/intro/what-docking-solves'}, {label: '实战案例', to: '/docs/part-b/cases/basic-docking-1iep'}, {label: '常见排错', to: '/docs/part-c/common-errors-and-recovery'}]},
         {title: '项目', items: [{label: '源代码', href: 'https://github.com/xuxinxi14/DockStart'}, {label: '版本与发布', href: 'https://github.com/xuxinxi14/DockStart/releases'}, {label: '反馈问题', href: 'https://github.com/xuxinxi14/DockStart/issues'}]},
       ],
-      copyright: `DockStart 帮助文档 · 内容供学习与流程复现参考 · ${new Date().getFullYear()}`,
+      copyright: `${label('DockStart 帮助文档 · 内容供学习与流程复现参考', 'DockStart Documentation · For learning and reproducing workflows')} · ${new Date().getFullYear()}`,
     },
     docs: {
       sidebar: {
@@ -82,7 +90,7 @@ const config: Config = {
       },
     },
     prism: {theme: prismThemes.github, darkTheme: prismThemes.vsDark},
-    metadata: [{name: 'description', content: 'DockStart 中文帮助文档：分子对接基础、真实案例、软件操作、故障排查与结果解释。'}],
+    metadata: [{name: 'description', content: label('DockStart 中文帮助文档：分子对接基础、真实案例、软件操作、故障排查与结果解释。', 'DockStart documentation: molecular docking fundamentals, worked examples, software use, troubleshooting and result interpretation.')}],
   } satisfies Preset.ThemeConfig,
 };
 

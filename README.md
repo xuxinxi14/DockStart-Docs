@@ -1,6 +1,6 @@
 # DockStart 帮助文档
 
-中文 Docusaurus 文档站，包含分子对接入门、DockStart 实战案例、排错与附录。
+中英双语 Docusaurus 文档站，包含分子对接入门、DockStart 实战案例、排错与附录。
 
 站点已部署：[在线文档](https://xuxinxi14.github.io/DockStart-Docs/)。当前下载与使用基准为 [v1.0.4 Assisted 试用包](https://github.com/xuxinxi14/DockStart/releases/tag/v1.0.4)；软件代码、版本与安装包由主仓库维护。
 
@@ -53,6 +53,22 @@ npm run serve
 
 文档在 `docs/`，页面在 `src/pages/`，图片在 `static/img/`。
 源码包不包含依赖、构建输出或原托管平台配置。
+
+## 中英切换与翻译维护
+
+导航栏提供「中文 / English」切换；手机端位于菜单中的语言选项。中文地址保持不变，英文首页为 [English documentation](https://xuxinxi14.github.io/DockStart-Docs/en/)。切换保留当前文章、章节锚点和搜索词。
+
+中文正文在 `docs/`，英文正文在 `i18n/en/docusaurus-plugin-content-docs/current/`，两者使用相同文件名与文档 ID。英文标题使用与中文对应的显式锚点，保证切换后仍能定位当前章节。新增或修改章节时需同步两种语言的标题顺序和锚点。
+
+确认两种语言的章节已一一对应后，可运行 `node scripts/check-i18n.mjs --sync-heading-ids` 同步英文显式锚点；它只修改英文标题，并检查图片、注释与路由的一致性。
+
+目录、导航和 Docusaurus 控件的翻译在 `i18n/en/` 的 JSON 文件中；自定义首页、搜索和共享组件使用 `src/components/useGuideLocale.ts`。程序截图共用原图，英文说明标注必要的中文界面名称。官方结构下载与来源清单共用，避免两种语言指向不同文件。
+
+```sh
+npm start -- --locale en
+```
+
+生产环境使用 `npm run build` 同时构建两种语言，随后 `npm run serve` 验证切换；单语言开发服务器仅用于查看对应语言。`prebuild` 自动生成中英两份搜索索引。`npm run check` 检查两种文档结构、页面覆盖、排序、图片与注释的一致性。
 
 ## UI 与官方示例文件
 

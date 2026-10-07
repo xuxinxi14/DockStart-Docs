@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState, type ImgHTMLAttributes} from 'react';
+import useGuideLocale from './useGuideLocale';
 
 type Phase = 'loading' | 'retrying' | 'ready' | 'failed';
 const MAX_AUTO_RETRIES = 2;
@@ -16,6 +17,7 @@ function retryUrl(src: string, attempt: number): string {
 export default function ReliableImage({
   src = '', alt, className, loading, onLoad, onError, ...props
 }: ImgHTMLAttributes<HTMLImageElement>): React.JSX.Element {
+  const {t} = useGuideLocale();
   const imageRef = useRef<HTMLImageElement>(null);
   const frameRef = useRef<HTMLSpanElement>(null);
   const retriesUsed = useRef(0);
@@ -81,16 +83,16 @@ export default function ReliableImage({
       {active && phase !== 'ready' && (
         <span className="guide-image-status" role="status" aria-live="polite">
           <span>{phase === 'failed'
-            ? '图片暂时无法加载，请检查网络后重试。'
-            : phase === 'retrying' ? '图片加载失败，正在自动重试…' : '正在加载图片…'}</span>
+            ? t('图片暂时无法加载，请检查网络后重试。', 'The image could not load. Check your connection and try again.')
+            : phase === 'retrying' ? t('图片加载失败，正在自动重试…', 'Image failed to load. Retrying…') : t('正在加载图片…', 'Loading image…')}</span>
           {phase === 'failed' && (
             <span className="guide-image-actions">
               <button type="button" onClick={() => {
                 retriesUsed.current = 0;
                 setAttempt(value => value + 1);
                 setPhase('loading');
-              }}>重新加载图片</button>
-              <a href={src} target="_blank" rel="noopener noreferrer">打开原图</a>
+              }}>{t('重新加载图片', 'Retry image')}</button>
+              <a href={src} target="_blank" rel="noopener noreferrer">{t('打开原图', 'Open original')}</a>
             </span>
           )}
         </span>
