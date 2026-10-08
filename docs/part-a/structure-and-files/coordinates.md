@@ -3,6 +3,10 @@ title: "坐标、坐标系与常用单位"
 sidebar_position: 2
 ---
 
+import BoxExplorer from '@site/src/components/interactive/BoxExplorer';
+import {BoxModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # 坐标、坐标系与常用单位
 
 分子结构不仅要知道“有哪些原子”，还要知道每个原子位于三维空间中的什么位置；这些位置通常用 X、Y、Z 坐标表示，而 docking 中最常见的长度单位是 Å（埃）。
@@ -43,19 +47,6 @@ RCSB PDB 的结构数据就包含原子的 X、Y、Z 三维坐标。传统 PDB �
 
 坐标系就是我们用来描述这些位置的一套共同标准。
 
-最简单的理解是：
-
-```text
-        Z
-        ↑
-        │
-        │
-        └────────→ X
-       /
-      /
-     Y
-```
-
 程序通过这套坐标系知道：
 
 > 原子在哪里？
@@ -67,6 +58,8 @@ RCSB PDB 的结构数据就包含原子的 X、Y、Z 三维坐标。传统 PDB �
 因此，Docking 中的“位置”并不是肉眼看到的概念，而是由这些三维坐标表示的。
 
 ---
+
+<BoxExplorer focus="coordinates" />
 
 ## 为什么坐标对 docking 很重要？
 
@@ -130,6 +123,16 @@ AutoDock Vina 输出的 predicted binding affinity 就使用 kcal/mol。([AutoDo
 暂时不需要在这里深入学习物理化学中的能量定义。
 
 ---
+
+<DocNotes>
+
+<DocNote number={1} title="箱体示意模型">
+
+<BoxModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

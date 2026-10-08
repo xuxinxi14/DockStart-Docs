@@ -3,6 +3,10 @@ title: "Vina 搜索过程"
 sidebar_position: 1
 ---
 
+import SearchExplorer from '@site/src/components/interactive/SearchExplorer';
+import {SearchModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Vina 搜索过程
 
 Vina 的搜索过程是在搜索空间里反复进行“随机改变构象 → 局部优化 → 取舍”的独立计算，最后把找到的候选 pose 合并、去重、排序。
@@ -42,6 +46,8 @@ Vina 的全局搜索由**若干次相互独立的运行（run）**组成，每�
 其中局部优化使用的是 **BFGS 算法**（Broyden–Fletcher–Goldfarb–Shanno），并在“位置—朝向—可旋转键”这些坐标上反复计算评分函数及其导数。([AutoDock Vina 官方 FAQ](https://github.com/ccsb-scripps/AutoDock-Vina/blob/develop/docs/source/faq.rst))
 
 ---
+
+<SearchExplorer />
 
 ## 步数和运行次数分别由谁决定？
 
@@ -106,6 +112,16 @@ Docking 算法本身是**非确定性的**。
 这几个参数的含义会在后面几篇分别介绍。
 
 ---
+
+<DocNotes>
+
+<DocNote number={1} title="搜索示意模型">
+
+<SearchModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

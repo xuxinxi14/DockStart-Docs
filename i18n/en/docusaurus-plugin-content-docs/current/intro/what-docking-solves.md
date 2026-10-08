@@ -3,6 +3,10 @@ title: "What problem does docking solve?"
 sidebar_position: 2
 ---
 
+import PoseExplorer from '@site/src/components/interactive/PoseExplorer';
+import {LigandModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # What problem does docking solve? {#分子对接试图解决什么问题}
 
 Molecular docking predicts the position, orientation and conformation a ligand might adopt when binding to a receptor.
@@ -14,6 +18,8 @@ Proteins and small molecules are three-dimensional. A ligand can approach a prot
 ## What does docking search for? {#docking-实际上在找什么}
 
 The program tries different ligand positions, orientations and conformations. It then scores these candidates. **Search** finds possible poses; **scoring** evaluates and ranks them. A run therefore often produces several candidate poses.
+
+<PoseExplorer />
 
 ## What information can it provide? {#它想得到的是什么}
 
@@ -38,6 +44,16 @@ Inspect several predicted poses
 ```
 
 The central question is: **given these receptor and ligand structures, how might they bind?**
+
+<DocNotes>
+
+<DocNote number={1} title="About the ligand model">
+
+<LigandModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">References</summary>

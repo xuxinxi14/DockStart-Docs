@@ -4,6 +4,10 @@ sidebar_position: 2
 sidebar_label: "分子对接试图解决什么问题？"
 ---
 
+import PoseExplorer from '@site/src/components/interactive/PoseExplorer';
+import {LigandModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # 分子对接试图解决什么问题？
 
 分子对接最核心的问题，是预测一个配体与受体结合时可能采用什么样的空间位置和构象。
@@ -45,6 +49,8 @@ sidebar_label: "分子对接试图解决什么问题？"
 这也是为什么 docking 的结果通常不是一个唯一答案，而是可能包含多个候选 Pose。
 
 ---
+
+<PoseExplorer />
 
 ## 它想得到的是什么？
 
@@ -93,6 +99,16 @@ sidebar_label: "分子对接试图解决什么问题？"
 > **“在给定的受体和配体条件下，它们可能怎样结合？”**
 
 ---
+
+<DocNotes>
+
+<DocNote number={1} title="配体示意模型">
+
+<LigandModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

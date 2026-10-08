@@ -3,6 +3,10 @@ title: "Mode ranking"
 sidebar_position: 4
 ---
 
+import PoseFilterExplorer from '@site/src/components/interactive/PoseFilterExplorer';
+import {PoseFilterModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Mode ranking {#mode-排序}
 
 Vina ranks candidate poses by their calculated score. Mode 1 is the lowest-scoring candidate found in that run.
@@ -19,6 +23,8 @@ Candidates are combined, refined and deduplicated before ranking and output filt
 
 The count depends on distinct candidates, the default `min_rmsd=1.0 Å`, the mode cap and energy filtering. See the [Vina FAQ](https://github.com/ccsb-scripps/AutoDock-Vina/blob/develop/docs/source/faq.rst).
 
+<PoseFilterExplorer focus="ranking" />
+
 ## Is the first-ranked pose necessarily correct? {#排序第一就一定是正确结合方式吗}
 
 It is the best found under the current model. Approximate search and scoring cannot establish the real binding mode or experimental affinity.
@@ -30,6 +36,16 @@ Inspect a group of leading modes and compare their RMSD and locations. Similar l
 ## In DockStart {#在-dockstart-中}
 
 Begin with Mode 1, then inspect alternatives. If rankings vary substantially between repeated runs, review inputs and box placement and consider greater search effort.
+
+<DocNotes>
+
+<DocNote number={1} title="Filtering a fixed candidate set">
+
+<PoseFilterModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">References</summary>

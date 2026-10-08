@@ -5,6 +5,9 @@ sidebar_position: 4
 
 import DocNotes, {DocNote, NoteRef} from '@site/src/components/DocNotes';
 
+import PoseFilterExplorer from '@site/src/components/interactive/PoseFilterExplorer';
+import {PoseFilterModelNote} from '@site/src/components/interactive/TeachingNotes';
+
 # Energy Range {#energy-range}
 
 Energy Range limits how much worse than the best mode a pose can score and still be written to the output file. Its default is `3 kcal/mol`. It filters output rather than controlling search effort.
@@ -27,6 +30,8 @@ The default `3 kcal/mol` is an energy tolerance relative to the best mode. Highe
 
 `num_modes` caps the pose count; `energy_range` filters by energy difference. Together they limit saved `MODEL` records. See the [Vina FAQ](https://github.com/ccsb-scripps/AutoDock-Vina/blob/develop/docs/source/faq.rst).
 
+<PoseFilterExplorer />
+
 ## What happens when it increases? {#调大它会怎样}
 
 It permits higher-energy alternatives to be saved, subject to the search results and `num_modes`. For a fixed set of candidates, widening the range does not improve the best pose. Adjust inputs, box or search effort to address those issues.
@@ -45,6 +50,12 @@ Start with the default range. Increase it when you need more alternatives, and a
 DockStart v1.0.4 can parse `scores.csv` from the log. Vina 1.2.7 filters structures by `energy_range` when writing poses after printing candidate scores. A listed mode may therefore lack saved coordinates. See [global_search and get_poses](https://github.com/ccsb-scripps/AutoDock-Vina/blob/v1.2.7/src/lib/vina.cpp).
 
 </DocNote>
+<DocNote number={2} title="Filtering a fixed candidate set">
+
+<PoseFilterModelNote />
+
+</DocNote>
+
 </DocNotes>
 
 <details className="guide-references">

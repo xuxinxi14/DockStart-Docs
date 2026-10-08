@@ -1,0 +1,114 @@
+.demo {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  color: var(--guide-ink);
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--guide-line);
+  border-radius: 3px;
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.heading {display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;}
+.eyebrow {display: block; color: var(--guide-muted); font-size: 0.75rem; margin-bottom: 0.4rem;}
+.heading h3 {font: 600 1.2rem/1.45 var(--ifm-font-family-base); margin: 0; letter-spacing: 0;}
+.instruction {margin: 0.85rem 0 1.2rem; color: var(--guide-muted);}
+.demo button {
+  border: 1px solid var(--guide-line);
+  border-radius: 3px;
+  padding: 0.5rem 0.8rem;
+  background: transparent;
+  color: var(--guide-ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  min-height: 40px;
+}
+.demo button:hover {border-color: var(--guide-accent);}
+.demo button:focus-visible, .demo input:focus-visible, .demo select:focus-visible,
+.demo summary:focus-visible {outline: 2px solid var(--guide-accent); outline-offset: 3px;}
+.demo button:disabled {opacity: 0.45; cursor: default;}
+.demo .reset {color: var(--guide-muted); flex: 0 0 auto; padding: 0.35rem 0.6rem;}
+.choices {display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.9rem;}
+.choices button[aria-pressed='true'] {border-color: var(--guide-accent); background: var(--guide-panel); color: var(--guide-accent);}
+.scene {display: block; width: 100%; max-width: 620px; height: auto; margin: 0.6rem auto; overflow: hidden;}
+.ghost {fill: none; stroke: var(--guide-muted); stroke-dasharray: 4 5; opacity: 0.55;}
+.bond {stroke: var(--guide-muted); stroke-width: 3; stroke-linecap: round;}
+.accentBond {stroke: var(--guide-accent); stroke-width: 5; stroke-linecap: round;}
+.atom {fill: var(--ifm-background-surface-color); stroke: var(--guide-muted); stroke-width: 2;}
+.accentAtom {fill: var(--guide-accent); stroke: var(--ifm-background-surface-color); stroke-width: 2;}
+.axis {stroke: var(--guide-line); stroke-width: 1;}
+.svgLabel {fill: var(--guide-muted); font: 13px var(--ifm-font-family-base);}
+.range {margin: 0.95rem 0; min-width: 0;}
+.rangeLabel {display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;}
+.rangeLabel label {font-size: 0.9rem;}
+.rangeLabel small {display: block; color: var(--guide-muted); font-size: 0.75rem;}
+.rangeLabel output {font-variant-numeric: tabular-nums; font-size: 0.9rem; color: var(--guide-accent); white-space: nowrap;}
+.range input {display: block; width: 100%; height: 32px; margin: 0.2rem 0 0; accent-color: var(--guide-accent); cursor: pointer;}
+.controls {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.8rem; align-items: start;}
+.controls .range {margin-top: 0.3rem;}
+.secondary {margin: 0.5rem 0 1rem;}
+.secondary summary {cursor: pointer; color: var(--guide-muted); font-size: 0.85rem; padding: 0.4rem 0;}
+.legend {display: flex; flex-wrap: wrap; gap: 0.4rem 1.3rem; color: var(--guide-muted); font-size: 0.8rem; margin: 0.6rem 0 1rem;}
+.legend span {display: inline-flex; align-items: center; gap: 0.45rem;}
+.dot {display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--guide-accent); flex: 0 0 auto;}
+.outlineDot {background: transparent; border: 1px solid var(--guide-muted);}
+.diamond {border-radius: 0; transform: rotate(45deg);}
+.dash {width: 16px; height: 0; border-top: 1px dashed var(--guide-muted);}
+.regionDot {background: var(--guide-muted); opacity: 0.6;}
+.metrics {display: flex; flex-wrap: wrap; gap: 0.7rem 1.5rem; padding: 0.8rem 0; border-top: 1px solid var(--guide-line); font-size: 0.85rem;}
+.metrics span {font-variant-numeric: tabular-nums;}
+.metrics small {display: block; color: var(--guide-muted); font-size: 0.75rem; margin-bottom: 0.1rem;}
+.conclusion {margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--guide-line);}
+.conclusion p {margin: 0;}
+.caption {color: var(--guide-muted); font-size: 0.75rem; margin: 0.6rem 0 0;}
+.target {fill: var(--guide-accent); fill-opacity: 0.1; stroke: var(--guide-accent); stroke-width: 1; stroke-dasharray: 3 3;}
+.receptor {fill: var(--guide-panel); stroke: var(--guide-line); stroke-width: 1;}
+.boxLine {stroke: var(--guide-accent); stroke-width: 1.5; fill: none;}
+.boxBack {opacity: 0.45; stroke-dasharray: 5 4;}
+.centerDot {fill: var(--guide-accent); stroke: var(--ifm-background-surface-color); stroke-width: 2;}
+.playback {display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; margin: 1rem 0;}
+.playback .primaryButton {border-color: var(--guide-accent); color: var(--guide-accent);}
+.stepCount {margin-left: auto; font-size: 0.8rem; color: var(--guide-muted); font-variant-numeric: tabular-nums;}
+.field {display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin: 0.3rem 0 1rem;}
+.field label {font-size: 0.85rem;}
+.field input, .field select {background: var(--ifm-background-surface-color); color: var(--guide-ink); border: 1px solid var(--guide-line); border-radius: 3px; padding: 0.4rem 0.5rem; font: inherit; font-size: 0.85rem; min-height: 40px; min-width: 0; max-width: 100%;}
+.field input {width: 88px;}
+.field select {flex: 1;}
+.well {fill: var(--guide-accent); fill-opacity: 0.035; stroke: var(--guide-line); stroke-width: 1;}
+.searchPath {fill: none; stroke: var(--guide-muted); stroke-width: 1.25; opacity: 0.27;}
+.focusedPath {stroke: var(--guide-accent); stroke-width: 2; opacity: 1;}
+.proposal {stroke: var(--guide-accent); stroke-width: 1.5; stroke-dasharray: 4 4;}
+.searchStart {fill: var(--ifm-background-surface-color); stroke: var(--guide-muted); stroke-width: 1.5;}
+.searchCurrent {fill: var(--guide-accent); stroke: var(--ifm-background-surface-color); stroke-width: 1.5;}
+.searchBest {fill: var(--guide-accent); stroke: var(--ifm-background-surface-color); stroke-width: 1;}
+.stage {display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.5rem 0; font-size: 0.8rem; color: var(--guide-muted);}
+.stage span {padding: 0.15rem 0;}
+.stage .currentStage {color: var(--guide-accent); font-weight: 600; border-bottom: 1px solid var(--guide-accent);}
+.tableWrap {overflow-x: auto; margin-top: 1rem;}
+.demo .poseTable {display: table; border-collapse: collapse; width: 100%; margin: 0; font-size: 0.82rem; line-height: 1.45;}
+.poseTable th, .poseTable td {border: none; border-bottom: 1px solid var(--guide-line); padding: 0.5rem 0.35rem; text-align: left; background: transparent;}
+.poseTable th {font-weight: 500; color: var(--guide-muted);}
+.poseTable tr {border: none; background: transparent;}
+.poseTable td:nth-child(2), .poseTable td:nth-child(3) {font-variant-numeric: tabular-nums; white-space: nowrap;}
+.poseTable .savedRow {background: var(--guide-panel); color: var(--guide-ink);}
+.poseTable .excludedRow {color: var(--guide-muted);}
+.poseTable .savedRow td:last-child {color: var(--guide-accent);}
+.resultLine {display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.5rem 1rem; margin: 0.8rem 0 0; font-size: 0.9rem;}
+.resultLine strong {font-weight: 600; color: var(--guide-accent);}
+
+@media (max-width: 600px) {
+  .demo {padding: 1rem; margin: 1.5rem 0;}
+  .heading h3 {font-size: 1.08rem;}
+  .controls {grid-template-columns: 1fr; gap: 0;}
+  .choices button {padding: 0.4rem 0.6rem;}
+  .poseTable th, .poseTable td {padding: 0.5rem 0.2rem;}
+  .demo .poseTable {font-size: 0.78rem;}
+  .stepCount {width: 100%; margin-left: 0;}
+  .rangeLabel {gap: 0.5rem;}
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo *, .demo *::before, .demo *::after {animation: none !important; transition: none !important; scroll-behavior: auto !important;}
+}

@@ -3,6 +3,10 @@ title: "Exhaustiveness"
 sidebar_position: 2
 ---
 
+import SearchExplorer from '@site/src/components/interactive/SearchExplorer';
+import {SearchModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Exhaustiveness {#exhaustiveness}
 
 Exhaustiveness controls the number of independent Vina searches. It is the main setting for search effort; the default is `8`.
@@ -10,6 +14,8 @@ Exhaustiveness controls the number of independent Vina searches. It is the main 
 ## What does it control? {#exhaustiveness-控制什么}
 
 Each independent search starts from a random pose. `exhaustiveness` sets their count; heuristic rules determine the steps inside each search. See the [Vina FAQ](https://github.com/ccsb-scripps/AutoDock-Vina/blob/develop/docs/source/faq.rst).
+
+<SearchExplorer focus="exhaustiveness" />
 
 ## Default and range {#默认值和取值范围}
 
@@ -34,6 +40,16 @@ Independent searches can run in parallel. If their count is below the available 
 ## In DockStart {#在-dockstart-中}
 
 Complete a first workflow using appropriate defaults or the example's stated parameters. If sampling is insufficient, increase exhaustiveness and rerun. This cannot correct a chemically unsuitable input structure.
+
+<DocNotes>
+
+<DocNote number={1} title="About the search model">
+
+<SearchModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">References</summary>

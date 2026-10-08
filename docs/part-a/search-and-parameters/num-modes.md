@@ -3,6 +3,10 @@ title: "Num Modes"
 sidebar_position: 3
 ---
 
+import PoseFilterExplorer from '@site/src/components/interactive/PoseFilterExplorer';
+import {PoseFilterModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Num Modes
 
 Num Modes 设定 Vina 最多输出多少个结合模式（binding mode）；默认值为 9，但它只是“上限”，实际输出可能更少。
@@ -54,6 +58,8 @@ Vina 的选项说明把它定义为“**最多**生成多少个结合模式”�
 
 ---
 
+<PoseFilterExplorer focus="count" />
+
 ## 还有一个相关的参数：min_rmsd
 
 搜索结束后，Vina 会先做一次**去冗余**：彼此 RMSD 过小的 pose 会被视为同一个模式而合并掉。
@@ -94,6 +100,16 @@ energy_range   →  能量差多大以内的才保存
 - 搜索本身是否找到了多个有区别的模式。
 
 ---
+
+<DocNotes>
+
+<DocNote number={1} title="固定候选集的筛选演示">
+
+<PoseFilterModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

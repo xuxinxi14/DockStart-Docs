@@ -5,6 +5,9 @@ sidebar_position: 1
 
 import DocNotes, {DocNote, NoteRef} from '@site/src/components/DocNotes';
 
+import PoseExplorer from '@site/src/components/interactive/PoseExplorer';
+import {LigandModelNote} from '@site/src/components/interactive/TeachingNotes';
+
 # Pose
 
 Pose（结合模式）是 Vina 给出的一种候选结合方式，它描述配体在受体中的位置、朝向和构象，并带有自己的评分。
@@ -26,6 +29,8 @@ Pose（结合模式）是 Vina 给出的一种候选结合方式，它描述配�
 对具有柔性的配体来说，第三项尤其重要——因为同一个分子可以有不同的三维形状。
 
 ---
+
+<PoseExplorer initialMode="orientation" />
 
 ## Pose 在输出里长什么样？
 
@@ -105,6 +110,12 @@ Vina 会把它们一起给出，让你自己判断哪一个更符合研究问题
 <DocNote number={1} title="构象输出说明">
 
 Vina 1.2.7 写入结构时还会按 `energy_range` 过滤；候选评分与保存坐标需要分别检查。详见 [Energy Range](../search-and-parameters/energy-range.md)。
+
+</DocNote>
+
+<DocNote number={2} title="配体示意模型">
+
+<LigandModelNote />
 
 </DocNote>
 

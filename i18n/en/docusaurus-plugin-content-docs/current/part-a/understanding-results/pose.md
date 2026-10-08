@@ -5,6 +5,9 @@ sidebar_position: 1
 
 import DocNotes, {DocNote, NoteRef} from '@site/src/components/DocNotes';
 
+import PoseExplorer from '@site/src/components/interactive/PoseExplorer';
+import {LigandModelNote} from '@site/src/components/interactive/TeachingNotes';
+
 # Pose {#pose}
 
 A pose is a candidate binding arrangement: the ligand's position, orientation and conformation, together with its score.
@@ -12,6 +15,8 @@ A pose is a candidate binding arrangement: the ligand's position, orientation an
 ## What information defines a pose? {#一个-pose-包含哪些信息}
 
 Position locates the ligand in the site; orientation determines its direction; torsions determine its permitted shape. Together these define the arrangement.
+
+<PoseExplorer initialMode="orientation" />
 
 ## What does a pose look like in the output? {#pose-在输出里长什么样}
 
@@ -41,6 +46,12 @@ Select the correct run, inspect the first saved pose, then compare alternatives 
 Vina 1.2.7 also applies `energy_range` when writing coordinates. Check scores and saved structures separately. See [Energy Range](../search-and-parameters/energy-range.md).
 
 </DocNote>
+<DocNote number={2} title="About the ligand model">
+
+<LigandModelNote />
+
+</DocNote>
+
 </DocNotes>
 
 <details className="guide-references">

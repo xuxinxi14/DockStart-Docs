@@ -3,6 +3,10 @@ title: "Seed"
 sidebar_position: 6
 ---
 
+import SearchExplorer from '@site/src/components/interactive/SearchExplorer';
+import {SearchModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Seed
 
 Seed 是随机数种子，决定搜索从哪些随机起点出发；固定它可以提高可重复性，但只有在其他输入和参数都完全一致时才能真正复现结果。
@@ -58,6 +62,8 @@ Performing docking (random seed: -1622165383) ...
 
 ---
 
+<SearchExplorer focus="seed" />
+
 ## 那为什么还要用 Seed？
 
 因为它能帮你区分两类“结果不一致”：
@@ -100,6 +106,16 @@ Performing docking (random seed: -1622165383) ...
 这些信息一起，才构成一次可重复的计算记录。
 
 ---
+
+<DocNotes>
+
+<DocNote number={1} title="搜索示意模型">
+
+<SearchModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

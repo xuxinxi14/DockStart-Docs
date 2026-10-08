@@ -3,6 +3,10 @@ title: "Mode 排序"
 sidebar_position: 4
 ---
 
+import PoseFilterExplorer from '@site/src/components/interactive/PoseFilterExplorer';
+import {PoseFilterModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Mode 排序
 
 Mode 排序是 Vina 把找到的候选 pose 按评分从好到差排列的结果；排在第 1 位的就是这次 docking 的最优结果。
@@ -60,6 +64,8 @@ mode |   affinity | dist from best mode
 
 ---
 
+<PoseFilterExplorer focus="ranking" />
+
 ## 排序第一就一定是正确结合方式吗？
 
 **不一定。**
@@ -108,6 +114,16 @@ DockStart 的结果列表就是按这个顺序呈现的。
 - 如果排序结果在不同次运行之间变化较大，考虑提高 `exhaustiveness`。
 
 ---
+
+<DocNotes>
+
+<DocNote number={1} title="固定候选集的筛选演示">
+
+<PoseFilterModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

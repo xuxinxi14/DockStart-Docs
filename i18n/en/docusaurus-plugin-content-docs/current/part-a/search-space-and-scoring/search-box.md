@@ -3,6 +3,10 @@ title: "Docking box"
 sidebar_position: 1
 ---
 
+import BoxExplorer from '@site/src/components/interactive/BoxExplorer';
+import {BoxModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Docking box {#box}
 
 The docking box defines the three-dimensional region in which the ligand and any flexible receptor atoms are searched.
@@ -18,6 +22,8 @@ It answers where the program can look for binding arrangements. Vina defines it 
 | `center_x`, `center_y`, `center_z` | Position of the box center |
 | `size_x`, `size_y`, `size_z` | Full lengths along the three axes |
 
+<BoxExplorer />
+
 ## Why choose the box carefully? {#为什么-box-不能随便设置}
 
 A small box can exclude relevant ligand or side-chain motion. A large box increases the search space. Keep it as small as practical while covering plausible binding arrangements; larger regions may require higher `exhaustiveness`.
@@ -29,6 +35,16 @@ The binding site is a structural or functional region of the protein. The box is
 ## In DockStart {#在-dockstart-中}
 
 Set the box for the chosen task and inspect its placement in 3D. Global Docking searches within this defined box; choose its location and dimensions for the site you intend to investigate.
+
+<DocNotes>
+
+<DocNote number={1} title="About the box model">
+
+<BoxModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">References</summary>

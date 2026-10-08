@@ -3,6 +3,10 @@ title: "Exhaustiveness"
 sidebar_position: 2
 ---
 
+import SearchExplorer from '@site/src/components/interactive/SearchExplorer';
+import {SearchModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Exhaustiveness
 
 Exhaustiveness 控制 Vina 运行多少次相互独立的搜索，是“花多少计算力气去找构象”的主要参数；默认值为 8。
@@ -24,6 +28,8 @@ exhaustiveness = 8
 ```
 
 ---
+
+<SearchExplorer focus="exhaustiveness" />
 
 ## 默认值和取值范围
 
@@ -92,6 +98,16 @@ Vina 的命令行帮助把 exhaustiveness 描述为“全局搜索的彻底程�
 同时也要记得：提高 exhaustiveness 只能让搜索更充分，**不能修正输入结构本身的问题**。
 
 ---
+
+<DocNotes>
+
+<DocNote number={1} title="搜索示意模型">
+
+<SearchModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

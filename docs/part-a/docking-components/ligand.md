@@ -4,6 +4,10 @@ sidebar_label: "Ligand（配体）"
 sidebar_position: 2
 ---
 
+import PoseExplorer from '@site/src/components/interactive/PoseExplorer';
+import {LigandModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Ligand
 
 Ligand（配体）是 docking 中被放入受体结合空间、并寻找合适三维结合方式的小分子或其他待研究分子。
@@ -57,16 +61,6 @@ Meeko 的配体准备工具 `mk_prepare_ligand.py` 可以从 SDF 等输入生成
 
 小分子中的某些键可以旋转。
 
-例如：
-
-```text
-固定部分
-   │
-───C—C───
-     ↻
-   可旋转
-```
-
 当这些键发生旋转时，配体的三维形状会发生变化。
 
 因此 docking 时，程序往往不只是寻找：
@@ -80,6 +74,8 @@ Meeko 的配体准备工具 `mk_prepare_ligand.py` 可以从 SDF 等输入生成
 这就是为什么配体柔性是 docking 中的重要问题。
 
 ---
+
+<PoseExplorer initialMode="torsion" />
 
 ## 配体和受体是什么关系？
 
@@ -121,6 +117,16 @@ Docking
 如果分子的质子化状态、构象、手性等信息处理错误，那么即使 docking 程序运行正常，计算的也可能不是目标分子。
 
 ---
+
+<DocNotes>
+
+<DocNote number={1} title="配体示意模型">
+
+<LigandModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

@@ -3,6 +3,10 @@ title: "Coordinates, reference frames and units"
 sidebar_position: 2
 ---
 
+import BoxExplorer from '@site/src/components/interactive/BoxExplorer';
+import {BoxModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Coordinates, reference frames and units {#坐标坐标系与常用单位}
 
 Each atom has a position in three-dimensional space, usually expressed as X, Y and Z coordinates. Docking lengths are commonly measured in ångströms (Å).
@@ -14,6 +18,8 @@ Three numbers locate an atom, for example `X = 10.2`, `Y = 5.7`, `Z = -3.1`. PDB
 ## What is a reference frame? {#什么是坐标系}
 
 A shared origin and axes let the program calculate atom distances and the position of one molecule relative to another. A receptor, reference ligand and docking box must refer to the same frame for their positions to be meaningful together.
+
+<BoxExplorer focus="coordinates" />
 
 ## Why do coordinates matter for docking? {#为什么坐标对-docking-很重要}
 
@@ -33,6 +39,16 @@ An ångström is a molecular-scale length unit: **1 Å = 10⁻¹⁰ m**. Vina's 
 | --- | --- |
 | Å | Coordinates, distances and docking-box dimensions |
 | kcal·mol⁻¹ | Predicted docking energy / affinity scores |
+
+<DocNotes>
+
+<DocNote number={1} title="About the box model">
+
+<BoxModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">References</summary>

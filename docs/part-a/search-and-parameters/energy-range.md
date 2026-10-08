@@ -5,6 +5,9 @@ sidebar_position: 4
 
 import DocNotes, {DocNote, NoteRef} from '@site/src/components/DocNotes';
 
+import PoseFilterExplorer from '@site/src/components/interactive/PoseFilterExplorer';
+import {PoseFilterModelNote} from '@site/src/components/interactive/TeachingNotes';
+
 # Energy Range
 
 Energy Range 设定“比最优 mode 差多少 kcal/mol 以内的构象才写入输出文件”，默认值为 3 kcal/mol；它是输出过滤条件，不是搜索彻底程度。日志评分行数可能多于实际保存的构象数量。
@@ -59,6 +62,8 @@ energy_range
 
 ---
 
+<PoseFilterExplorer />
+
 ## 调大它会怎样？
 
 调大 `energy_range` 会**允许更多能量偏高、排序靠后的构象写入输出文件**，实际数量还受搜索结果和 `num_modes` 限制。
@@ -95,6 +100,12 @@ energy_range
 <DocNote number={1} title="评分表与结构数量">
 
 DockStart v1.0.4 可从日志解析 `scores.csv`；Vina 1.2.7 打印候选评分后，写结构时另按 `energy_range` 过滤。因此日志或 CSV 中有某个 mode，不保证它有可加载的坐标。实现见 [Vina 1.2.7 global_search 与 get_poses](https://github.com/ccsb-scripps/AutoDock-Vina/blob/v1.2.7/src/lib/vina.cpp)。
+
+</DocNote>
+
+<DocNote number={2} title="固定候选集的筛选演示">
+
+<PoseFilterModelNote />
 
 </DocNote>
 

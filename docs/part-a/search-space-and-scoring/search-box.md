@@ -4,6 +4,10 @@ sidebar_label: "Box（搜索盒）"
 sidebar_position: 1
 ---
 
+import BoxExplorer from '@site/src/components/interactive/BoxExplorer';
+import {BoxModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Box
 
 Box（搜索框）定义 docking 在三维空间中的搜索范围，也就是程序允许配体和柔性受体原子进行搜索的区域。
@@ -12,19 +16,7 @@ Box（搜索框）定义 docking 在三维空间中的搜索范围，也就是�
 
 ## 什么是 Box？
 
-可以把 Box 理解成 docking 时在蛋白质周围画出的一个三维“盒子”：
-
-```text
-       ┌─────────────────┐
-      /                 /|
-     /      ligand     / |
-    /       ↓         /  |
-   └─────────────────┘   |
-   |     binding       |  |
-   |      site         | /
-   |                   |/
-   └───────────────────┘
-```
+可以把 Box 理解成 docking 时在蛋白质周围画出的一个三维“盒子”。
 
 这个盒子规定：
 
@@ -69,6 +61,8 @@ size
 ```
 
 ---
+
+<BoxExplorer />
 
 ## 为什么 Box 不能随便设置？
 
@@ -115,6 +109,16 @@ Box 通常会覆盖目标结合位点，并留出足够空间让配体进行搜�
 不同 docking 任务可能使用不同的 Box。尤其是 Global Docking、特定位点 docking 等任务，它们的搜索范围设置可能不同。
 
 ---
+
+<DocNotes>
+
+<DocNote number={1} title="箱体示意模型">
+
+<BoxModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

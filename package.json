@@ -10,7 +10,7 @@
     "build": "docusaurus build",
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
-    "check": "node scripts/check-docs.mjs --quiet && node scripts/check-docs.mjs --locale=en --quiet && node scripts/check-i18n.mjs",
+    "check": "node scripts/check-docs.mjs --quiet && node scripts/check-docs.mjs --locale=en --quiet && node scripts/check-i18n.mjs && node --test scripts/interactive.test.mjs",
     "fix-frontmatter": "node scripts/fix-frontmatter.mjs",
     "typecheck": "tsc"
   },

@@ -3,6 +3,10 @@ title: "Seed"
 sidebar_position: 6
 ---
 
+import SearchExplorer from '@site/src/components/interactive/SearchExplorer';
+import {SearchModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Seed {#seed}
 
 The seed controls the random sequence used by the search. Keeping it fixed supports reproducibility when all other inputs, parameters and relevant versions are also unchanged.
@@ -25,6 +29,8 @@ You can reuse it with `--seed -1622165383` when reproducing that calculation, ev
 
 Inputs and parameters must also match. Small input changes can alter the result much like a new random seed. See the [Vina FAQ](https://github.com/ccsb-scripps/AutoDock-Vina/blob/develop/docs/source/faq.rst).
 
+<SearchExplorer focus="seed" />
+
 ## Why use a fixed seed? {#那为什么还要用-seed}
 
 It helps investigate whether a difference comes from random sampling or another changed condition. Compare complete run records instead of assuming the seed explains every difference.
@@ -36,6 +42,16 @@ It may find a pose that the previous search missed. It cannot repair an inapprop
 ## In DockStart {#在-dockstart-中}
 
 Record the actual seed, exhaustiveness, search box and exact input files together. They form part of a traceable calculation record.
+
+<DocNotes>
+
+<DocNote number={1} title="About the search model">
+
+<SearchModelNote />
+
+</DocNote>
+
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">References</summary>
