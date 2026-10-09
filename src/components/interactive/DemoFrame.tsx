@@ -1,4 +1,4 @@
-import React, {useEffect, useId, useState, type ReactNode, type Ref} from 'react';
+import React, {useId, type ReactNode, type Ref} from 'react';
 import useGuideLocale from '../useGuideLocale';
 import {projectPoint, type Vec3, type View} from './teachingModels.mjs';
 import styles from './styles.module.css';
@@ -35,19 +35,19 @@ export function RangeControl({label, code, value, min, max, step = 1, unit = '',
   const digits = step < 1 ? 1 : 0;
   const display = `${value.toFixed(digits)}${unit ? ` ${unit}` : ''}`;
   return <div className={styles.range}>
-    <div className={styles.rangeLabel}>
-      <label htmlFor={id}>{label}{code && <small>{code}</small>}</label>
+    <div className={`${styles.rangeLabel} ${code ? styles.rangeWithCode : ''}`}>
+      <label htmlFor={id}><span>{label}</span>{code && <small>{code}</small>}</label>
       <output htmlFor={id}>{display}</output>
     </div>
     <input id={id} type="range" min={min} max={max} step={step} value={value}
-      aria-valuetext={display} onChange={(event) => onChange(Number(event.target.value))} />
+      aria-label={`${label}${code ? ` ${code}` : ''}`} aria-valuetext={display} onChange={(event) => onChange(Number(event.target.value))} />
   </div>;
 }
 
-export function Choices({label, options, value, onChange}: {
-  label: string; options: {value: string; label: string}[]; value: string; onChange: (value: string) => void;
+export function Choices({label, options, value, onChange, columns = options.length}: {
+  label: string; options: {value: string; label: string}[]; value: string; onChange: (value: string) => void; columns?: number;
 }) {
-  return <div className={styles.choices} role="group" aria-label={label}>
+  return <div className={styles.choices} role="group" aria-label={label} style={{gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`}}>
     {options.map((option) => <button type="button" key={option.value} aria-pressed={value === option.value}
       onClick={() => onChange(option.value)}>{option.label}</button>)}
   </div>;
@@ -59,24 +59,11 @@ export function ViewChoices({value, onChange}: {value: View; onChange: (value: V
     options={[{value: 'oblique', label: t('立体视角', 'Oblique view')}, {value: 'front', label: t('正面视角', 'Front view')}]} />;
 }
 
-export function useCompactScene() {
-  const [compact, setCompact] = useState(false);
-  useEffect(() => {
-    const query = window.matchMedia('(max-width: 600px)');
-    const update = () => setCompact(query.matches);
-    update();
-    query.addEventListener('change', update);
-    return () => query.removeEventListener('change', update);
-  }, []);
-  return compact;
-}
-
-export function Scene({title, description, children, compactViewBox, className = ''}: {
-  title: string; description: string; children: ReactNode; compactViewBox?: string; className?: string;
+export function Scene({title, description, children, viewBox = '0 0 560 280', className = ''}: {
+  title: string; description: string; children: ReactNode; viewBox?: string; className?: string;
 }) {
   const id = useId();
-  const compact = useCompactScene();
-  return <svg className={`${styles.scene} ${className}`} viewBox={compact && compactViewBox ? compactViewBox : '0 0 560 280'} role="img" aria-labelledby={`${id}-title ${id}-desc`}>
+  return <svg className={`${styles.scene} ${className}`} viewBox={viewBox} role="img" aria-labelledby={`${id}-title ${id}-desc`}>
     <title id={`${id}-title`}>{title}</title>
     <desc id={`${id}-desc`}>{description}</desc>
     {children}

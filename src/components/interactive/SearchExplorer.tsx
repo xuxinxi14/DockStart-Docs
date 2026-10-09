@@ -47,15 +47,43 @@ export default function SearchExplorer({focus = 'process'}: {focus?: 'process' |
   const seedId = React.useId();
   const pathId = React.useId();
   return <DemoFrame name="search" rootRef={playback.rootRef} title={title}
-    instruction={t('空心圆是起点。选一条搜索路径，用“下一步”观察四个阶段。', 'Hollow circles mark starting points. Select a search path and use “Next step” to follow the four stages.')}
+    instruction={t('选择一条路径，点击“下一步”观察搜索过程。', 'Choose a path and step through the search.')}
     onReset={reset} conclusion={<p>{explanation[frame.stage]}</p>}
     caption={playback.reducedMotion ? t('二维算法示意 · 已按减少动态效果偏好启用单步查看', '2D algorithm illustration · Step through with reduced motion enabled') : t('二维算法示意 · 评分越低，示意位置越优', '2D algorithm illustration · Lower scores indicate better illustrative positions')}>
-    <div className={styles.controls}>
-      <div>
+    <div className={styles.visualLayout}>
+      <div className={styles.visualPanel}>
+        <Scene title={t('多条独立搜索在示意评分地形上探索', 'Independent searches on an illustrative score landscape')} viewBox="140 10 280 260"
+          description={`${t('观察搜索', 'Following search')} ${selected + 1}; ${stageLabels[frame.stage]}; ${explanation[frame.stage]}`}>
+          {searchWells.map((well, index) => {
+            const [x, y] = point(well.point);
+            return <g key={index}>{[1, 1.5, 2].map((radius) => <circle key={radius} cx={x} cy={y} r={well.width * 38 * radius} className={styles.well} />)}</g>;
+          })}
+          {runs.map((run, index) => {
+            const trail = run.frames.slice(0, playback.step + 1).filter((entry) => entry.stage === 'start' || entry.stage === 'accept').map((entry) => point(entry.current).join(',')).join(' ');
+            const [x, y] = point(run.frames[0].current);
+            const [lastX, lastY] = point(run.frames[playback.step].current);
+            return <g key={run.id}>
+              <polyline points={trail} className={`${styles.searchPath} ${index === selected ? styles.focusedPath : ''}`} />
+              <circle cx={x} cy={y} r={index === selected ? 4 : 3} className={styles.searchStart} />
+              {index !== selected && <circle cx={lastX} cy={lastY} r="2.5" className={styles.searchCurrent} opacity="0.4" />}
+            </g>;
+          })}
+          {(frame.stage === 'perturb' || frame.stage === 'optimize' || (frame.stage === 'accept' && !frame.accepted)) &&
+            <line x1={currentX} y1={currentY} x2={candidateX} y2={candidateY} className={styles.proposal} />}
+          <path d={`M${bestX},${bestY - 6} l6,6 l-6,6 l-6,-6 Z`} className={styles.searchBest} />
+          <circle cx={candidateX} cy={candidateY} r="5" className={styles.searchCurrent} />
+          {frame.stage === 'accept' && !frame.accepted && <circle cx={currentX} cy={currentY} r="4" className={styles.searchStart} />}
+        </Scene>
+        <div className={styles.legend}>
+          <span><i className={`${styles.dot} ${styles.outlineDot}`} aria-hidden="true" />{t('起点', 'Start')}</span>
+          <span><i className={styles.dot} aria-hidden="true" />{t('当前候选', 'Candidate')}</span>
+          <span><i className={`${styles.dot} ${styles.diamond}`} aria-hidden="true" />{t('已找到的最佳', 'Best so far')}</span>
+          <span><i className={styles.dash} aria-hidden="true" />{t('候选变化', 'Proposal change')}</span>
+        </div>
+      </div>
+      <div className={styles.controlPanel}>
         <RangeControl label={t('独立搜索数量', 'Independent searches')} code="exhaustiveness" value={count} min={1} max={32}
           onChange={(next) => {setCount(next); setSelected((index) => Math.min(index, next - 1)); playback.rewind();}} />
-      </div>
-      <div>
         <div className={styles.field}>
           <label htmlFor={seedId}>{t('随机种子', 'Seed')}</label>
           <input id={seedId} type="number" min={1} max={9999} step={1} value={seedDraft}
@@ -70,53 +98,25 @@ export default function SearchExplorer({focus = 'process'}: {focus?: 'process' |
             {runs.map((run, index) => <option value={index} key={run.id}>{t(`搜索 ${run.id}`, `Search ${run.id}`)}</option>)}
           </select>
         </div>
+        <div className={styles.playback}>
+          <button type="button" className={styles.primaryButton} onClick={playback.toggle} disabled={playback.reducedMotion}>
+            {playback.playing ? t('暂停', 'Pause') : playback.step === runs[0].frames.length - 1 ? t('重播', 'Replay') : t('播放', 'Play')}
+          </button>
+          <button type="button" onClick={playback.advance} disabled={playback.step === runs[0].frames.length - 1}>{t('下一步', 'Next step')}</button>
+          <button type="button" onClick={playback.rewind}>{t('回到起点', 'Back to start')}</button>
+          <span className={styles.stepCount}>{playback.step} / {runs[0].frames.length - 1}</span>
+        </div>
+        <div className={styles.stage} aria-label={t('搜索阶段', 'Search stages')}>
+          {stages.map((stage, index) => <span key={stage} className={frame.stage === stage ? styles.currentStage : ''}
+            aria-current={frame.stage === stage ? 'step' : undefined}>{index + 1}. {stageLabels[stage]}</span>)}
+        </div>
       </div>
-    </div>
-    <Scene title={t('多条独立搜索在示意评分地形上探索', 'Independent searches on an illustrative score landscape')} compactViewBox="140 10 280 260"
-      description={`${t('观察搜索', 'Following search')} ${selected + 1}; ${stageLabels[frame.stage]}; ${explanation[frame.stage]}`}>
-      {searchWells.map((well, index) => {
-        const [x, y] = point(well.point);
-        return <g key={index}>{[1, 1.5, 2].map((radius) => <circle key={radius} cx={x} cy={y} r={well.width * 38 * radius} className={styles.well} />)}</g>;
-      })}
-      {runs.map((run, index) => {
-        const trail = run.frames.slice(0, playback.step + 1).filter((entry) => entry.stage === 'start' || entry.stage === 'accept').map((entry) => point(entry.current).join(',')).join(' ');
-        const [x, y] = point(run.frames[0].current);
-        const [lastX, lastY] = point(run.frames[playback.step].current);
-        return <g key={run.id}>
-          <polyline points={trail} className={`${styles.searchPath} ${index === selected ? styles.focusedPath : ''}`} />
-          <circle cx={x} cy={y} r={index === selected ? 4 : 3} className={styles.searchStart} />
-          {index !== selected && <circle cx={lastX} cy={lastY} r="2.5" className={styles.searchCurrent} opacity="0.4" />}
-        </g>;
-      })}
-      {(frame.stage === 'perturb' || frame.stage === 'optimize' || (frame.stage === 'accept' && !frame.accepted)) &&
-        <line x1={currentX} y1={currentY} x2={candidateX} y2={candidateY} className={styles.proposal} />}
-      <path d={`M${bestX},${bestY - 6} l6,6 l-6,6 l-6,-6 Z`} className={styles.searchBest} />
-      <circle cx={candidateX} cy={candidateY} r="5" className={styles.searchCurrent} />
-      {frame.stage === 'accept' && !frame.accepted && <circle cx={currentX} cy={currentY} r="4" className={styles.searchStart} />}
-    </Scene>
-    <div className={styles.legend}>
-      <span><i className={`${styles.dot} ${styles.outlineDot}`} aria-hidden="true" />{t('起点', 'Start')}</span>
-      <span><i className={styles.dot} aria-hidden="true" />{t('当前候选', 'Candidate')}</span>
-      <span><i className={`${styles.dot} ${styles.diamond}`} aria-hidden="true" />{t('已找到的最佳', 'Best so far')}</span>
-      <span><i className={styles.dash} aria-hidden="true" />{t('候选变化', 'Proposal change')}</span>
-    </div>
-    <div className={styles.playback}>
-      <button type="button" className={styles.primaryButton} onClick={playback.toggle} disabled={playback.reducedMotion}>
-        {playback.playing ? t('暂停', 'Pause') : playback.step === runs[0].frames.length - 1 ? t('重播', 'Replay') : t('播放', 'Play')}
-      </button>
-      <button type="button" onClick={playback.advance} disabled={playback.step === runs[0].frames.length - 1}>{t('下一步', 'Next step')}</button>
-      <button type="button" onClick={playback.rewind}>{t('回到起点', 'Back to start')}</button>
-      <span className={styles.stepCount}>{playback.step} / {runs[0].frames.length - 1}</span>
-    </div>
-    <div className={styles.stage} aria-label={t('搜索阶段', 'Search stages')}>
-      {stages.map((stage, index) => <span key={stage} className={frame.stage === stage ? styles.currentStage : ''}
-        aria-current={frame.stage === stage ? 'step' : undefined}>{index + 1}. {stageLabels[stage]}</span>)}
     </div>
     <div className={styles.metrics}>
       <span><small>{t('当前阶段', 'Current stage')}</small>{stageLabels[frame.stage]}</span>
-      <span><small>{t('候选示意评分', 'Candidate’s illustrative score')}</small>{frame.score.toFixed(2)}</span>
-      <span><small>{t('最佳示意评分', 'Best illustrative score')}</small>{frame.bestScore.toFixed(2)}</span>
-      <span><small>{t('扰动轮次', 'Perturbation cycle')}</small>{frame.cycle} / 6</span>
+      <span><small>{t('候选评分', 'Candidate score')}</small>{frame.score.toFixed(2)}</span>
+      <span><small>{t('最佳评分', 'Best score')}</small>{frame.bestScore.toFixed(2)}</span>
+      <span><small>{t('扰动轮次', 'Cycle')}</small>{frame.cycle} / 6</span>
     </div>
   </DemoFrame>;
 }

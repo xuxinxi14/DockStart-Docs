@@ -7,12 +7,21 @@
   border-radius: 3px;
   font-size: 0.94rem;
   line-height: 1.65;
+  container-type: inline-size;
+  min-width: 0;
 }
 
 .heading {display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;}
 .eyebrow {display: block; color: var(--guide-muted); font-size: 0.75rem; margin-bottom: 0.4rem;}
 .heading h3 {font: 600 1.2rem/1.45 var(--ifm-font-family-base); margin: 0; letter-spacing: 0;}
-.instruction {margin: 0.85rem 0 1.2rem; color: var(--guide-muted);}
+.instruction {margin: 0.65rem 0 1rem; color: var(--guide-muted);}
+.visualLayout {display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.2rem; align-items: start;}
+.visualPanel, .controlPanel {min-width: 0;}
+.visualPanel > :last-child {margin-bottom: 0;}
+.controlPanel > :last-child {margin-bottom: 0;}
+.controlPanel > .range:first-child {margin-top: 0;}
+.controlPanel .controls {grid-template-columns: minmax(0, 1fr);}
+.controlPanel .controls > .range .rangeWithCode label > span {min-height: 0;}
 .demo button {
   border: 1px solid var(--guide-line);
   border-radius: 3px;
@@ -23,16 +32,18 @@
   font: inherit;
   font-size: 0.85rem;
   line-height: 1.45;
-  min-height: 40px;
+  min-height: 44px;
 }
 .demo button:hover {border-color: var(--guide-accent);}
 .demo button:focus-visible, .demo input:focus-visible, .demo select:focus-visible,
 .demo summary:focus-visible {outline: 2px solid var(--guide-accent); outline-offset: 3px;}
 .demo button:disabled {opacity: 0.45; cursor: default;}
 .demo .reset {color: var(--guide-muted); flex: 0 0 auto; padding: 0.35rem 0.6rem;}
-.choices {display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.9rem;}
+.choices {display: grid; gap: 0.4rem; margin-bottom: 0.85rem;}
+.choices button {padding: 0.45rem 0.55rem; overflow-wrap: normal; word-break: normal;}
 .choices button[aria-pressed='true'] {border-color: var(--guide-accent); background: var(--guide-panel); color: var(--guide-accent);}
-.scene {display: block; width: 100%; max-width: 620px; height: auto; margin: 0.6rem auto; overflow: hidden;}
+.scene {display: block; width: 100%; max-width: 360px; max-height: 320px; height: auto; margin: 0.4rem auto; overflow: hidden;}
+.poseScene {height: 210px;}
 .ghost {fill: none; stroke: var(--guide-muted); stroke-dasharray: 4 5; opacity: 0.55;}
 .bond {stroke: var(--guide-muted); stroke-width: 3; stroke-linecap: round;}
 .accentBond {stroke: var(--guide-accent); stroke-width: 5; stroke-linecap: round;}
@@ -41,12 +52,18 @@
 .axis {stroke: var(--guide-line); stroke-width: 1;}
 .svgLabel {fill: var(--guide-muted); font: 13px var(--ifm-font-family-base);}
 .range {margin: 0.95rem 0; min-width: 0;}
-.rangeLabel {display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;}
-.rangeLabel label {font-size: 0.9rem;}
+.rangeLabel {display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem;}
+.rangeLabel label {font-size: 0.9rem; min-width: 0;}
+.rangeLabel label > span {display: block;}
 .rangeLabel small {display: block; color: var(--guide-muted); font-size: 0.75rem;}
 .rangeLabel output {font-variant-numeric: tabular-nums; font-size: 0.9rem; color: var(--guide-accent); white-space: nowrap;}
+.rangeWithCode {display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.2rem 0.5rem; align-items: baseline;}
+.rangeWithCode label {display: contents;}
+.rangeWithCode label > span {grid-column: 1 / -1; line-height: 1.45;}
+.rangeWithCode small {grid-column: 1; grid-row: 2; line-height: 1.5;}
+.rangeWithCode output {grid-column: 2; grid-row: 2; line-height: 1.5;}
 .range input {display: block; width: 100%; height: 32px; margin: 0.2rem 0 0; accent-color: var(--guide-accent); cursor: pointer;}
-.controls {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.8rem; align-items: start;}
+.controls {display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.6rem 1.5rem; align-items: start;}
 .controls .range {margin-top: 0.3rem;}
 .secondary {margin: 0.5rem 0 1rem;}
 .secondary summary {cursor: pointer; color: var(--guide-muted); font-size: 0.85rem; padding: 0.4rem 0;}
@@ -57,9 +74,9 @@
 .diamond {border-radius: 0; transform: rotate(45deg);}
 .dash {width: 16px; height: 0; border-top: 1px dashed var(--guide-muted);}
 .regionDot {background: var(--guide-muted); opacity: 0.6;}
-.metrics {display: flex; flex-wrap: wrap; gap: 0.7rem 1.5rem; padding: 0.8rem 0; border-top: 1px solid var(--guide-line); font-size: 0.85rem;}
-.metrics span {font-variant-numeric: tabular-nums;}
-.metrics small {display: block; color: var(--guide-muted); font-size: 0.75rem; margin-bottom: 0.1rem;}
+.metrics {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem 1rem; padding: 0.85rem 0; margin-top: 0.7rem; border-top: 1px solid var(--guide-line); font-size: 0.85rem;}
+.metrics > span {font-variant-numeric: tabular-nums; min-width: 0;}
+.metrics small {display: block; color: var(--guide-muted); font-size: 0.75rem; line-height: 1.45; margin-bottom: 0.3rem;}
 .conclusion {margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--guide-line);}
 .conclusion p {margin: 0;}
 .caption {color: var(--guide-muted); font-size: 0.75rem; margin: 0.6rem 0 0;}
@@ -68,14 +85,15 @@
 .boxLine {stroke: var(--guide-accent); stroke-width: 1.5; fill: none;}
 .boxBack {opacity: 0.45; stroke-dasharray: 5 4;}
 .centerDot {fill: var(--guide-accent); stroke: var(--ifm-background-surface-color); stroke-width: 2;}
-.playback {display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; margin: 1rem 0;}
+.playback {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem; align-items: center; margin: 1rem 0;}
+.playback button:nth-of-type(3) {grid-column: 1;}
 .playback .primaryButton {border-color: var(--guide-accent); color: var(--guide-accent);}
-.stepCount {margin-left: auto; font-size: 0.8rem; color: var(--guide-muted); font-variant-numeric: tabular-nums;}
-.field {display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin: 0.3rem 0 1rem;}
-.field label {font-size: 0.85rem;}
+.stepCount {grid-column: 2; text-align: right; font-size: 0.8rem; color: var(--guide-muted); font-variant-numeric: tabular-nums;}
+.field {display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.4rem 0.5rem; margin: 0.75rem 0 1rem;}
+.field label {font-size: 0.85rem; grid-column: 1 / -1;}
 .field input, .field select {background: var(--ifm-background-surface-color); color: var(--guide-ink); border: 1px solid var(--guide-line); border-radius: 3px; padding: 0.4rem 0.5rem; font: inherit; font-size: 0.85rem; min-height: 40px; min-width: 0; max-width: 100%;}
-.field input {width: 88px;}
-.field select {flex: 1;}
+.field input {width: 100%;}
+.field select {width: 100%; grid-column: 1 / -1;}
 .well {fill: var(--guide-accent); fill-opacity: 0.035; stroke: var(--guide-line); stroke-width: 1;}
 .searchPath {fill: none; stroke: var(--guide-muted); stroke-width: 1.25; opacity: 0.27;}
 .focusedPath {stroke: var(--guide-accent); stroke-width: 2; opacity: 1;}
@@ -83,15 +101,20 @@
 .searchStart {fill: var(--ifm-background-surface-color); stroke: var(--guide-muted); stroke-width: 1.5;}
 .searchCurrent {fill: var(--guide-accent); stroke: var(--ifm-background-surface-color); stroke-width: 1.5;}
 .searchBest {fill: var(--guide-accent); stroke: var(--ifm-background-surface-color); stroke-width: 1;}
-.stage {display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.5rem 0; font-size: 0.8rem; color: var(--guide-muted);}
-.stage span {padding: 0.15rem 0;}
+.stage {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem 0.7rem; margin: 0.7rem 0 0; font-size: 0.8rem; color: var(--guide-muted);}
+.stage span {padding: 0.15rem 0; overflow-wrap: normal; word-break: normal;}
 .stage .currentStage {color: var(--guide-accent); font-weight: 600; border-bottom: 1px solid var(--guide-accent);}
 .tableWrap {overflow-x: auto; margin-top: 1rem;}
-.demo .poseTable {display: table; border-collapse: collapse; width: 100%; margin: 0; font-size: 0.82rem; line-height: 1.45;}
-.poseTable th, .poseTable td {border: none; border-bottom: 1px solid var(--guide-line); padding: 0.5rem 0.35rem; text-align: left; background: transparent;}
+.demo .poseTable {display: table; table-layout: fixed; border-collapse: collapse; width: 100%; margin: 0; font-size: 0.875rem; line-height: 1.45;}
+.poseTable col:nth-child(1) {width: 18%;}
+.poseTable col:nth-child(2), .poseTable col:nth-child(3) {width: 19%;}
+.poseTable col:nth-child(4) {width: 44%;}
+.poseTable th, .poseTable td {border: none; border-bottom: 1px solid var(--guide-line); padding: 0.4rem 0.3rem; text-align: left; background: transparent;}
 .poseTable th {font-weight: 500; color: var(--guide-muted);}
 .poseTable tr {border: none; background: transparent;}
-.poseTable td:nth-child(2), .poseTable td:nth-child(3) {font-variant-numeric: tabular-nums; white-space: nowrap;}
+.poseTable :is(th, td):nth-child(2), .poseTable :is(th, td):nth-child(3) {font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right;}
+.poseTable abbr {text-decoration: none; cursor: help;}
+.modelLabel, .equation {white-space: nowrap; font-variant-numeric: tabular-nums;}
 .poseTable .savedRow {background: var(--guide-panel); color: var(--guide-ink);}
 .poseTable .excludedRow {color: var(--guide-muted);}
 .poseTable .savedRow td:last-child {color: var(--guide-accent);}
@@ -100,13 +123,25 @@
 
 @media (max-width: 600px) {
   .demo {padding: 1rem; margin: 1.5rem 0;}
-  .heading h3 {font-size: 1.08rem;}
-  .controls {grid-template-columns: 1fr; gap: 0;}
-  .choices button {padding: 0.4rem 0.6rem;}
-  .poseTable th, .poseTable td {padding: 0.5rem 0.2rem;}
-  .demo .poseTable {font-size: 0.78rem;}
-  .stepCount {width: 100%; margin-left: 0;}
+  .heading {display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.35rem 0.75rem;}
+  .heading > div {display: contents;}
+  .eyebrow {margin-bottom: 0; align-self: center;}
+  .heading h3 {font-size: 1.08rem; grid-column: 1 / -1;}
+  .heading .reset {grid-column: 2; grid-row: 1;}
+  .scene {max-height: 230px;}
+  .poseScene {height: 180px;}
+  .poseTable th, .poseTable td {padding: 0.4rem 0.25rem;}
   .rangeLabel {gap: 0.5rem;}
+}
+
+@container (min-width: 560px) {
+  .visualLayout {grid-template-columns: minmax(0, 1.05fr) minmax(250px, 1fr); gap: 1.5rem;}
+  .controls {grid-template-columns: repeat(2, minmax(0, 1fr));}
+  .controls > .range .rangeWithCode label > span {min-height: 2.9em;}
+  .controlPanel .field {grid-template-columns: 5rem minmax(0, 1fr) auto; align-items: center;}
+  .controlPanel .field label {grid-column: 1;}
+  .controlPanel .field select {grid-column: 2 / -1;}
+  .metrics {grid-template-columns: repeat(4, minmax(0, 1fr));}
 }
 
 @media (prefers-reduced-motion: reduce) {

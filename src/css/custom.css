@@ -137,6 +137,7 @@ html[lang='en'] .guide-chapter ul {grid-template-columns: repeat(3, minmax(0, 1f
 .theme-doc-markdown h3 {font-size: 23px; line-height: 1.5; margin-top: 2rem}
 .theme-doc-markdown h4 {font-size: 19px}
 .theme-doc-markdown hr {height: 1px; border: 0; background: var(--guide-line); margin-block: 32px}
+.theme-doc-markdown hr:has(+ [data-demo]) {display: none}
 .theme-doc-markdown blockquote {background: var(--guide-panel); border-left: 2px solid var(--guide-accent); padding: 14px 20px; color: var(--guide-ink)}
 .theme-doc-markdown blockquote > :last-child {margin-bottom: 0}
 .theme-doc-markdown img {border-radius: 2px; border: 1px solid var(--guide-line); box-shadow: none}
