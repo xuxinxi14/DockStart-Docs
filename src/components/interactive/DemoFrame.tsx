@@ -27,9 +27,9 @@ export default function DemoFrame({name, title, instruction, caption, onReset, c
   </section>;
 }
 
-export function RangeControl({label, code, value, min, max, step = 1, unit = '', onChange}: {
+export function RangeControl({label, code, value, min, max, step = 1, unit = '', disabled = false, onChange}: {
   label: string; code?: string; value: number; min: number; max: number; step?: number;
-  unit?: string; onChange: (value: number) => void;
+  unit?: string; disabled?: boolean; onChange: (value: number) => void;
 }) {
   const id = useId();
   const digits = step < 1 ? 1 : 0;
@@ -39,7 +39,7 @@ export function RangeControl({label, code, value, min, max, step = 1, unit = '',
       <label htmlFor={id}><span>{label}</span>{code && <small>{code}</small>}</label>
       <output htmlFor={id}>{display}</output>
     </div>
-    <input id={id} type="range" min={min} max={max} step={step} value={value}
+    <input id={id} type="range" min={min} max={max} step={step} value={value} disabled={disabled}
       aria-label={`${label}${code ? ` ${code}` : ''}`} aria-valuetext={display} onChange={(event) => onChange(Number(event.target.value))} />
   </div>;
 }

@@ -120,6 +120,39 @@
 .poseTable .savedRow td:last-child {color: var(--guide-accent);}
 .resultLine {display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.5rem 1rem; margin: 0.8rem 0 0; font-size: 0.9rem;}
 .resultLine strong {font-weight: 600; color: var(--guide-accent);}
+.wideScene {max-width: 420px; height: 240px; max-height: none;}
+.squareScene {height: auto; max-height: none;}
+.comparisonScene {max-width: 420px; height: auto; max-height: none;}
+.rmsdTranslationScene {height: 190px; max-height: none;}
+.rmsdRotationScene {height: 280px; max-height: none;}
+.numberLabel {fill: var(--guide-ink); font: 18px var(--ifm-font-family-base);}
+.frontBond {fill: var(--guide-muted);}
+.frontAccentBond {fill: var(--guide-accent);}
+.diagramHint {font-size: 0.75rem; color: var(--guide-muted); margin: 0.5rem 0 0.8rem;}
+.diagramLabel {fill: var(--guide-ink); font: 16px var(--ifm-font-family-base);}
+.atomLetter {fill: var(--guide-ink); font: 18px var(--ifm-font-family-base);}
+.filledAtomLetter {fill: var(--ifm-background-surface-color); font: 18px var(--ifm-font-family-base);}
+.contactEnvelope {fill: var(--guide-panel); fill-opacity: 0.45; stroke: var(--guide-line); stroke-width: 1;}
+.clashEnvelope {fill: #b77c58; fill-opacity: 0.15; stroke: #a26c49; stroke-width: 1;}
+.hydrogenBond {stroke: var(--guide-accent); stroke-width: 2; stroke-dasharray: 5 4;}
+.distanceLine {stroke: var(--guide-muted); stroke-width: 1; stroke-dasharray: 3 4;}
+.ligandOutline {fill: var(--ifm-background-surface-color); stroke: var(--guide-accent); stroke-width: 2;}
+.greenOutline {background: transparent; border: 1.5px solid var(--guide-accent);}
+.readout {padding-top: 0.85rem; margin: 0.85rem 0 0; border-top: 1px solid var(--guide-line);}
+.readout small {display: block; color: var(--guide-muted); font-size: 0.8rem; margin-bottom: 0.2rem;}
+.readout strong {font-weight: 500; color: var(--guide-accent); font-variant-numeric: tabular-nums;}
+.range input:disabled {opacity: 0.4; cursor: default;}
+.range:has(input:disabled) output {color: var(--guide-muted);}
+.threeMetrics {grid-template-columns: repeat(3, minmax(0, 1fr));}
+.plotLine {fill: none; stroke: var(--guide-accent); stroke-width: 2.5; stroke-linejoin: round;}
+.repulsionLine {fill: none; stroke: #a26c49; stroke-width: 2;}
+.attractionLine {fill: none; stroke: var(--guide-muted); stroke-width: 1.5; stroke-dasharray: 5 4;}
+.warmDot {background: #a26c49;}
+.mapPoint {fill: var(--guide-muted);}
+.matchLine {stroke: var(--guide-accent); stroke-width: 1; stroke-dasharray: 2 3; opacity: 0.6;}
+.referenceLine {fill: none; stroke: var(--guide-muted); stroke-width: 2; stroke-dasharray: 4 4; opacity: 0.8;}
+.greenDash {border-color: var(--guide-accent);}
+.formula {font-size: 0.85rem; color: var(--guide-muted); overflow-wrap: anywhere; margin: 0.6rem 0 0;}
 
 @media (max-width: 600px) {
   .demo {padding: 1rem; margin: 1.5rem 0;}
@@ -130,6 +163,12 @@
   .heading .reset {grid-column: 2; grid-row: 1;}
   .scene {max-height: 230px;}
   .poseScene {height: 180px;}
+  .wideScene {height: 220px; max-height: none;}
+  .squareScene {max-height: none;}
+  .comparisonScene {max-height: none;}
+  .rmsdTranslationScene {height: 140px; max-height: none;}
+  .rmsdRotationScene {height: 245px; max-height: none;}
+  .threeMetrics {grid-template-columns: repeat(2, minmax(0, 1fr));}
   .poseTable th, .poseTable td {padding: 0.4rem 0.25rem;}
   .rangeLabel {gap: 0.5rem;}
 }
@@ -142,6 +181,7 @@
   .controlPanel .field label {grid-column: 1;}
   .controlPanel .field select {grid-column: 2 / -1;}
   .metrics {grid-template-columns: repeat(4, minmax(0, 1fr));}
+  .threeMetrics {grid-template-columns: repeat(3, minmax(0, 1fr));}
 }
 
 @media (prefers-reduced-motion: reduce) {

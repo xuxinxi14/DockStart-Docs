@@ -1,0 +1,20 @@
+import type {Vec2, Vec3} from './teachingModels.mjs';
+export function rotateAroundAxis(point: Vec3, origin: Vec3, axis: Vec3, degrees: number): Vec3;
+export type ContactStatus = 'clash' | 'far' | 'incompatible' | 'short' | 'possible' | 'misaligned';
+export function contactGeometry(distance?: number, rotation?: number, donor?: boolean): {
+  hydrogen: Vec2; dhaAngle: number; clash: boolean; possibleHydrogenBond: boolean; status: ContactStatus;
+};
+export const stereoAtoms: Vec3[];
+export const stereoBonds: [number, number][];
+export function transformStereochemistry(parameters?: {torsion?: number; mirror?: boolean; rotation?: number}): Vec3[];
+export function chiralityVolume(atoms: Vec3[]): number;
+export const receptorBackbone: Vec3[];
+export const sidechainAtoms: Vec3[];
+export function transformSidechain(angle?: number, flexible?: boolean): Vec3[];
+export type MapAtomType = 'C' | 'O';
+export type GridSample = {x: number; y: number; row: number; column: number; value: number};
+export function teachingMapValue(x: number, y: number, atomType?: MapAtomType): number;
+export function createTeachingGrid(parameters?: {size?: number; spacing?: number; atomType?: MapAtomType}): {count: number; samples: GridSample[]};
+export type PairKind = 'steric' | 'nonpolar' | 'hbond';
+export function pairScoreIllustration(distance: number, kind?: PairKind): {gap: number; repulsion: number; attraction: number; total: number};
+export function fixedFrameRmsd(reference: Vec3[], candidate: Vec3[]): {distances: number[]; sumSquared: number; rmsd: number};

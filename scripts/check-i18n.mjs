@@ -83,7 +83,7 @@ for (const sourceFile of originals) {
     ['numbered notes', /<DocNote\s+number=\{(\d+)\}/g],
     ['note references', /<NoteRef\s+number=\{(\d+)\}/g],
     ['official example components', /<(?:OfficialExampleFiles|DocNotes)\s+example="([^"]+)"/g],
-    ['interactive demos', /<((?:PoseExplorer|BoxExplorer|SearchExplorer|PoseFilterExplorer)\b[^>]*)\/>/g],
+    ['interactive demos', /<((?:PoseExplorer|BoxExplorer|SearchExplorer|PoseFilterExplorer|InteractionExplorer|StereochemistryExplorer|FlexibilityExplorer|GridMapExplorer|ScoringExplorer|RmsdExplorer)\b[^>]*)\/>/g],
   ]) {
     if (!equal(source.tokens(expression), english.tokens(expression))) fail(`${relative}: ${name} differ`);
   }

@@ -3,6 +3,10 @@ title: "Conformations and chirality"
 sidebar_position: 5
 ---
 
+import StereochemistryExplorer from '@site/src/components/interactive/StereochemistryExplorer';
+import {StereochemistryModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Conformations and chirality {#构象与手性}
 
 Conformations are different three-dimensional shapes of a molecule. Chirality concerns its stereochemical configuration. Both affect the ligand represented in a docking calculation.
@@ -30,9 +34,15 @@ Enantiomers can fit the same receptor differently. Identical formulas and connec
 | Conformation | What shape does this molecule adopt? |
 | Chirality | Which stereochemical configuration is represented? |
 
+<StereochemistryExplorer />
+
 ## In DockStart {#在-dockstart-中}
 
 Conformations concern ligand flexibility and search. Chirality concerns whether the input represents the intended molecule. A successful run on an incorrectly prepared stereoisomer still studies the wrong input structure.
+
+<DocNotes>
+  <DocNote number={1} title="Scope of the interactive model"><StereochemistryModelNote /></DocNote>
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">References</summary>

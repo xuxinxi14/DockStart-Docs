@@ -3,6 +3,10 @@ title: "Rigid and flexible structures"
 sidebar_position: 3
 ---
 
+import FlexibilityExplorer from '@site/src/components/interactive/FlexibilityExplorer';
+import {FlexibilityModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Rigid and flexible structures {#刚性与柔性}
 
 Rigidity and flexibility define which parts can change during docking. Basic Vina docking normally uses a rigid receptor and a ligand with permitted torsions.
@@ -19,6 +23,8 @@ A flexible part can change conformation. For ligands, this commonly means rotati
 
 `--receptor` supplies the rigid portion; `--flex` supplies selected flexible side chains when used. Meeko can prepare corresponding rigid/flex files. See [Vina](https://vina.scripps.edu/manual/) and [Meeko](https://meeko.readthedocs.io/en/develop/py_rec_prep.html).
 
+<FlexibilityExplorer />
+
 ## Why keep most of the protein fixed? {#为什么不能让整个蛋白质都自由运动}
 
 Allowing all protein atoms to move greatly expands the conformational search. Basic docking simplifies the problem by holding the receptor fixed while searching the ligand.
@@ -34,6 +40,10 @@ More permitted motion creates more states to search and increases computational 
 ## In DockStart {#在-dockstart-中}
 
 Basic Docking usually keeps the receptor rigid. Flexible Docking lets selected receptor side chains move. For any mode, first identify which structures the task allows to change.
+
+<DocNotes>
+  <DocNote number={1} title="Scope of the interactive model"><FlexibilityModelNote /></DocNote>
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">References</summary>

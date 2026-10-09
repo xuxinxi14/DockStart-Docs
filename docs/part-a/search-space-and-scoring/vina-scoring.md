@@ -3,6 +3,10 @@ title: "Vina scoring"
 sidebar_position: 4
 ---
 
+import ScoringExplorer from '@site/src/components/interactive/ScoringExplorer';
+import {ScoringModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Vina scoring
 
 Vina scoring 是 AutoDock Vina 默认使用的经验评分函数，用来根据受体和配体之间的相互作用以及配体构象等因素，对候选 pose 进行评价。
@@ -51,6 +55,8 @@ Vina scoring
 需要注意，这些并不是实验仪器分别测出来的能量，而是由 Vina 的计算模型组合得到的结果。([PubMed Central (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC4865195/))
 
 ---
+
+<ScoringExplorer />
 
 ## 为什么 Vina 的分数通常是负值？
 
@@ -124,6 +130,10 @@ affinity + pose 排序
 后面的“理解结果”章节还会专门讨论怎样正确解释这个分数。
 
 ---
+
+<DocNotes>
+  <DocNote number={1} title="交互演示的示意范围"><ScoringModelNote /></DocNote>
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

@@ -3,6 +3,10 @@ title: "Vina scoring"
 sidebar_position: 4
 ---
 
+import ScoringExplorer from '@site/src/components/interactive/ScoringExplorer';
+import {ScoringModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Vina scoring {#vina-scoring}
 
 Vina scoring is the default empirical scoring function in AutoDock Vina. It evaluates candidate poses using modeled interactions and ligand conformational terms.
@@ -14,6 +18,8 @@ It assigns a numerical score to a pose so candidates can be compared. Vina combi
 ## What does Vina consider? {#vina-主要考虑什么}
 
 Its model includes spatial contacts, steric repulsion, hydrophobic interactions, hydrogen-bond-related interactions and a ligand flexibility cost. These terms form a model prediction rather than separately measured experimental energies.
+
+<ScoringExplorer />
 
 ## Why are scores often negative? {#为什么-vina-的分数通常是负值}
 
@@ -35,6 +41,10 @@ Treat them as empirical predictions, not measured binding free energies. Scores 
 ## In DockStart {#在-dockstart-中}
 
 An Affinity value such as −7.4 kcal·mol⁻¹ is the selected pose's modeled score. Confirm the scoring function, then interpret it together with geometry, inputs and validation.
+
+<DocNotes>
+  <DocNote number={1} title="Scope of the interactive model"><ScoringModelNote /></DocNote>
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">References</summary>

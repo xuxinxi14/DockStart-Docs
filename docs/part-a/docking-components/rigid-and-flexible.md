@@ -3,6 +3,10 @@ title: "刚性与柔性"
 sidebar_position: 3
 ---
 
+import FlexibilityExplorer from '@site/src/components/interactive/FlexibilityExplorer';
+import {FlexibilityModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # 刚性与柔性
 
 刚性与柔性描述 docking 过程中哪些结构可以改变、哪些结构保持不变；最基本的 Vina docking 通常采用刚性受体和具有柔性的配体模型。
@@ -57,6 +61,8 @@ Vina 的输入参数中，`--receptor` 表示受体的刚性部分；如果存�
 Meeko 也支持将受体中的指定侧链设置为柔性，并生成对应的 rigid/flex PDBQT 文件。([Meeko](https://meeko.readthedocs.io/en/develop/py_rec_prep.html))
 
 ---
+
+<FlexibilityExplorer />
 
 ## 为什么不能让整个蛋白质都自由运动？
 
@@ -136,6 +142,10 @@ DockStart 的不同 docking 工作流可能采用不同的刚性/柔性设置。
 这会比单纯记住某个参数名称更容易理解后续操作。
 
 ---
+
+<DocNotes>
+  <DocNote number={1} title="交互演示的示意范围"><FlexibilityModelNote /></DocNote>
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

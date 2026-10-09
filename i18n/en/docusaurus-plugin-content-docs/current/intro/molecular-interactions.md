@@ -3,6 +3,10 @@ title: "Molecular interactions"
 sidebar_position: 1
 ---
 
+import InteractionExplorer from '@site/src/components/interactive/InteractionExplorer';
+import {InteractionModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Molecular interactions {#分子与分子相互作用}
 
 Molecules interact in ways that affect their arrangement and binding stability. Docking uses an approximate model of these interactions to explore possible receptor–ligand binding poses.
@@ -15,6 +19,8 @@ When molecules approach each other, their atoms can participate in hydrogen bond
 
 A ligand can change its position, orientation and conformation. Each arrangement creates different contacts with nearby residues. For example, an OH group may form a hydrogen bond, while an aromatic ring may interact with an aromatic residue.
 
+<InteractionExplorer />
+
 ## What does docking do? {#分子对接在这里做什么}
 
 Docking tries candidate poses, evaluates them and ranks those favored by the current model. The result is a predicted binding model, rather than a directly observed experimental structure.
@@ -26,6 +32,10 @@ Interactions help explain why a receptor may bind a ligand, why poses differ, an
 ## A limitation to remember {#需要注意的一点}
 
 Suitable atom distances alone do not establish real binding. Solvent, conformational changes, protonation and entropy also matter, and docking does not fully reproduce all of them.
+
+<DocNotes>
+  <DocNote number={1} title="Scope of the interactive model"><InteractionModelNote /></DocNote>
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">References</summary>

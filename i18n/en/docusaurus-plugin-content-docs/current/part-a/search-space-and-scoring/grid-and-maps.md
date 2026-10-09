@@ -3,6 +3,10 @@ title: "Grid / Maps"
 sidebar_position: 2
 ---
 
+import GridMapExplorer from '@site/src/components/interactive/GridMapExplorer';
+import {GridMapModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Grid / Maps {#grid--maps}
 
 Grids and maps represent spatial interaction information around the receptor. Their use differs between docking workflows.
@@ -29,9 +33,15 @@ AutoGrid4 first generates affinity maps. The docking engine then reads them to e
 
 The box defines where to search. Grids/maps describe how space and interactions are represented for computation.
 
+<GridMapExplorer />
+
 ## In DockStart {#在-dockstart-中}
 
 For basic Vina docking, focus on correct box placement. For the AutoDock4 maps workflow, prepare and validate maps that match the receptor, box, protocol and ligand atom types.
+
+<DocNotes>
+  <DocNote number={1} title="Scope of the interactive model"><GridMapModelNote /></DocNote>
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">References</summary>

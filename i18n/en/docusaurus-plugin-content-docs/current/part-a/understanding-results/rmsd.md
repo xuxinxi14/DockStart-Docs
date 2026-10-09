@@ -3,6 +3,10 @@ title: "RMSD and RMSD l.b. / u.b."
 sidebar_position: 3
 ---
 
+import RmsdExplorer from '@site/src/components/interactive/RmsdExplorer';
+import {RmsdModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # RMSD and RMSD l.b. / u.b. {#rmsd含-rmsd-lb--ub}
 
 RMSD measures geometric differences between poses. Vina's `rmsd l.b.` and `rmsd u.b.` compare each mode with the best mode in that run, Mode 1.
@@ -10,6 +14,8 @@ RMSD measures geometric differences between poses. Vina's `rmsd l.b.` and `rmsd 
 ## What is RMSD? {#rmsd-是什么}
 
 Root-mean-square deviation is calculated from differences between atom coordinates and is expressed in Å. Larger values indicate greater positional differences for the chosen matching method.
+
+<RmsdExplorer />
 
 ## The two Vina output columns {#vina-输出的两个-rmsd}
 
@@ -48,6 +54,10 @@ Redocking validation compares a prediction with a known experimental ligand. Tha
 ## In DockStart {#在-dockstart-中}
 
 Use the table to compare modes within the run. To evaluate a predicted pose against a crystal ligand, supply the appropriate reference and perform a separate pose comparison.
+
+<DocNotes>
+  <DocNote number={1} title="Scope of the interactive model"><RmsdModelNote /></DocNote>
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">References</summary>

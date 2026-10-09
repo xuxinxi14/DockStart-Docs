@@ -4,6 +4,10 @@ sidebar_position: 1
 sidebar_label: "分子与分子相互作用"
 ---
 
+import InteractionExplorer from '@site/src/components/interactive/InteractionExplorer';
+import {InteractionModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # 分子与分子相互作用
 
 分子之间并不是简单地“贴在一起”，它们会通过多种相互作用影响彼此的空间排列和结合稳定性。分子对接正是利用这些相互作用，尝试寻找一种合理的蛋白质—配体结合方式。
@@ -51,6 +55,8 @@ sidebar_label: "分子与分子相互作用"
 > **“这个配体放成什么样，才能形成比较合理的相互作用？”**
 
 ---
+
+<InteractionExplorer />
 
 ## 分子对接在这里做什么？
 
@@ -101,6 +107,10 @@ sidebar_label: "分子与分子相互作用"
 而不是把真实世界中的全部分子行为完整重现出来。
 
 ---
+
+<DocNotes>
+  <DocNote number={1} title="交互演示的示意范围"><InteractionModelNote /></DocNote>
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

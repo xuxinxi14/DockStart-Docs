@@ -3,6 +3,10 @@ title: "Grid / Maps"
 sidebar_position: 2
 ---
 
+import GridMapExplorer from '@site/src/components/interactive/GridMapExplorer';
+import {GridMapModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # Grid / Maps
 
 Grid / Maps 是将受体周围的三维空间转换成计算可处理的相互作用信息；不同 docking 工作流对它们的使用方式不同。
@@ -116,6 +120,8 @@ Box 更偏向于**搜索范围的定义**，Grid/Maps 更偏向于**计算表示
 
 ---
 
+<GridMapExplorer />
+
 ## 在 DockStart 中
 
 在 DockStart 的基础 Vina 工作流中，用户通常只需要关心：
@@ -127,6 +133,10 @@ Box 更偏向于**搜索范围的定义**，Grid/Maps 更偏向于**计算表示
 而在后面的 **AutoDock4 Maps Workflow** 中，Grid / Maps 就会成为实际操作的重要内容。
 
 ---
+
+<DocNotes>
+  <DocNote number={1} title="交互演示的示意范围"><GridMapModelNote /></DocNote>
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

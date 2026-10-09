@@ -4,6 +4,10 @@ sidebar_label: "RMSD 与 RMSD l.b. / u.b."
 sidebar_position: 3
 ---
 
+import RmsdExplorer from '@site/src/components/interactive/RmsdExplorer';
+import {RmsdModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # RMSD（含 RMSD l.b. / u.b.）
 
 RMSD 用来衡量两个 pose 在空间上差多少；Vina 在结果里给出 rmsd l.b. 和 rmsd u.b. 两个值，它们都表示该 pose 与最优 pose（mode 1）之间的几何偏差。
@@ -29,6 +33,8 @@ RMSD（root-mean-square deviation）是**均方根偏差**：把两套原子坐�
 RMSD 越大，说明两个 pose 的摆放方式差别越大。
 
 ---
+
+<RmsdExplorer />
 
 ## Vina 输出的两个 RMSD
 
@@ -131,6 +137,10 @@ Vina 输出中的 rmsd l.b./u.b.   →  与本次 docking 的最优 pose 比较
 结合 affinity 一起看，就能比较快地筛出值得进一步观察的 pose。
 
 ---
+
+<DocNotes>
+  <DocNote number={1} title="交互演示的示意范围"><RmsdModelNote /></DocNote>
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>

@@ -2,6 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {ligandAtoms, ligandBonds, transformLigand, projectPoint, boxBounds, boxCorners, boxVolume,
   boxCoversRegion, exampleCandidates, filterPoseCandidates, createSearchRuns} from '../src/components/interactive/teachingModels.mjs';
+import {contactGeometry, stereoAtoms, stereoBonds, transformStereochemistry, chiralityVolume,
+  sidechainAtoms, transformSidechain, createTeachingGrid, teachingMapValue, pairScoreIllustration,
+  fixedFrameRmsd} from '../src/components/interactive/teachingBasics.mjs';
 
 const distance = (a, b) => Math.hypot(...a.map((value, axis) => value - b[axis]));
 const near = (a, b) => assert.ok(Math.abs(a - b) < 1e-9, `${a} ≠ ${b}`);
@@ -81,4 +84,77 @@ test('search coordinates stay finite and bounded, and retained best scores never
       assert.ok(Number.isFinite(frame.score));
     }
   }
+});
+
+test('illustrated contacts depend on distance, direction, and compatible groups', () => {
+  near(contactGeometry(3, 0).dhaAngle, 180);
+  assert.equal(contactGeometry(3, 0).possibleHydrogenBond, true);
+  assert.equal(contactGeometry(3, 85).possibleHydrogenBond, false);
+  assert.equal(contactGeometry(3, 0, false).possibleHydrogenBond, false);
+  assert.equal(contactGeometry(1.8, 0).status, 'clash');
+  assert.equal(contactGeometry(5, 0).status, 'far');
+  assert.equal(contactGeometry(2.5, 0).status, 'short');
+  assert.throws(() => contactGeometry(1), RangeError);
+});
+
+test('torsion preserves the tetrahedral center and bonds, while reflection reverses handedness', () => {
+  const original = structuredClone(stereoAtoms);
+  const twisted = transformStereochemistry({torsion: 95});
+  assert.deepEqual(twisted.slice(0, 5), stereoAtoms.slice(0, 5));
+  assert.ok(distance(twisted[6], stereoAtoms[6]) > 0.5);
+  for (const [a, b] of stereoBonds) near(distance(twisted[a], twisted[b]), distance(stereoAtoms[a], stereoAtoms[b]));
+  near(chiralityVolume(twisted), chiralityVolume(stereoAtoms));
+  for (const rotation of [-180, -47, 0, 73, 180]) {
+    near(chiralityVolume(transformStereochemistry({rotation})), chiralityVolume(stereoAtoms));
+    near(chiralityVolume(transformStereochemistry({mirror: true, rotation})), -chiralityVolume(stereoAtoms));
+  }
+  assert.deepEqual(stereoAtoms, original);
+});
+
+test('limited flexibility moves only the selected sidechain tail and preserves bonds', () => {
+  const flexible = transformSidechain(80);
+  assert.deepEqual(flexible.slice(0, 2), sidechainAtoms.slice(0, 2));
+  assert.notDeepEqual(flexible[3], sidechainAtoms[3]);
+  for (let i = 0; i < 3; i++) near(distance(flexible[i], flexible[i + 1]), distance(sidechainAtoms[i], sidechainAtoms[i + 1]));
+  assert.deepEqual(transformSidechain(80, false), sidechainAtoms);
+});
+
+test('grid spacing controls samples while atom type changes values at the same coordinates', () => {
+  assert.equal(createTeachingGrid().samples.length, 49);
+  assert.equal(createTeachingGrid({size: 16, spacing: 1}).samples.length, 289);
+  const carbon = createTeachingGrid({size: 12, spacing: 3, atomType: 'C'});
+  const oxygen = createTeachingGrid({size: 12, spacing: 3, atomType: 'O'});
+  assert.deepEqual(carbon.samples.map(({x, y}) => [x, y]), oxygen.samples.map(({x, y}) => [x, y]));
+  assert.notDeepEqual(carbon.samples.map(({value}) => value), oxygen.samples.map(({value}) => value));
+  for (const spacing of [1, 2, 3, 4]) for (const {x, y, value} of createTeachingGrid({size: 16, spacing}).samples) {
+    assert.ok(Math.abs(x) <= 8 && Math.abs(y) <= 8 && Number.isFinite(value));
+  }
+  assert.throws(() => createTeachingGrid({spacing: 0}), RangeError);
+  assert.throws(() => teachingMapValue(0, 0, 'X'), RangeError);
+});
+
+test('qualitative pair curves penalize overlap and keep component totals consistent', () => {
+  assert.ok(pairScoreIllustration(1.8).total > 0);
+  assert.ok(pairScoreIllustration(3.8).total < 0);
+  assert.ok(Math.abs(pairScoreIllustration(10).total) < 0.01);
+  for (const kind of ['steric', 'nonpolar', 'hbond']) for (const separation of [1.8, 2.8, 3.8, 6, 7]) {
+    const result = pairScoreIllustration(separation, kind);
+    near(result.repulsion + result.attraction, result.total);
+    near(result.repulsion, pairScoreIllustration(separation).repulsion);
+  }
+  assert.ok(pairScoreIllustration(3.8, 'nonpolar').attraction < pairScoreIllustration(3.8).attraction);
+});
+
+test('fixed-frame RMSD uses paired 3D coordinates without aligning away translation', () => {
+  const original = structuredClone(ligandAtoms);
+  near(fixedFrameRmsd(ligandAtoms, ligandAtoms).rmsd, 0);
+  for (const translation of [-2, 1, 2]) near(fixedFrameRmsd(ligandAtoms, transformLigand({translation})).rmsd, Math.abs(translation));
+  const moved = structuredClone(ligandAtoms);
+  moved[0][2] += 3;
+  near(fixedFrameRmsd(ligandAtoms, moved).rmsd, Math.sqrt(9 / 6));
+  assert.ok(fixedFrameRmsd(ligandAtoms, transformLigand({orientation: 90})).rmsd > 1);
+  assert.throws(() => fixedFrameRmsd([], []), RangeError);
+  assert.throws(() => fixedFrameRmsd(ligandAtoms, ligandAtoms.slice(1)), RangeError);
+  assert.throws(() => fixedFrameRmsd([[0, NaN, 0]], [[0, 0, 0]]), RangeError);
+  assert.deepEqual(ligandAtoms, original);
 });

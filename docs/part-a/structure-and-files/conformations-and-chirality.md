@@ -3,6 +3,10 @@ title: "构象与手性"
 sidebar_position: 5
 ---
 
+import StereochemistryExplorer from '@site/src/components/interactive/StereochemistryExplorer';
+import {StereochemistryModelNote} from '@site/src/components/interactive/TeachingNotes';
+import DocNotes, {DocNote} from '@site/src/components/DocNotes';
+
 # 构象与手性
 
 构象描述同一个分子可以采用的不同三维形态，而手性描述某些分子的空间构型关系；二者都会影响配体在 docking 中的三维表示。
@@ -107,6 +111,8 @@ sidebar_position: 5
 
 ---
 
+<StereochemistryExplorer />
+
 ## 在 DockStart 中
 
 在实际 docking 中：
@@ -117,6 +123,10 @@ sidebar_position: 5
 因此，结构准备阶段如果丢失了手性信息，或者错误地处理了配体的三维构象，后面的 docking 即使程序运行正常，结果也可能对应于一个并非目标研究对象的结构。
 
 ---
+
+<DocNotes>
+  <DocNote number={1} title="交互演示的示意范围"><StereochemistryModelNote /></DocNote>
+</DocNotes>
 
 <details className="guide-references">
 <summary id="参考资料">参考资料</summary>
